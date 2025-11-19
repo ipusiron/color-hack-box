@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Hack Box – 色の三要素を学ぶ</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmYwMDAwIi8+PHN0b3Agb2Zmc2V0PSIzMyUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmZmMDAiLz48c3RvcCBvZmZzZXQ9IjY2JSIgc3R5bGU9InN0b3AtY29sb3I6IzAwZmYwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwZmZmZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZykiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSI4IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC40Ii8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Color Hack Box</h1>
+      <p>色彩理論を体感的に学ぶインタラクティブツール</p>
+    </header>
+
+    <!-- タブナビゲーション -->
+    <nav class="tab-navigation">
+      <button class="tab-btn active" data-tab="tab1" aria-label="基礎：色の三要素を学ぶ">
+        <span class="tab-number">1</span>
+        <span class="tab-text">基礎</span>
+      </button>
+      <button class="tab-btn" data-tab="tab2" aria-label="無彩色とグレースケール">
+        <span class="tab-number">2</span>
+        <span class="tab-text">無彩色</span>
+      </button>
+      <button class="tab-btn" data-tab="tab3" aria-label="色の印象と心理効果">
+        <span class="tab-number">3</span>
+        <span class="tab-text">印象・心理</span>
+      </button>
+      <button class="tab-btn" data-tab="tab4" aria-label="トーン別カラーパレット">
+        <span class="tab-number">4</span>
+        <span class="tab-text">トーン</span>
+      </button>
+      <button class="tab-btn" data-tab="tab5" aria-label="配色と比率の関係">
+        <span class="tab-number">5</span>
+        <span class="tab-text">配色比率</span>
+      </button>
+      <button class="tab-btn" data-tab="tab6" aria-label="配色例と目的別パレット">
+        <span class="tab-number">6</span>
+        <span class="tab-text">配色例</span>
+      </button>
+      <button class="tab-btn" data-tab="tab7" aria-label="色に関する雑学と補足情報">
+        <span class="tab-number">7</span>
+        <span class="tab-text">雑学</span>
+      </button>
+    </nav>
+
+    <!-- タブ1: 基礎（色の三要素） -->
+    <section id="tab1" class="tab-content active">
+      <header class="fh-header">
+        <h2>色の三要素（基礎知識）</h2>
+        <p>色を理解するための基本となる3つの要素を学びましょう。</p>
+      </header>
+
+      <!-- 解説セクション -->
+      <div class="explanation-section">
+        <h3>色の三属性とは？</h3>
+        <p class="intro-text">すべての色は、以下の3つの属性で表現できます。この3つの要素を理解することが、色彩理論の第一歩です。</p>
+
+        <div class="attribute-grid">
+          <article class="attribute-card">
+            <h4>🎨 色相 (Hue)</h4>
+            <p><strong>色の種類</strong>を表します。</p>
+            <p>赤・青・緑・黄色など、私たちが「何色か」と呼ぶ要素です。</p>
+            <p class="range-info">範囲: 0〜360°（色相環）</p>
+            <div class="color-samples">
+              <div class="sample-box" style="background: hsl(0, 100%, 50%);">
+                <span>0°/360°</span>
+              </div>
+              <div class="sample-box" style="background: hsl(120, 100%, 50%);">
+                <span>120°</span>
+              </div>
+              <div class="sample-box" style="background: hsl(240, 100%, 50%);">
+                <span>240°</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="attribute-card">
+            <h4>💡 明度 (Lightness)</h4>
+            <p><strong>色の明るさ</strong>を表します。</p>
+            <p>同じ赤でも、明るい赤から暗い赤まで変化します。</p>
+            <p class="range-info">範囲: 0〜100%</p>
+            <div class="color-samples">
+              <div class="sample-box" style="background: hsl(0, 100%, 0%);">
+                <span style="color: white;">0%</span>
+              </div>
+              <div class="sample-box" style="background: hsl(0, 100%, 50%);">
+                <span style="color: white;">50%</span>
+              </div>
+              <div class="sample-box" style="background: hsl(0, 100%, 100%);">
+                <span>100%</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="attribute-card">
+            <h4>✨ 彩度 (Saturation)</h4>
+            <p><strong>色の鮮やかさ</strong>を表します。</p>
+            <p>彩度が低いとくすんだ色、高いと鮮やかな色になります。</p>
+            <p class="range-info">範囲: 0〜100%</p>
+            <div class="color-samples">
+              <div class="sample-box" style="background: hsl(0, 0%, 50%);">
+                <span style="color: white;">0%</span>
+              </div>
+              <div class="sample-box" style="background: hsl(0, 50%, 50%);">
+                <span style="color: white;">50%</span>
+              </div>
+              <div class="sample-box" style="background: hsl(0, 100%, 50%);">
+                <span style="color: white;">100%</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- 体験セクション -->
+      <div class="experience-section">
+        <h3>実際に操作して体感しよう</h3>
+        <p class="intro-text">スライダーを動かして、3つの属性が色にどう影響するかを確認してみましょう。</p>
+
+        <div class="fh-main">
+          <div class="fh-controls">
+            <label for="hue-slider">Hue (色相) <span id="hue-value">0°</span></label>
+            <input type="range" id="hue-slider" min="0" max="360" value="0"
+                   aria-label="色相を0度から360度の範囲で調整"
+                   aria-valuemin="0" aria-valuemax="360" aria-valuenow="0">
+
+            <label for="lightness-slider">Lightness (明度) <span id="lightness-value">50%</span></label>
+            <input type="range" id="lightness-slider" min="0" max="100" value="50"
+                   aria-label="明度を0%から100%の範囲で調整"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+
+            <label for="saturation-slider">Saturation (彩度) <span id="saturation-value">50%</span></label>
+            <input type="range" id="saturation-slider" min="0" max="100" value="50"
+                   aria-label="彩度を0%から100%の範囲で調整"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+
+            <div class="fh-buttons">
+              <button id="btn-random">ランダム生成</button>
+              <button id="btn-reset">リセット</button>
+            </div>
+          </div>
+          <div class="fh-preview">
+            <div id="color-chip" class="color-chip"></div>
+            <div class="color-codes">
+              <div class="code-item">
+                <span class="code-label">HEX</span>
+                <span id="hex-code" class="code-value">#FF0000</span>
+                <button class="copy-btn" data-copy="hex" aria-label="HEXコードをコピー">📋</button>
+              </div>
+              <div class="code-item">
+                <span class="code-label">RGB</span>
+                <span id="rgb-code" class="code-value">rgb(255,0,0)</span>
+                <button class="copy-btn" data-copy="rgb" aria-label="RGBコードをコピー">📋</button>
+              </div>
+              <div class="code-item">
+                <span class="code-label">HSL</span>
+                <span id="hsl-code" class="code-value">hsl(0°,100%,50%)</span>
+                <button class="copy-btn" data-copy="hsl" aria-label="HSLコードをコピー">📋</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- タブ2: 無彩色・グレースケール -->
+    <section id="tab2" class="tab-content">
+      <header class="section-header">
+        <h2>無彩色・グレースケール</h2>
+        <p>彩度が0の世界を探索しましょう。</p>
+      </header>
+      <div class="placeholder-content">
+        <p>🚧 準備中です。近日公開予定！</p>
+      </div>
+    </section>
+
+    <!-- タブ3: 色の印象と心理 -->
+    <section id="tab3" class="tab-content">
+      <header class="section-header">
+        <h2>色の印象と心理</h2>
+        <p>色が与える心理的効果を学びましょう。</p>
+      </header>
+      <div class="placeholder-content">
+        <p>🚧 準備中です。近日公開予定！</p>
+      </div>
+    </section>
+
+    <!-- タブ4: トーン別パレット -->
+    <section id="tab4" class="tab-content">
+      <header class="section-header">
+        <h2>トーン別パレット</h2>
+        <p>明度と彩度の組み合わせでトーンを理解しましょう。</p>
+      </header>
+      <div class="placeholder-content">
+        <p>🚧 準備中です。近日公開予定！</p>
+      </div>
+    </section>
+
+    <!-- タブ5: 配色と比率 -->
+    <section id="tab5" class="tab-content">
+      <header class="section-header">
+        <h2>配色と比率</h2>
+        <p>効果的な配色バランスを体験しましょう。</p>
+      </header>
+      <div class="placeholder-content">
+        <p>🚧 準備中です。近日公開予定！</p>
+      </div>
+    </section>
+
+    <!-- タブ6: 配色例・目的別パレット -->
+    <section id="tab6" class="tab-content">
+      <header class="section-header">
+        <h2>配色例・目的別パレット</h2>
+        <p>実用的な配色パターンを探索しましょう。</p>
+      </header>
+      <div class="placeholder-content">
+        <p>🚧 準備中です。近日公開予定！</p>
+      </div>
+    </section>
+
+    <!-- タブ7: 雑学／補足 -->
+    <section id="tab7" class="tab-content">
+      <header class="section-header">
+        <h2>雑学／補足</h2>
+        <p>知っておくと便利な色に関する豆知識</p>
+      </header>
+      <div class="trivia-content">
+        <article class="trivia-item">
+          <h3>📌 無彩色とは？</h3>
+          <p><strong>無彩色</strong>とは、彩度が0（S=0%）で、色相を持たない色のことです。白・黒・グレーが該当します。明度（Lightness）のみで表現されます。</p>
+          <div class="color-examples">
+            <div class="color-sample" style="background: #000000;">
+              <span>#000000</span>
+              <small>黒 (L=0%)</small>
+            </div>
+            <div class="color-sample" style="background: #808080;">
+              <span style="color: white;">#808080</span>
+              <small>グレー (L=50%)</small>
+            </div>
+            <div class="color-sample" style="background: #FFFFFF; border: 1px solid #ddd;">
+              <span style="color: black;">#FFFFFF</span>
+              <small>白 (L=100%)</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="trivia-item">
+          <h3>🎨 無彩色の役割</h3>
+          <p>無彩色は<strong>どんな色とも相性が良く</strong>、デザインで重要な役割を果たします：</p>
+          <ul>
+            <li><strong>背景色</strong>として他の色を引き立てる</li>
+            <li><strong>文字色</strong>として可読性を確保する（黒文字・白文字）</li>
+            <li><strong>中間色</strong>として色の調和を保つ</li>
+            <li><strong>洗練された印象</strong>を与える（モノクロデザイン）</li>
+          </ul>
+        </article>
+
+        <article class="trivia-item">
+          <h3>💡 有彩色 vs 無彩色</h3>
+          <p><strong>有彩色</strong>は色相を持つすべての色（赤・青・緑など）で、彩度が1%以上の色です。</p>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>特徴</th>
+                <th>有彩色</th>
+                <th>無彩色</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>色相</td>
+                <td>あり（0〜360°）</td>
+                <td>なし</td>
+              </tr>
+              <tr>
+                <td>彩度</td>
+                <td>1%以上</td>
+                <td>0%</td>
+              </tr>
+              <tr>
+                <td>明度</td>
+                <td>0〜100%</td>
+                <td>0〜100%</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="trivia-item">
+          <h3>⚠️ 無彩色の注意点</h3>
+          <p>無彩色だけに頼ると、デザインが<strong>単調で印象が弱くなりやすい</strong>です。目的やターゲットに応じて有彩色と組み合わせることが効果的です。</p>
+          <p>例：企業サイトでは信頼感を出すために無彩色ベースにし、CTAボタンには有彩色（青・赤など）を使う。</p>
+        </article>
+
+        <article class="trivia-item">
+          <h3>🔢 グレースケールの段階</h3>
+          <p>無彩色のグレーは、黒から白まで無限の段階がありますが、実用的には以下のような分類があります：</p>
+          <div class="grayscale-steps">
+            <div class="gray-step" style="background: #000000; color: white;">
+              <strong>#000000</strong><br>
+              <small>0% 黒</small>
+            </div>
+            <div class="gray-step" style="background: #333333; color: white;">
+              <strong>#333333</strong><br>
+              <small>20% 濃いグレー</small>
+            </div>
+            <div class="gray-step" style="background: #666666; color: white;">
+              <strong>#666666</strong><br>
+              <small>40% グレー</small>
+            </div>
+            <div class="gray-step" style="background: #999999;">
+              <strong>#999999</strong><br>
+              <small>60% 明るいグレー</small>
+            </div>
+            <div class="gray-step" style="background: #CCCCCC;">
+              <strong>#CCCCCC</strong><br>
+              <small>80% とても明るいグレー</small>
+            </div>
+            <div class="gray-step" style="background: #FFFFFF; border: 1px solid #ddd;">
+              <strong>#FFFFFF</strong><br>
+              <small>100% 白</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="trivia-item">
+          <h3>🌈 RGB値が等しいと無彩色</h3>
+          <p>RGB表記で<strong>R・G・Bの値が等しい</strong>場合、その色は無彩色になります。</p>
+          <ul>
+            <li>rgb(0, 0, 0) → 黒</li>
+            <li>rgb(128, 128, 128) → 中間グレー</li>
+            <li>rgb(255, 255, 255) → 白</li>
+            <li>rgb(100, 100, 100) → 暗めのグレー</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- トースト通知 -->
+  <div id="toast" class="toast"></div>
+
+  <footer>
+    <div class="footer">
+      🔗 GitHubリポジトリはこちら（ <a href="https://github.com/ipusiron/color-hack-box" target="_blank" rel="noopener">ipusiron/color-hack-box</a> ）
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
