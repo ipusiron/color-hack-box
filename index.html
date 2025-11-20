@@ -2371,12 +2371,468 @@
 
     <!-- タブ5: 配色と比率 -->
     <section id="tab5" class="tab-content">
-      <header class="section-header">
+      <header class="fh-header">
         <h2>配色と比率</h2>
         <p>効果的な配色バランスを体験しましょう。</p>
       </header>
-      <div class="placeholder-content">
-        <p>🚧 準備中です。近日公開予定！</p>
+
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
+
+        <!-- 1. 配色比率とは？ -->
+        <details class="accordion-item main-accordion">
+          <summary>配色比率とは？</summary>
+          <div class="accordion-content">
+            <p><strong>配色比率</strong>とは、デザインにおいて<strong>各色が占める面積の割合</strong>のことです。色の組み合わせだけでなく、その比率を適切に設定することで、バランスの取れた美しいデザインが実現できます。</p>
+
+            <div class="ratio-intro">
+              <h4>なぜ配色比率が重要なのか？</h4>
+              <div class="ratio-importance-grid">
+                <div class="importance-item">
+                  <span class="importance-icon">⚖️</span>
+                  <h5>バランス</h5>
+                  <p>適切な比率により、視覚的な安定感が生まれます</p>
+                </div>
+                <div class="importance-item">
+                  <span class="importance-icon">👁️</span>
+                  <h5>視線誘導</h5>
+                  <p>重要な要素に自然と目が向くようになります</p>
+                </div>
+                <div class="importance-item">
+                  <span class="importance-icon">🎯</span>
+                  <h5>メリハリ</h5>
+                  <p>明確な階層構造を作り出せます</p>
+                </div>
+                <div class="importance-item">
+                  <span class="importance-icon">✨</span>
+                  <h5>プロ感</h5>
+                  <p>洗練されたデザインに仕上がります</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="ratio-roles">
+              <h4>配色の3つの役割</h4>
+              <div class="role-cards">
+                <div class="role-card base">
+                  <h5>ベースカラー</h5>
+                  <p class="role-percentage">70%</p>
+                  <p>背景や余白など、最も広い面積を占める色。デザインの基調となり、落ち着いた印象を与えます。</p>
+                  <p class="role-example"><strong>例：</strong>白、ベージュ、明るいグレー</p>
+                </div>
+                <div class="role-card main">
+                  <h5>メインカラー</h5>
+                  <p class="role-percentage">25%</p>
+                  <p>ブランドや主題を表現する色。全体の雰囲気を決定づけ、印象に残ります。</p>
+                  <p class="role-example"><strong>例：</strong>企業のコーポレートカラー、テーマカラー</p>
+                </div>
+                <div class="role-card accent">
+                  <h5>アクセントカラー</h5>
+                  <p class="role-percentage">5%</p>
+                  <p>強調したい部分に使う色。視線を引きつけ、行動を促します。</p>
+                  <p class="role-example"><strong>例：</strong>CTAボタン（※）、重要な見出し</p>
+                  <p class="role-note" style="font-size: 0.85rem; color: #666; margin-top: 0.75rem;">※ CTA（Call To Action）ボタン：「今すぐ購入」「無料登録」などユーザーに行動を促すボタン</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- 2. 70:25:5の法則 -->
+        <details class="accordion-item main-accordion">
+          <summary>70:25:5の法則</summary>
+          <div class="accordion-content">
+            <p><strong>70:25:5の法則</strong>は、最も基本的で効果的な配色比率の法則です。インテリアデザインからWebデザインまで、幅広く応用できます。</p>
+
+            <div class="law-explanation">
+              <h4>比率の内訳</h4>
+              <div class="ratio-bar-container">
+                <div class="ratio-bar-70-25-5">
+                  <div class="ratio-segment base-70">
+                    <span class="segment-label">ベースカラー 70%</span>
+                  </div>
+                  <div class="ratio-segment main-25">
+                    <span class="segment-label">メインカラー 25%</span>
+                  </div>
+                  <div class="ratio-segment accent-5">
+                    <span class="segment-label">アクセント 5%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="law-example">
+              <h4>実際の配色例</h4>
+
+              <div class="example-card">
+                <div class="example-label">例1: コーポレートサイト</div>
+                <div class="color-ratio-demo">
+                  <div class="demo-layout">
+                    <div class="demo-section" style="background: #f8f9fa; flex: 7;">
+                      <span style="color: #333;">ベース 70%<br>明るいグレー</span>
+                    </div>
+                    <div class="demo-section" style="background: #4A90E2; flex: 2.5;">
+                      <span style="color: white;">メイン 25%<br>コーポレートブルー</span>
+                    </div>
+                    <div class="demo-section" style="background: #ff6b6b; flex: 0.5;">
+                      <span style="color: white; font-size: 0.8rem;">5%</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="example-note">ベース: #f8f9fa、メイン: #4A90E2、アクセント: #ff6b6b</p>
+              </div>
+
+              <div class="example-card">
+                <div class="example-label">例2: ECサイト</div>
+                <div class="color-ratio-demo">
+                  <div class="demo-layout">
+                    <div class="demo-section" style="background: #ffffff; border: 2px solid #e9ecef; flex: 7;">
+                      <span style="color: #333;">ベース 70%<br>白</span>
+                    </div>
+                    <div class="demo-section" style="background: #2c3e50; flex: 2.5;">
+                      <span style="color: white;">メイン 25%<br>ダークグレー</span>
+                    </div>
+                    <div class="demo-section" style="background: #fab005; flex: 0.5;">
+                      <span style="color: white; font-size: 0.8rem;">5%</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="example-note">ベース: #ffffff、メイン: #2c3e50、アクセント: #fab005</p>
+              </div>
+
+              <div class="example-card">
+                <div class="example-label">例3: ブログサイト</div>
+                <div class="color-ratio-demo">
+                  <div class="demo-layout">
+                    <div class="demo-section" style="background: #fef5e7; flex: 7;">
+                      <span style="color: #333;">ベース 70%<br>クリーム</span>
+                    </div>
+                    <div class="demo-section" style="background: #5d4e37; flex: 2.5;">
+                      <span style="color: white;">メイン 25%<br>ブラウン</span>
+                    </div>
+                    <div class="demo-section" style="background: #e74c3c; flex: 0.5;">
+                      <span style="color: white; font-size: 0.8rem;">5%</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="example-note">ベース: #fef5e7、メイン: #5d4e37、アクセント: #e74c3c</p>
+              </div>
+            </div>
+
+            <div class="law-tips">
+              <h4>💡 70:25:5を使うコツ</h4>
+              <ul>
+                <li><strong>ベースカラーは控えめに：</strong>白やグレーなど、目立たない色を選ぶ</li>
+                <li><strong>メインカラーで個性を：</strong>ブランドや目的に合った色を選択</li>
+                <li><strong>アクセントカラーは補色で：</strong>メインカラーの補色を使うと効果的</li>
+                <li><strong>厳密でなくてもOK：</strong>65:30:5や75:20:5など、微調整は自由</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- 3. 60:30:10の法則 -->
+        <details class="accordion-item main-accordion">
+          <summary>60:30:10の法則</summary>
+          <div class="accordion-content">
+            <p><strong>60:30:10の法則</strong>は、70:25:5よりもアクセントカラーの比率が高く、メリハリをつけやすい配色比率です。</p>
+
+            <div class="law-explanation">
+              <h4>比率の内訳</h4>
+              <div class="ratio-bar-container">
+                <div class="ratio-bar-60-30-10">
+                  <div class="ratio-segment base-60">
+                    <span class="segment-label">ベースカラー 60%</span>
+                  </div>
+                  <div class="ratio-segment main-30">
+                    <span class="segment-label">メインカラー 30%</span>
+                  </div>
+                  <div class="ratio-segment accent-10">
+                    <span class="segment-label">アクセント 10%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="law-comparison">
+              <h4>70:25:5との違い</h4>
+              <div class="comparison-grid">
+                <div class="comparison-item">
+                  <h5>60:30:10</h5>
+                  <ul>
+                    <li>アクセントが目立ちやすい</li>
+                    <li>よりダイナミックな印象</li>
+                    <li>若年層向けに最適</li>
+                    <li>エンタメ、ECサイト向き</li>
+                  </ul>
+                </div>
+                <div class="comparison-item">
+                  <h5>70:25:5</h5>
+                  <ul>
+                    <li>より落ち着いた印象</li>
+                    <li>洗練されたバランス</li>
+                    <li>幅広い年齢層に対応</li>
+                    <li>企業サイト、ブログ向き</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="law-example">
+              <h4>実際の配色例</h4>
+
+              <div class="example-card">
+                <div class="example-label">例1: カフェサイト</div>
+                <div class="color-ratio-demo">
+                  <div class="demo-layout">
+                    <div class="demo-section" style="background: #f5e6d3; flex: 6;">
+                      <span style="color: #333;">ベース 60%<br>ベージュ</span>
+                    </div>
+                    <div class="demo-section" style="background: #8b4513; flex: 3;">
+                      <span style="color: white;">メイン 30%<br>ブラウン</span>
+                    </div>
+                    <div class="demo-section" style="background: #d4af37; flex: 1;">
+                      <span style="color: white;">10%</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="example-note">ベース: #f5e6d3、メイン: #8b4513、アクセント: #d4af37</p>
+              </div>
+
+              <div class="example-card">
+                <div class="example-label">例2: スポーツブランド</div>
+                <div class="color-ratio-demo">
+                  <div class="demo-layout">
+                    <div class="demo-section" style="background: #1a1a1a; flex: 6;">
+                      <span style="color: white;">ベース 60%<br>黒</span>
+                    </div>
+                    <div class="demo-section" style="background: #e74c3c; flex: 3;">
+                      <span style="color: white;">メイン 30%<br>赤</span>
+                    </div>
+                    <div class="demo-section" style="background: #f39c12; flex: 1;">
+                      <span style="color: white;">10%</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="example-note">ベース: #1a1a1a、メイン: #e74c3c、アクセント: #f39c12</p>
+              </div>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- 4. その他の配色比率パターン -->
+        <details class="accordion-item main-accordion">
+          <summary>その他の配色比率パターン</summary>
+          <div class="accordion-content">
+
+            <div class="pattern-section">
+              <h4>1. モノトーン配色（90:10）</h4>
+              <p>1色をメインに、もう1色をアクセントとして使うシンプルな配色。ミニマルデザインに最適です。</p>
+
+              <div class="example-card">
+                <div class="color-ratio-demo">
+                  <div class="demo-layout">
+                    <div class="demo-section" style="background: #2c3e50; flex: 9;">
+                      <span style="color: white;">メイン 90%<br>ダークブルー</span>
+                    </div>
+                    <div class="demo-section" style="background: #3498db; flex: 1;">
+                      <span style="color: white; font-size: 0.85rem;">10%</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="example-note">高級感のあるダークトーン配色</p>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <div class="pattern-section">
+              <h4>2. バランス配色（50:50）</h4>
+              <p>2色を均等に使う配色。対比を強調したい場合に効果的です。</p>
+
+              <div class="example-card">
+                <div class="color-ratio-demo">
+                  <div class="demo-layout">
+                    <div class="demo-section" style="background: #ffffff; border: 2px solid #dee2e6; flex: 1;">
+                      <span style="color: #333;">白 50%</span>
+                    </div>
+                    <div class="demo-section" style="background: #000000; flex: 1;">
+                      <span style="color: white;">黒 50%</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="example-note">コントラストの強いモノクロ配色</p>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <div class="pattern-section">
+              <h4>3. 4色配色（40:30:20:10）</h4>
+              <p>より複雑で豊かな表現が可能な4色配色。ECサイトやポートフォリオに向いています。</p>
+
+              <div class="example-card">
+                <div class="color-ratio-demo">
+                  <div class="demo-layout">
+                    <div class="demo-section" style="background: #ecf0f1; flex: 4;">
+                      <span style="color: #333;">40%</span>
+                    </div>
+                    <div class="demo-section" style="background: #3498db; flex: 3;">
+                      <span style="color: white;">30%</span>
+                    </div>
+                    <div class="demo-section" style="background: #2c3e50; flex: 2;">
+                      <span style="color: white;">20%</span>
+                    </div>
+                    <div class="demo-section" style="background: #e74c3c; flex: 1;">
+                      <span style="color: white; font-size: 0.85rem;">10%</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="example-note">グレー、青、ダークグレー、赤の4色配色</p>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <div class="pattern-section">
+              <h4>4. グラデーション配色（同一色相）</h4>
+              <p>同じ色相で明度・彩度を変えた配色。統一感がありながら変化をつけられます。</p>
+
+              <div class="example-card">
+                <div class="color-ratio-demo">
+                  <div class="demo-layout">
+                    <div class="demo-section" style="background: hsl(200, 30%, 90%); flex: 4;">
+                      <span>40%</span>
+                    </div>
+                    <div class="demo-section" style="background: hsl(200, 60%, 70%); flex: 3;">
+                      <span>30%</span>
+                    </div>
+                    <div class="demo-section" style="background: hsl(200, 80%, 50%); flex: 2;">
+                      <span style="color: white;">20%</span>
+                    </div>
+                    <div class="demo-section" style="background: hsl(200, 90%, 30%); flex: 1;">
+                      <span style="color: white; font-size: 0.85rem;">10%</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="example-note">青系のトーングラデーション</p>
+              </div>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- 5. 配色比率を調整するコツ -->
+        <details class="accordion-item main-accordion">
+          <summary>配色比率を調整するコツ</summary>
+          <div class="accordion-content">
+
+            <div class="tips-section">
+              <h4>1. 目的に応じて比率を変える</h4>
+              <div class="purpose-grid">
+                <div class="purpose-card">
+                  <h5>📱 スマホアプリ</h5>
+                  <p><strong>推奨比率：</strong>60:30:10</p>
+                  <p>アクセントカラーで操作性を高める</p>
+                </div>
+                <div class="purpose-card">
+                  <h5>🏢 企業サイト</h5>
+                  <p><strong>推奨比率：</strong>70:25:5</p>
+                  <p>落ち着いた印象で信頼感を演出</p>
+                </div>
+                <div class="purpose-card">
+                  <h5>🎨 ポートフォリオ</h5>
+                  <p><strong>推奨比率：</strong>50:30:20</p>
+                  <p>作品を引き立てるバランス</p>
+                </div>
+                <div class="purpose-card">
+                  <h5>🛍️ ECサイト</h5>
+                  <p><strong>推奨比率：</strong>60:30:10</p>
+                  <p>購買意欲を刺激するアクセント</p>
+                </div>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <div class="tips-section">
+              <h4>2. 視認性を優先する</h4>
+              <ul>
+                <li><strong>テキストの可読性：</strong>背景色とテキスト色のコントラスト比を確保（AA基準: 4.5:1以上）</li>
+                <li><strong>CTAボタン：</strong>アクセントカラーで目立たせ、クリックを促す</li>
+                <li><strong>重要な情報：</strong>メインカラーやアクセントカラーで強調</li>
+              </ul>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <div class="tips-section">
+              <h4>3. 色の重さを考慮する</h4>
+              <p>暗い色や彩度の高い色は「重く」感じられ、明るい色や彩度の低い色は「軽く」感じられます。</p>
+
+              <div class="weight-example">
+                <div class="weight-demo">
+                  <div class="weight-item heavy">
+                    <div class="weight-color" style="background: #2c3e50;"></div>
+                    <p>重い色<br>（暗い・高彩度）</p>
+                  </div>
+                  <div class="weight-arrow">→</div>
+                  <div class="weight-item light">
+                    <div class="weight-color" style="background: #ecf0f1;"></div>
+                    <p>軽い色<br>（明るい・低彩度）</p>
+                  </div>
+                </div>
+                <p class="weight-note"><strong>ポイント：</strong>重い色は少なめ（アクセント）、軽い色は多め（ベース）にするとバランスが取れます。</p>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <div class="tips-section">
+              <h4>4. 実際のデザインで確認する</h4>
+              <div class="check-steps">
+                <div class="step-item">
+                  <span class="step-number">1</span>
+                  <h5>配色を決める</h5>
+                  <p>ベース・メイン・アクセントの3色を選ぶ</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-item">
+                  <span class="step-number">2</span>
+                  <h5>比率を設定</h5>
+                  <p>70:25:5または60:30:10で配置</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-item">
+                  <span class="step-number">3</span>
+                  <h5>微調整</h5>
+                  <p>実際に見ながらバランスを調整</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step-item">
+                  <span class="step-number">4</span>
+                  <h5>完成</h5>
+                  <p>ユーザーテストでフィードバック</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="final-tips">
+              <h4>💡 最後のアドバイス</h4>
+              <ul>
+                <li><strong>厳密に守る必要はない：</strong>比率はあくまで目安。デザインに応じて柔軟に調整</li>
+                <li><strong>トーンを揃える：</strong>同じトーンで統一すると、比率が多少ズレても調和する</li>
+                <li><strong>実例を参考に：</strong>好きなサイトの配色比率を分析してみる</li>
+                <li><strong>A/Bテストを活用：</strong>複数パターンを試して最適な比率を見つける</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+
       </div>
     </section>
 

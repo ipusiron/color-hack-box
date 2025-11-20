@@ -2013,6 +2013,405 @@ body {
   margin-bottom: 0.75rem;
 }
 
+/* タブ5: 配色比率スタイル */
+.ratio-intro,
+.ratio-roles {
+  margin: 2rem 0;
+}
+
+.ratio-importance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.importance-item {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.importance-item:hover {
+  transform: translateY(-4px);
+}
+
+.importance-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.importance-item h5 {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.importance-item p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0 0 0;
+}
+
+/* 役割カード */
+.role-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.role-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-4px);
+}
+
+.role-card.base {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px solid #dee2e6;
+}
+
+.role-card.main {
+  background: linear-gradient(135deg, #d4e9f7 0%, #b8dff0 100%);
+  border: 2px solid #4A90E2;
+}
+
+.role-card.accent {
+  background: linear-gradient(135deg, #ffe0e0 0%, #ffc9c9 100%);
+  border: 2px solid #ff6b6b;
+}
+
+.role-card h5 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.role-percentage {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4A90E2;
+  margin: 0.5rem 0;
+}
+
+.role-example {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+/* 比率バー */
+.ratio-bar-container {
+  margin: 2rem 0;
+}
+
+.ratio-bar-70-25-5,
+.ratio-bar-60-30-10 {
+  display: flex;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ratio-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.ratio-segment:hover {
+  transform: scale(1.02);
+}
+
+.segment-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.base-70 {
+  flex: 7;
+  background: #f8f9fa;
+  color: #333;
+}
+
+.main-25 {
+  flex: 2.5;
+  background: #4A90E2;
+  color: white;
+}
+
+.accent-5 {
+  flex: 0.5;
+  background: #ff6b6b;
+  color: white;
+}
+
+.base-60 {
+  flex: 6;
+  background: #f8f9fa;
+  color: #333;
+}
+
+.main-30 {
+  flex: 3;
+  background: #4A90E2;
+  color: white;
+}
+
+.accent-10 {
+  flex: 1;
+  background: #ff6b6b;
+  color: white;
+}
+
+/* 配色例 */
+.law-example,
+.law-tips,
+.law-comparison {
+  margin: 2rem 0;
+}
+
+.example-card {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.example-label {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.color-ratio-demo {
+  margin: 1rem 0;
+}
+
+.demo-layout {
+  display: flex;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.demo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.4;
+  transition: transform 0.2s ease;
+}
+
+.demo-section:hover {
+  transform: scale(1.02);
+}
+
+.example-note {
+  margin: 1rem 0 0 0;
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* 比較グリッド */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.comparison-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #dee2e6;
+}
+
+.comparison-item h5 {
+  margin: 0 0 1rem 0;
+  color: #4A90E2;
+  font-size: 1.1rem;
+}
+
+.comparison-item ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+/* パターンセクション */
+.pattern-section {
+  margin: 2rem 0;
+}
+
+.pattern-section h4 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* 目的別グリッド */
+.purpose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.purpose-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #4A90E2;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.purpose-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.purpose-card h5 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.purpose-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+/* 重さの例 */
+.weight-example {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.weight-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.weight-item {
+  text-align: center;
+}
+
+.weight-color {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1rem;
+}
+
+.weight-arrow {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4A90E2;
+}
+
+.weight-note {
+  margin: 1rem 0 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ステップ */
+.check-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.step-item {
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 2px solid #dee2e6;
+}
+
+.step-number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: #4A90E2;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.step-item h5 {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.step-item p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.5rem 0 0 0;
+}
+
+.step-arrow {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4A90E2;
+}
+
+.final-tips {
+  background: #e7f5ff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #4A90E2;
+  margin-top: 2rem;
+}
+
+.final-tips h4 {
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.final-tips ul {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
 /* アコーディオンコンテンツ共通 */
 .accordion-content {
   padding: 1.5rem;
