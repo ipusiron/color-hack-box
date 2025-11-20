@@ -3,8 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Hack Box – 色の三要素を学ぶ</title>
+  <title>Color Hack Box – 色の三要素を学ぶインタラクティブツール</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="色彩理論を体感的に学べるインタラクティブツール。HSL（色相・明度・彩度）をリアルタイム調整し、50以上の配色パレット、補色・類似色相環、心理効果を解説。デザイナー・開発者・教育者向け。">
+  <meta name="keywords" content="色彩理論,HSL,RGB,HEX,カラーコード,配色,パレット,色相環,補色,類似色,デザイン,Web開発,教育ツール,インタラクティブ">
+  <meta name="author" content="ipusiron">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ipusiron.github.io/color-hack-box/">
+  <meta property="og:title" content="Color Hack Box – 色彩理論を体感的に学ぶ">
+  <meta property="og:description" content="7つのタブで色の基礎から配色テクニックまで学べる教育ツール。HSLスライダー、50+配色パレット、補色・類似色相環を搭載。">
+  <meta property="og:image" content="https://ipusiron.github.io/color-hack-box/assets/ogp.png">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://ipusiron.github.io/color-hack-box/">
+  <meta name="twitter:title" content="Color Hack Box – 色彩理論を体感的に学ぶ">
+  <meta name="twitter:description" content="7つのタブで色の基礎から配色テクニックまで学べる教育ツール。">
+  <meta name="twitter:image" content="https://ipusiron.github.io/color-hack-box/assets/ogp.png">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ipusiron.github.io/color-hack-box/">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmYwMDAwIi8+PHN0b3Agb2Zmc2V0PSIzMyUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmZmMDAiLz48c3RvcCBvZmZzZXQ9IjY2JSIgc3R5bGU9InN0b3AtY29sb3I6IzAwZmYwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwZmZmZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZykiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSI4IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC40Ii8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -3481,119 +3509,246 @@
 
     <!-- タブ7: 雑学／補足 -->
     <section id="tab7" class="tab-content">
-      <header class="section-header">
+      <header class="fh-header">
         <h2>雑学／補足</h2>
         <p>知っておくと便利な色に関する豆知識</p>
       </header>
-      <div class="trivia-content">
-        <article class="trivia-item">
-          <h3>📌 無彩色とは？</h3>
-          <p><strong>無彩色</strong>とは、彩度が0（S=0%）で、色相を持たない色のことです。白・黒・グレーが該当します。明度（Lightness）のみで表現されます。</p>
-          <div class="color-examples">
-            <div class="color-sample" style="background: #000000;">
-              <span>#000000</span>
-              <small>黒 (L=0%)</small>
-            </div>
-            <div class="color-sample" style="background: #808080;">
-              <span style="color: white;">#808080</span>
-              <small>グレー (L=50%)</small>
-            </div>
-            <div class="color-sample" style="background: #FFFFFF; border: 1px solid #ddd;">
-              <span style="color: black;">#FFFFFF</span>
-              <small>白 (L=100%)</small>
-            </div>
-          </div>
-        </article>
 
-        <article class="trivia-item">
-          <h3>🎨 無彩色の役割</h3>
-          <p>無彩色は<strong>どんな色とも相性が良く</strong>、デザインで重要な役割を果たします：</p>
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
+
+        <details class="accordion-item main-accordion">
+          <summary>🌍 色の文化的な違い</summary>
+          <div class="accordion-content">
+          <h3>🌍 色の文化的な違い</h3>
+          <p>色の意味は文化によって大きく異なります。デザインする際はターゲット地域の文化を考慮することが重要です。</p>
           <ul>
-            <li><strong>背景色</strong>として他の色を引き立てる</li>
-            <li><strong>文字色</strong>として可読性を確保する（黒文字・白文字）</li>
-            <li><strong>中間色</strong>として色の調和を保つ</li>
-            <li><strong>洗練された印象</strong>を与える（モノクロデザイン）</li>
+            <li><strong>赤色：</strong> 日本・中国では祝祭や幸運を象徴。欧米では危険や情熱の意味が強い。</li>
+            <li><strong>白色：</strong> 欧米では純潔・結婚を象徴。日本・中国・韓国では葬儀の色として使われることも。</li>
+            <li><strong>黄色：</strong> 日本では注意喚起。中国では皇帝の色で高貴さの象徴。西洋では臆病や裏切りのイメージもある。</li>
+            <li><strong>緑色：</strong> イスラム圏では神聖な色。欧米では環境保護や自然の象徴。</li>
           </ul>
-        </article>
+          <p class="usage-note">💡 <strong>グローバルサイトでは</strong>、文化的に中立な青や緑をメインカラーにすることが多い。</p>
+          </div>
+        </details>
 
-        <article class="trivia-item">
-          <h3>💡 有彩色 vs 無彩色</h3>
-          <p><strong>有彩色</strong>は色相を持つすべての色（赤・青・緑など）で、彩度が1%以上の色です。</p>
+        <details class="accordion-item main-accordion">
+          <summary>👁️ 色覚異常とユニバーサルデザイン</summary>
+          <div class="accordion-content">
+          <h3>👁️ 色覚異常とユニバーサルデザイン</h3>
+          <p>世界人口の約8%（男性の約5%、女性の約0.5%）が何らかの色覚特性を持っています。</p>
+
+          <h4>主な色覚特性のタイプ</h4>
+          <ul>
+            <li><strong>1型（P型）：</strong> 赤色の感度が弱い（約1%）</li>
+            <li><strong>2型（D型）：</strong> 緑色の感度が弱い（最も一般的、約5%）</li>
+            <li><strong>3型（T型）：</strong> 青色の感度が弱い（非常に稀）</li>
+          </ul>
+
+          <h4>配慮すべきポイント</h4>
+          <ul>
+            <li><strong>色だけに頼らない：</strong> アイコン、パターン、テキストラベルを併用する</li>
+            <li><strong>赤と緑の組み合わせを避ける：</strong> 最も識別困難な組み合わせ</li>
+            <li><strong>明度差を確保する：</strong> 色相が見分けにくくても明度で区別できるように</li>
+            <li><strong>青と黄色を活用：</strong> ほとんどの色覚特性で識別可能な組み合わせ</li>
+          </ul>
+          <p class="usage-note">🔧 <strong>検証ツール：</strong> Chrome DevToolsの「Emulate vision deficiencies」で色覚シミュレーションが可能。</p>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>🖨️ RGB vs CMYK：画面と印刷の色の違い</summary>
+          <div class="accordion-content">
+          <h3>🖨️ RGB vs CMYK：画面と印刷の色の違い</h3>
+          <p>デジタルと印刷では、色の表現方法が根本的に異なります。</p>
+
           <table class="comparison-table">
             <thead>
               <tr>
                 <th>特徴</th>
-                <th>有彩色</th>
-                <th>無彩色</th>
+                <th>RGB（画面）</th>
+                <th>CMYK（印刷）</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>色相</td>
-                <td>あり（0〜360°）</td>
-                <td>なし</td>
+                <td>色の作り方</td>
+                <td>光の三原色（加法混色）</td>
+                <td>色の三原色（減法混色）</td>
               </tr>
               <tr>
-                <td>彩度</td>
-                <td>1%以上</td>
-                <td>0%</td>
+                <td>構成要素</td>
+                <td>Red, Green, Blue</td>
+                <td>Cyan, Magenta, Yellow, Key(black)</td>
               </tr>
               <tr>
-                <td>明度</td>
-                <td>0〜100%</td>
-                <td>0〜100%</td>
+                <td>色域</td>
+                <td>広い（鮮やかな発色）</td>
+                <td>狭い（くすんだ発色）</td>
+              </tr>
+              <tr>
+                <td>白の表現</td>
+                <td>すべて最大（255, 255, 255）</td>
+                <td>インクなし（用紙の白）</td>
+              </tr>
+              <tr>
+                <td>黒の表現</td>
+                <td>すべて0（0, 0, 0）</td>
+                <td>Kインク100%</td>
               </tr>
             </tbody>
           </table>
-        </article>
 
-        <article class="trivia-item">
-          <h3>⚠️ 無彩色の注意点</h3>
-          <p>無彩色だけに頼ると、デザインが<strong>単調で印象が弱くなりやすい</strong>です。目的やターゲットに応じて有彩色と組み合わせることが効果的です。</p>
-          <p>例：企業サイトでは信頼感を出すために無彩色ベースにし、CTAボタンには有彩色（青・赤など）を使う。</p>
-        </article>
+          <h4>実務での注意点</h4>
+          <ul>
+            <li><strong>モニターで鮮やかでも印刷では再現できない：</strong> 特に蛍光色や鮮やかな青・緑</li>
+            <li><strong>印刷前にCMYK変換プレビュー：</strong> Adobe製品等でシミュレーション可能</li>
+            <li><strong>リッチブラック：</strong> K100%だけでなく、C40% M40% Y40% K100%で深みのある黒に</li>
+          </ul>
+          </div>
+        </details>
 
-        <article class="trivia-item">
-          <h3>🔢 グレースケールの段階</h3>
-          <p>無彩色のグレーは、黒から白まで無限の段階がありますが、実用的には以下のような分類があります：</p>
-          <div class="grayscale-steps">
-            <div class="gray-step" style="background: #000000; color: white;">
-              <strong>#000000</strong><br>
-              <small>0% 黒</small>
+        <details class="accordion-item main-accordion">
+          <summary>🎯 Webセーフカラーとは？</summary>
+          <div class="accordion-content">
+          <h3>🎯 Webセーフカラーとは？</h3>
+          <p><strong>Webセーフカラー</strong>は、1990年代の8ビットカラーディスプレイ時代に、すべてのブラウザで正確に表示できることが保証された216色のパレットです。</p>
+
+          <h4>Webセーフカラーの特徴</h4>
+          <ul>
+            <li>RGB各成分が 00, 33, 66, 99, CC, FF の6段階のみ</li>
+            <li>16進数表記で #000, #003, #006, #009, #00C, #00F のようなパターン</li>
+            <li>例：#FF0000（赤）、#00FF00（緑）、#0000FF（青）、#FFFF00（黄）</li>
+          </ul>
+
+          <h4>現代における意義</h4>
+          <p>現代のディスプレイは1677万色（24ビット）以上を表示できるため、<strong>Webセーフカラーの制約は不要</strong>になりました。ただし、以下の理由で知識として残っています：</p>
+          <ul>
+            <li>レトロなWebデザインの再現</li>
+            <li>256色限定のGIF画像作成時の参考</li>
+            <li>パレット設計の基礎知識として</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>🌡️ 色温度：暖色と寒色の科学</summary>
+          <div class="accordion-content">
+          <h3>🌡️ 色温度：暖色と寒色の科学</h3>
+          <p><strong>色温度</strong>は光の色を絶対温度（K：ケルビン）で表したもので、心理的な暖かさ・冷たさを決定します。</p>
+
+          <div class="color-examples">
+            <div class="color-sample" style="background: #ff6b35;">
+              <span style="color: white;">暖色</span>
+              <small>赤・オレンジ・黄</small>
             </div>
-            <div class="gray-step" style="background: #333333; color: white;">
-              <strong>#333333</strong><br>
-              <small>20% 濃いグレー</small>
+            <div class="color-sample" style="background: #95a5a6;">
+              <span style="color: white;">中性色</span>
+              <small>緑・紫</small>
             </div>
-            <div class="gray-step" style="background: #666666; color: white;">
-              <strong>#666666</strong><br>
-              <small>40% グレー</small>
-            </div>
-            <div class="gray-step" style="background: #999999;">
-              <strong>#999999</strong><br>
-              <small>60% 明るいグレー</small>
-            </div>
-            <div class="gray-step" style="background: #CCCCCC;">
-              <strong>#CCCCCC</strong><br>
-              <small>80% とても明るいグレー</small>
-            </div>
-            <div class="gray-step" style="background: #FFFFFF; border: 1px solid #ddd;">
-              <strong>#FFFFFF</strong><br>
-              <small>100% 白</small>
+            <div class="color-sample" style="background: #3498db;">
+              <span style="color: white;">寒色</span>
+              <small>青・水色</small>
             </div>
           </div>
-        </article>
 
-        <article class="trivia-item">
-          <h3>🌈 RGB値が等しいと無彩色</h3>
-          <p>RGB表記で<strong>R・G・Bの値が等しい</strong>場合、その色は無彩色になります。</p>
+          <h4>心理的・生理的効果</h4>
           <ul>
-            <li>rgb(0, 0, 0) → 黒</li>
-            <li>rgb(128, 128, 128) → 中間グレー</li>
-            <li>rgb(255, 255, 255) → 白</li>
-            <li>rgb(100, 100, 100) → 暗めのグレー</li>
+            <li><strong>暖色（赤〜黄）：</strong> 興奮、エネルギー、食欲増進、時間を早く感じる、体感温度が上がる</li>
+            <li><strong>寒色（青〜緑）：</strong> 鎮静、集中力向上、食欲抑制、時間を遅く感じる、体感温度が下がる</li>
           </ul>
-        </article>
+
+          <h4>実用例</h4>
+          <ul>
+            <li><strong>レストラン：</strong> 暖色系照明で食欲増進と居心地の良さを演出</li>
+            <li><strong>オフィス：</strong> 寒色系照明で集中力とリラックス効果を促進</li>
+            <li><strong>病院：</strong> 白〜青緑系で清潔感と安心感を表現</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>📛 Webカラーキーワード</summary>
+          <div class="accordion-content">
+          <h3>📛 Webカラーキーワード</h3>
+          <p>CSSでは、140以上の<strong>色名キーワード</strong>が定義されており、HEXコードの代わりに使用できます。</p>
+
+          <h4>よく使われるカラーキーワード</h4>
+          <div class="color-examples">
+            <div class="color-sample" style="background: crimson;">
+              <span style="color: white;">crimson</span>
+              <small>#DC143C</small>
+            </div>
+            <div class="color-sample" style="background: dodgerblue;">
+              <span style="color: white;">dodgerblue</span>
+              <small>#1E90FF</small>
+            </div>
+            <div class="color-sample" style="background: mediumseagreen;">
+              <span style="color: white;">mediumseagreen</span>
+              <small>#3CB371</small>
+            </div>
+            <div class="color-sample" style="background: gold;">
+              <span>gold</span>
+              <small>#FFD700</small>
+            </div>
+          </div>
+
+          <h4>特殊なキーワード</h4>
+          <ul>
+            <li><strong>transparent：</strong> 完全に透明（rgba(0,0,0,0)と同じ）</li>
+            <li><strong>currentColor：</strong> 現在の文字色を継承（ボーダー等で便利）</li>
+          </ul>
+
+          <p class="usage-note">⚠️ <strong>注意：</strong> カラーキーワードはわかりやすいが、細かい色調整ができないため、本格的なデザインではHEXコードを推奨。</p>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>🔮 色の錯覚効果</summary>
+          <div class="accordion-content">
+          <h3>🔮 色の錯覚効果</h3>
+          <p>同じ色でも、周囲の色や配置によって<strong>異なる色に見える</strong>錯視現象があります。</p>
+
+          <h4>代表的な色の錯視</h4>
+          <ul>
+            <li><strong>同時対比：</strong> 同じグレーでも、黒背景では明るく、白背景では暗く見える</li>
+            <li><strong>色相対比：</strong> 赤の隣の緑は、より鮮やかな緑に見える（補色効果）</li>
+            <li><strong>面積効果：</strong> 小さい面積では暗く濁って見え、大きい面積では明るく鮮やかに見える</li>
+            <li><strong>進出色と後退色：</strong> 暖色（赤・オレンジ）は手前に、寒色（青）は奥に見える</li>
+          </ul>
+
+          <h4>デザインでの活用</h4>
+          <ul>
+            <li>背景色によってボタンの色を微調整する</li>
+            <li>小さいアイコンは少し明るめ・鮮やかめの色を選ぶ</li>
+            <li>重要な要素には暖色系を使って前面に押し出す</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>💻 ディスプレイのガンマ補正</summary>
+          <div class="accordion-content">
+          <h3>💻 ディスプレイのガンマ補正</h3>
+          <p><strong>ガンマ補正</strong>は、ディスプレイの物理的な特性と人間の視覚特性の違いを補正する技術です。</p>
+
+          <h4>ガンマ値の違い</h4>
+          <ul>
+            <li><strong>Windows：</strong> ガンマ2.2（標準的な明るさ）</li>
+            <li><strong>Mac：</strong> 従来はガンマ1.8（明るめ）、現在は2.2に統一</li>
+            <li><strong>Web標準：</strong> sRGB色空間（ガンマ2.2相当）</li>
+          </ul>
+
+          <h4>実務への影響</h4>
+          <p>異なるデバイスやOSで色の明るさが変わって見えることがあります。これを防ぐために：</p>
+          <ul>
+            <li>複数のデバイスで色を確認する（iPhone、Android、PC等）</li>
+            <li>sRGBカラープロファイルを使用する</li>
+            <li>極端に暗い・明るい色は避ける</li>
+          </ul>
+          </div>
+        </details>
+
       </div>
     </section>
 

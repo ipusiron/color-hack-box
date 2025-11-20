@@ -153,6 +153,13 @@ function initializeTabs() {
       // クリックされたタブボタンと対応するコンテンツに active クラスを追加
       button.classList.add('active');
       document.getElementById(targetTab).classList.add('active');
+
+      // アクティブなタブボタンを中央にスクロール
+      button.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
     });
   });
 }
