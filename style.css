@@ -763,6 +763,111 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* 彩度の警告と情報 */
+.saturation-warning {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.saturation-warning h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #856404;
+}
+
+.saturation-warning p {
+  margin: 0;
+  color: #856404;
+}
+
+.saturation-info {
+  background: #d1ecf1;
+  border-left: 4px solid #17a2b8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.saturation-info h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #0c5460;
+}
+
+.saturation-info p {
+  margin: 0;
+  color: #0c5460;
+}
+
+/* 彩度比率のデモ */
+.saturation-ratio-demo {
+  margin: 1.5rem 0;
+}
+
+.ratio-bar {
+  display: flex;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ratio-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.ratio-segment:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.ratio-segment span {
+  padding: 0.5rem;
+}
+
+/* 彩度と明度のグリッド */
+.saturation-lightness-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.sl-cell {
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sl-cell:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.sl-cell span {
+  display: block;
+  line-height: 1.6;
+}
+
+.sl-cell small {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
 /* アコーディオンコンテンツ共通 */
 .accordion-content {
   padding: 1.5rem;
@@ -1311,6 +1416,23 @@ footer {
     font-size: 0.75rem;
   }
 
+  .saturation-lightness-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sl-cell {
+    padding: 1.5rem 1rem;
+  }
+
+  .ratio-bar {
+    height: 60px;
+    flex-direction: column;
+  }
+
+  .ratio-segment {
+    width: 100% !important;
+  }
+
   footer {
     padding: 1.5rem 1rem;
   }
@@ -1366,6 +1488,20 @@ footer {
 
   .tip-item {
     padding: 1rem;
+  }
+
+  .saturation-warning,
+  .saturation-info {
+    padding: 1rem;
+  }
+
+  .sl-cell {
+    padding: 1.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .ratio-segment span {
+    font-size: 0.85rem;
   }
 
   .toast {
