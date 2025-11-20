@@ -1814,12 +1814,558 @@
 
     <!-- タブ4: トーン別パレット -->
     <section id="tab4" class="tab-content">
-      <header class="section-header">
+      <header class="fh-header">
         <h2>トーン別パレット</h2>
         <p>明度と彩度の組み合わせでトーンを理解しましょう。</p>
       </header>
-      <div class="placeholder-content">
-        <p>🚧 準備中です。近日公開予定！</p>
+
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
+
+        <!-- 1. トーンとは？ -->
+        <details class="accordion-item main-accordion">
+          <summary>トーンとは？</summary>
+          <div class="accordion-content">
+            <p><strong>トーン（Tone）</strong>とは、<strong>明度と彩度の組み合わせ</strong>によって決まる色の調子のことです。同じ色相でも、明度と彩度を変えることで全く異なる印象になります。</p>
+
+            <div class="tone-intro">
+              <h4>トーンの3要素</h4>
+              <div class="tone-elements">
+                <div class="tone-element-card">
+                  <h5>🎨 色相 (Hue)</h5>
+                  <p>色の種類（赤・青・緑など）<br>トーンには関係しない</p>
+                </div>
+                <div class="tone-element-card highlight">
+                  <h5>💡 明度 (Lightness)</h5>
+                  <p>色の明るさ<br><strong>トーンを決める要素①</strong></p>
+                </div>
+                <div class="tone-element-card highlight">
+                  <h5>✨ 彩度 (Saturation)</h5>
+                  <p>色の鮮やかさ<br><strong>トーンを決める要素②</strong></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tone-map-intro">
+              <h4>トーンマップの見方</h4>
+              <p>トーンは、<strong>縦軸に明度</strong>、<strong>横軸に彩度</strong>を取った図で表現されます。</p>
+
+              <div class="tone-map-diagram">
+                <div class="tone-axis-labels">
+                  <span class="axis-label-y">明度<br>↑<br>高<br><br>低<br>↓</span>
+                  <div class="tone-map-grid">
+                    <!-- 上段（高明度） -->
+                    <div class="tone-cell" style="background: hsl(200, 10%, 90%);">
+                      <span>ペール</span>
+                    </div>
+                    <div class="tone-cell" style="background: hsl(200, 50%, 85%);">
+                      <span>ライト</span>
+                    </div>
+                    <div class="tone-cell" style="background: hsl(200, 90%, 70%);">
+                      <span>ブライト</span>
+                    </div>
+
+                    <!-- 中段（中明度） -->
+                    <div class="tone-cell" style="background: hsl(200, 15%, 50%);">
+                      <span style="color: white;">グレイッシュ</span>
+                    </div>
+                    <div class="tone-cell" style="background: hsl(200, 50%, 50%);">
+                      <span style="color: white;">ダル</span>
+                    </div>
+                    <div class="tone-cell" style="background: hsl(200, 90%, 50%);">
+                      <span style="color: white;">ビビッド</span>
+                    </div>
+
+                    <!-- 下段（低明度） -->
+                    <div class="tone-cell" style="background: hsl(200, 20%, 25%);">
+                      <span style="color: white;">ダーク</span>
+                    </div>
+                    <div class="tone-cell" style="background: hsl(200, 60%, 30%);">
+                      <span style="color: white;">ディープ</span>
+                    </div>
+                    <div class="tone-cell" style="background: hsl(200, 90%, 25%);">
+                      <span style="color: white;">ダークビビッド</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="axis-label-x">← 低　　彩度　　高 →</span>
+              </div>
+            </div>
+
+            <div class="tone-importance">
+              <h4>💡 トーンを理解するメリット</h4>
+              <ul>
+                <li><strong>統一感のある配色：</strong>同じトーンで揃えると調和が取れやすい</li>
+                <li><strong>印象のコントロール：</strong>トーンを変えることで雰囲気を調整</li>
+                <li><strong>効果的な組み合わせ：</strong>異なるトーンを組み合わせてメリハリを出す</li>
+                <li><strong>ターゲット別の最適化：</strong>年齢層や目的に応じたトーン選択</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- 2. ペール・ライト（明るく柔らかいトーン） -->
+        <details class="accordion-item main-accordion">
+          <summary>🌸 ペール・ライト（明るく柔らかいトーン）</summary>
+          <div class="accordion-content">
+
+            <!-- ペール -->
+            <div class="tone-detail-section">
+              <div class="tone-header" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 2px solid #dee2e6;">
+                <h3>ペール（Pale）</h3>
+                <p class="tone-params">高明度（80-95%）× 低彩度（10-30%）</p>
+              </div>
+
+              <div class="tone-colors-grid">
+                <div class="tone-color-item" style="background: hsl(0, 25%, 90%);">
+                  <span class="tone-color-name">ペールレッド</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(30, 30%, 88%);">
+                  <span class="tone-color-name">ペールオレンジ</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(60, 25%, 90%);">
+                  <span class="tone-color-name">ペールイエロー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(120, 25%, 88%);">
+                  <span class="tone-color-name">ペールグリーン</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(200, 30%, 90%);">
+                  <span class="tone-color-name">ペールブルー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(280, 25%, 88%);">
+                  <span class="tone-color-name">ペールパープル</span>
+                </div>
+              </div>
+
+              <div class="tone-description">
+                <h4>特徴と印象</h4>
+                <p><strong>淡く優しい色調。</strong>パステルカラーの中でも特に明るく、柔らかい印象を与えます。</p>
+                <ul>
+                  <li><strong>印象：</strong>優しい、柔らかい、穏やか、清楚、フェミニン</li>
+                  <li><strong>使用例：</strong>ベビー用品、女性向け商品、春のデザイン、背景色</li>
+                  <li><strong>注意点：</strong>白に近いため、白背景では見えにくくなる</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <!-- ライト -->
+            <div class="tone-detail-section">
+              <div class="tone-header" style="background: linear-gradient(135deg, #d4e9f7 0%, #b8dff0 100%);">
+                <h3>ライト（Light）</h3>
+                <p class="tone-params">高明度（75-90%）× 中彩度（40-60%）</p>
+              </div>
+
+              <div class="tone-colors-grid">
+                <div class="tone-color-item" style="background: hsl(0, 55%, 80%);">
+                  <span class="tone-color-name">ライトレッド</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(30, 60%, 78%);">
+                  <span class="tone-color-name">ライトオレンジ</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(60, 55%, 80%);">
+                  <span class="tone-color-name">ライトイエロー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(120, 50%, 75%);">
+                  <span class="tone-color-name">ライトグリーン</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(200, 60%, 80%);">
+                  <span class="tone-color-name">ライトブルー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(280, 50%, 78%);">
+                  <span class="tone-color-name">ライトパープル</span>
+                </div>
+              </div>
+
+              <div class="tone-description">
+                <h4>特徴と印象</h4>
+                <p><strong>明るく爽やかな色調。</strong>ペールよりも色みがはっきりしており、華やかさがあります。</p>
+                <ul>
+                  <li><strong>印象：</strong>爽やか、明るい、軽やか、清潔、親しみやすい</li>
+                  <li><strong>使用例：</strong>子供向けコンテンツ、カジュアルブランド、春夏のデザイン</li>
+                  <li><strong>注意点：</strong>広範囲に使うと軽すぎる印象になることも</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- 3. ビビッド・ブライト（鮮やかなトーン） -->
+        <details class="accordion-item main-accordion">
+          <summary>✨ ビビッド・ブライト（鮮やかなトーン）</summary>
+          <div class="accordion-content">
+
+            <!-- ビビッド -->
+            <div class="tone-detail-section">
+              <div class="tone-header" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); color: white;">
+                <h3>ビビッド（Vivid）</h3>
+                <p class="tone-params" style="opacity: 0.95;">中明度（45-60%）× 最高彩度（90-100%）</p>
+              </div>
+
+              <div class="tone-colors-grid">
+                <div class="tone-color-item" style="background: hsl(0, 95%, 50%);">
+                  <span class="tone-color-name" style="color: white;">ビビッドレッド</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(30, 95%, 55%);">
+                  <span class="tone-color-name" style="color: white;">ビビッドオレンジ</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(60, 95%, 50%);">
+                  <span class="tone-color-name">ビビッドイエロー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(120, 95%, 40%);">
+                  <span class="tone-color-name" style="color: white;">ビビッドグリーン</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(200, 95%, 45%);">
+                  <span class="tone-color-name" style="color: white;">ビビッドブルー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(280, 95%, 55%);">
+                  <span class="tone-color-name" style="color: white;">ビビッドパープル</span>
+                </div>
+              </div>
+
+              <div class="tone-description">
+                <h4>特徴と印象</h4>
+                <p><strong>最も鮮やかで強烈な色調。</strong>目を引く強いインパクトがあります。</p>
+                <ul>
+                  <li><strong>印象：</strong>鮮やか、強い、活発、エネルギッシュ、派手</li>
+                  <li><strong>使用例：</strong>アクセントカラー、CTAボタン、スポーツブランド、セール</li>
+                  <li><strong>注意点：</strong>広範囲に使うと目が疲れる。アクセント程度に</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <!-- ブライト -->
+            <div class="tone-detail-section">
+              <div class="tone-header" style="background: linear-gradient(135deg, #ffd43b 0%, #fab005 100%);">
+                <h3>ブライト（Bright）</h3>
+                <p class="tone-params">高明度（65-80%）× 高彩度（75-95%）</p>
+              </div>
+
+              <div class="tone-colors-grid">
+                <div class="tone-color-item" style="background: hsl(0, 85%, 65%);">
+                  <span class="tone-color-name" style="color: white;">ブライトレッド</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(30, 90%, 65%);">
+                  <span class="tone-color-name">ブライトオレンジ</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(60, 90%, 60%);">
+                  <span class="tone-color-name">ブライトイエロー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(120, 80%, 55%);">
+                  <span class="tone-color-name">ブライトグリーン</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(200, 90%, 60%);">
+                  <span class="tone-color-name">ブライトブルー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(280, 85%, 65%);">
+                  <span class="tone-color-name" style="color: white;">ブライトパープル</span>
+                </div>
+              </div>
+
+              <div class="tone-description">
+                <h4>特徴と印象</h4>
+                <p><strong>明るく鮮やかな色調。</strong>ビビッドよりも明るく、華やかで楽しい印象です。</p>
+                <ul>
+                  <li><strong>印象：</strong>明るい、華やか、楽しい、ポップ、元気</li>
+                  <li><strong>使用例：</strong>子供向け、エンタメ、イベント、ポップなデザイン</li>
+                  <li><strong>注意点：</strong>カジュアルすぎる印象になる場合も</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- 4. ダル・グレイッシュ（落ち着いたトーン） -->
+        <details class="accordion-item main-accordion">
+          <summary>🍂 ダル・グレイッシュ（落ち着いたトーン）</summary>
+          <div class="accordion-content">
+
+            <!-- ダル -->
+            <div class="tone-detail-section">
+              <div class="tone-header" style="background: linear-gradient(135deg, #8e9aaf 0%, #778da9 100%); color: white;">
+                <h3>ダル（Dull）</h3>
+                <p class="tone-params" style="opacity: 0.95;">中明度（40-60%）× 低-中彩度（30-50%）</p>
+              </div>
+
+              <div class="tone-colors-grid">
+                <div class="tone-color-item" style="background: hsl(0, 40%, 50%);">
+                  <span class="tone-color-name" style="color: white;">ダルレッド</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(30, 45%, 50%);">
+                  <span class="tone-color-name" style="color: white;">ダルオレンジ</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(60, 40%, 55%);">
+                  <span class="tone-color-name">ダルイエロー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(120, 35%, 45%);">
+                  <span class="tone-color-name" style="color: white;">ダルグリーン</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(200, 40%, 50%);">
+                  <span class="tone-color-name" style="color: white;">ダルブルー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(280, 35%, 50%);">
+                  <span class="tone-color-name" style="color: white;">ダルパープル</span>
+                </div>
+              </div>
+
+              <div class="tone-description">
+                <h4>特徴と印象</h4>
+                <p><strong>くすんだ中間色。</strong>派手すぎず地味すぎず、落ち着いた大人っぽい雰囲気です。</p>
+                <ul>
+                  <li><strong>印象：</strong>落ち着いた、渋い、大人っぽい、ナチュラル、シック</li>
+                  <li><strong>使用例：</strong>ビジネスサイト、大人向けブランド、秋冬のデザイン</li>
+                  <li><strong>注意点：</strong>地味になりすぎないよう、アクセントを加える</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <!-- グレイッシュ -->
+            <div class="tone-detail-section">
+              <div class="tone-header" style="background: linear-gradient(135deg, #b0b8c1 0%, #9ca6b0 100%);">
+                <h3>グレイッシュ（Grayish）</h3>
+                <p class="tone-params">中明度（45-65%）× 極低彩度（10-25%）</p>
+              </div>
+
+              <div class="tone-colors-grid">
+                <div class="tone-color-item" style="background: hsl(0, 18%, 55%);">
+                  <span class="tone-color-name" style="color: white;">グレイッシュレッド</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(30, 20%, 58%);">
+                  <span class="tone-color-name">グレイッシュオレンジ</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(60, 18%, 60%);">
+                  <span class="tone-color-name">グレイッシュイエロー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(120, 15%, 50%);">
+                  <span class="tone-color-name" style="color: white;">グレイッシュグリーン</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(200, 18%, 55%);">
+                  <span class="tone-color-name" style="color: white;">グレイッシュブルー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(280, 15%, 55%);">
+                  <span class="tone-color-name" style="color: white;">グレイッシュパープル</span>
+                </div>
+              </div>
+
+              <div class="tone-description">
+                <h4>特徴と印象</h4>
+                <p><strong>グレーに近い色調。</strong>ほとんど無彩色に近く、非常に控えめで洗練された印象です。</p>
+                <ul>
+                  <li><strong>印象：</strong>控えめ、洗練、モダン、上品、ミニマル</li>
+                  <li><strong>使用例：</strong>背景色、高級ブランド、モダンデザイン、UI要素</li>
+                  <li><strong>注意点：</strong>無彩色との区別がつきにくい場合がある</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- 5. ディープ・ダーク（深く重いトーン） -->
+        <details class="accordion-item main-accordion">
+          <summary>🌙 ディープ・ダーク（深く重いトーン）</summary>
+          <div class="accordion-content">
+
+            <!-- ディープ -->
+            <div class="tone-detail-section">
+              <div class="tone-header" style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white;">
+                <h3>ディープ（Deep）</h3>
+                <p class="tone-params" style="opacity: 0.95;">低明度（25-40%）× 高彩度（70-90%）</p>
+              </div>
+
+              <div class="tone-colors-grid">
+                <div class="tone-color-item" style="background: hsl(0, 80%, 30%);">
+                  <span class="tone-color-name" style="color: white;">ディープレッド</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(30, 85%, 32%);">
+                  <span class="tone-color-name" style="color: white;">ディープオレンジ</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(60, 80%, 35%);">
+                  <span class="tone-color-name">ディープイエロー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(120, 85%, 25%);">
+                  <span class="tone-color-name" style="color: white;">ディープグリーン</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(200, 85%, 30%);">
+                  <span class="tone-color-name" style="color: white;">ディープブルー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(280, 80%, 32%);">
+                  <span class="tone-color-name" style="color: white;">ディープパープル</span>
+                </div>
+              </div>
+
+              <div class="tone-description">
+                <h4>特徴と印象</h4>
+                <p><strong>深く濃い色調。</strong>暗いながらも鮮やかさを保ち、重厚感と高級感があります。</p>
+                <ul>
+                  <li><strong>印象：</strong>深い、重厚、高級、格式、伝統的</li>
+                  <li><strong>使用例：</strong>高級ブランド、フォーマルサイト、秋冬のデザイン</li>
+                  <li><strong>注意点：</strong>暗すぎて見えにくくなる場合がある</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <!-- ダーク -->
+            <div class="tone-detail-section">
+              <div class="tone-header" style="background: linear-gradient(135deg, #3d3d3d 0%, #2a2a2a 100%); color: white;">
+                <h3>ダーク（Dark）</h3>
+                <p class="tone-params" style="opacity: 0.95;">低明度（20-35%）× 中彩度（30-50%）</p>
+              </div>
+
+              <div class="tone-colors-grid">
+                <div class="tone-color-item" style="background: hsl(0, 40%, 28%);">
+                  <span class="tone-color-name" style="color: white;">ダークレッド</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(30, 45%, 30%);">
+                  <span class="tone-color-name" style="color: white;">ダークオレンジ</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(60, 40%, 32%);">
+                  <span class="tone-color-name" style="color: white;">ダークイエロー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(120, 40%, 25%);">
+                  <span class="tone-color-name" style="color: white;">ダークグリーン</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(200, 45%, 28%);">
+                  <span class="tone-color-name" style="color: white;">ダークブルー</span>
+                </div>
+                <div class="tone-color-item" style="background: hsl(280, 40%, 28%);">
+                  <span class="tone-color-name" style="color: white;">ダークパープル</span>
+                </div>
+              </div>
+
+              <div class="tone-description">
+                <h4>特徴と印象</h4>
+                <p><strong>暗く落ち着いた色調。</strong>彩度も抑えられ、シックで安定感のある印象です。</p>
+                <ul>
+                  <li><strong>印象：</strong>暗い、落ち着き、安定、重厚、男性的</li>
+                  <li><strong>使用例：</strong>ヘッダー・フッター、ダークモード、ビジネスサイト</li>
+                  <li><strong>注意点：</strong>広範囲に使うと重苦しくなる可能性</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </details>
+
+        <!-- 6. トーンを使った配色テクニック -->
+        <details class="accordion-item main-accordion">
+          <summary>🎨 トーンを使った配色テクニック</summary>
+          <div class="accordion-content">
+
+            <div class="tone-technique">
+              <h4>1. 同一トーン配色（トーン・オン・トーン）</h4>
+              <p><strong>同じトーンで異なる色相を組み合わせる</strong>配色法。統一感が出て調和しやすい。</p>
+
+              <div class="technique-example">
+                <div class="example-label">例：ペールトーンで統一</div>
+                <div class="technique-palette">
+                  <div class="palette-color" style="background: hsl(0, 25%, 90%);"></div>
+                  <div class="palette-color" style="background: hsl(120, 25%, 88%);"></div>
+                  <div class="palette-color" style="background: hsl(200, 30%, 90%);"></div>
+                  <div class="palette-color" style="background: hsl(280, 25%, 88%);"></div>
+                </div>
+                <p class="technique-note">✓ 優しく統一感のある印象</p>
+              </div>
+
+              <div class="technique-example">
+                <div class="example-label">例：ビビッドトーンで統一</div>
+                <div class="technique-palette">
+                  <div class="palette-color" style="background: hsl(0, 95%, 50%);"></div>
+                  <div class="palette-color" style="background: hsl(60, 95%, 50%);"></div>
+                  <div class="palette-color" style="background: hsl(200, 95%, 45%);"></div>
+                  <div class="palette-color" style="background: hsl(280, 95%, 55%);"></div>
+                </div>
+                <p class="technique-note">✓ 鮮やかで活発な印象</p>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <div class="tone-technique">
+              <h4>2. トーンコントラスト配色</h4>
+              <p><strong>異なるトーンを組み合わせる</strong>ことで、メリハリや変化をつける配色法。</p>
+
+              <div class="technique-example">
+                <div class="example-label">例：ペール × ビビッド（ベース × アクセント）</div>
+                <div class="technique-palette">
+                  <div class="palette-color large" style="background: hsl(200, 30%, 90%);">
+                    <span>ペール（背景）</span>
+                  </div>
+                  <div class="palette-color small" style="background: hsl(0, 95%, 50%);">
+                    <span style="color: white;">ビビッド（アクセント）</span>
+                  </div>
+                </div>
+                <p class="technique-note">✓ 優しい背景に強いアクセント</p>
+              </div>
+
+              <div class="technique-example">
+                <div class="example-label">例：ダーク × ライト（コントラスト）</div>
+                <div class="technique-palette">
+                  <div class="palette-color" style="background: hsl(200, 45%, 28%);">
+                    <span style="color: white;">ダーク</span>
+                  </div>
+                  <div class="palette-color" style="background: hsl(200, 60%, 80%);">
+                    <span>ライト</span>
+                  </div>
+                </div>
+                <p class="technique-note">✓ 明度差で視認性向上</p>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <div class="tone-technique">
+              <h4>3. グラデーショントーン配色</h4>
+              <p><strong>同じ色相で異なるトーンを並べる</strong>ことで、美しいグラデーションを作る配色法。</p>
+
+              <div class="technique-example">
+                <div class="example-label">例：青系のトーングラデーション</div>
+                <div class="technique-palette">
+                  <div class="palette-color" style="background: hsl(200, 30%, 90%);">
+                    <span>ペール</span>
+                  </div>
+                  <div class="palette-color" style="background: hsl(200, 60%, 80%);">
+                    <span>ライト</span>
+                  </div>
+                  <div class="palette-color" style="background: hsl(200, 90%, 60%);">
+                    <span>ブライト</span>
+                  </div>
+                  <div class="palette-color" style="background: hsl(200, 95%, 45%);">
+                    <span style="color: white;">ビビッド</span>
+                  </div>
+                  <div class="palette-color" style="background: hsl(200, 85%, 30%);">
+                    <span style="color: white;">ディープ</span>
+                  </div>
+                </div>
+                <p class="technique-note">✓ 自然で美しいグラデーション</p>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <div class="tone-tips">
+              <h4>💡 トーン配色のポイント</h4>
+              <ul>
+                <li><strong>統一感が欲しい：</strong>同じトーンで揃える</li>
+                <li><strong>メリハリが欲しい：</strong>異なるトーンを組み合わせる</li>
+                <li><strong>ターゲット別：</strong>子供向け→ブライト、大人向け→ダル/グレイッシュ</li>
+                <li><strong>季節感：</strong>春夏→ペール/ライト、秋冬→ダーク/ディープ</li>
+                <li><strong>業種別：</strong>医療→ペール、金融→ダーク、エンタメ→ビビッド</li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+
       </div>
     </section>
 

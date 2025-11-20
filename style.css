@@ -1746,6 +1746,273 @@ body {
   margin: 0.25rem 0 0 0;
 }
 
+/* タブ4: トーンスタイル */
+.tone-intro,
+.tone-map-intro,
+.tone-importance {
+  margin: 2rem 0;
+}
+
+.tone-elements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tone-element-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease;
+}
+
+.tone-element-card.highlight {
+  background: #e7f5ff;
+  border-color: #4A90E2;
+}
+
+.tone-element-card:hover {
+  transform: translateY(-4px);
+}
+
+.tone-element-card h5 {
+  margin: 0 0 0.75rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.tone-element-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* トーンマップ */
+.tone-map-diagram {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  max-width: 500px;
+}
+
+.tone-axis-labels {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.axis-label-y {
+  font-weight: 700;
+  color: #333;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  text-align: center;
+  min-width: 35px;
+}
+
+.tone-map-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.tone-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.tone-cell:hover {
+  transform: scale(1.05);
+}
+
+.axis-label-x {
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  color: #333;
+  font-size: 0.8rem;
+  margin-top: 0.75rem;
+}
+
+/* トーン詳細セクション */
+.tone-detail-section {
+  margin: 2rem 0;
+}
+
+.tone-header {
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.tone-header h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.tone-params {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* トーンカラーグリッド */
+.tone-colors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.tone-color-item {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.tone-color-item:hover {
+  transform: translateY(-4px);
+}
+
+.tone-color-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tone-description {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+}
+
+.tone-description h4 {
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.tone-description p {
+  margin: 0.75rem 0;
+  line-height: 1.8;
+}
+
+.tone-description ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.tone-description ul li {
+  margin-bottom: 0.75rem;
+}
+
+/* トーンテクニック */
+.tone-technique {
+  margin: 2rem 0;
+}
+
+.tone-technique h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.technique-example {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.example-label {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.technique-palette {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.palette-color {
+  flex: 1;
+  min-width: 80px;
+  height: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.palette-color:hover {
+  transform: translateY(-4px);
+}
+
+.palette-color.large {
+  flex: 3;
+  min-height: 120px;
+}
+
+.palette-color.small {
+  flex: 1;
+  min-height: 120px;
+}
+
+.technique-note {
+  margin: 1rem 0 0 0;
+  font-weight: 600;
+  color: #28a745;
+  font-size: 0.95rem;
+}
+
+.tone-tips {
+  background: #e7f5ff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #4A90E2;
+}
+
+.tone-tips h4 {
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+.tone-tips ul {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.tone-tips ul li {
+  margin-bottom: 0.75rem;
+}
+
 /* アコーディオンコンテンツ共通 */
 .accordion-content {
   padding: 1.5rem;
