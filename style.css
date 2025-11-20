@@ -620,6 +620,149 @@ body {
   overflow: hidden;
 }
 
+/* 明度のデモ */
+.lightness-demo {
+  margin: 2rem 0;
+}
+
+.lightness-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lightness-sample {
+  flex: 1;
+  min-width: 70px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.lightness-sample:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.demo-caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* 明度の例カード */
+.lightness-examples {
+  margin: 2rem 0;
+}
+
+.lightness-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.color-sample-large {
+  width: 100%;
+  max-width: 300px;
+  height: 150px;
+  margin: 0 auto 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lightness-card h4 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #4A90E2;
+  padding-bottom: 0.5rem;
+}
+
+.lightness-card ul {
+  line-height: 2;
+  margin: 1rem 0;
+}
+
+.lightness-card li {
+  margin-bottom: 0.5rem;
+}
+
+.usage-note {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #4A90E2;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* 明度のヒント */
+.lightness-tips {
+  margin: 2rem 0;
+}
+
+.tip-item {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #4A90E2;
+}
+
+.tip-item h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.tip-item p {
+  margin: 0.5rem 0;
+}
+
+.tip-item ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.tip-item li {
+  margin-bottom: 0.5rem;
+}
+
+/* コントラストの例 */
+.contrast-examples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contrast-good,
+.contrast-bad {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
 /* アコーディオンコンテンツ共通 */
 .accordion-content {
   padding: 1.5rem;
@@ -1154,6 +1297,20 @@ footer {
     padding: 0.2rem 0.4rem;
   }
 
+  .contrast-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .lightness-bar {
+    gap: 0.3rem;
+  }
+
+  .lightness-sample {
+    min-width: 60px;
+    height: 70px;
+    font-size: 0.75rem;
+  }
+
   footer {
     padding: 1.5rem 1rem;
   }
@@ -1191,6 +1348,24 @@ footer {
   .wheel-label {
     font-size: 0.65rem;
     padding: 0.15rem 0.3rem;
+  }
+
+  .lightness-sample {
+    min-width: 50px;
+    height: 60px;
+    font-size: 0.7rem;
+  }
+
+  .lightness-card {
+    padding: 1.5rem;
+  }
+
+  .color-sample-large {
+    height: 120px;
+  }
+
+  .tip-item {
+    padding: 1rem;
   }
 
   .toast {

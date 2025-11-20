@@ -239,7 +239,122 @@
           </div>
         </details>
 
-        <!-- 3. 実際に操作して体感しよう -->
+        <!-- 3. 明度を深く理解する -->
+        <details class="accordion-item main-accordion">
+          <summary>明度を深く理解する</summary>
+          <div class="accordion-content">
+
+            <details class="accordion-item sub-accordion">
+              <summary>明度とは？</summary>
+              <div class="accordion-content">
+                <p><strong>明度（Lightness）</strong>とは、<strong>色の明るさの度合い</strong>を表す要素です。0%（黒）から100%（白）までの範囲で表現されます。</p>
+                <p>同じ色相・彩度であっても、明度を変えることで全く異なる印象の色になります。</p>
+
+                <div class="lightness-demo">
+                  <div class="lightness-bar">
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 10%);">10%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 25%);">25%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 40%);">40%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 50%);">50%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 60%);">60%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 75%);">75%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 90%);">90%</div>
+                  </div>
+                  <p class="demo-caption">赤色（色相0°、彩度100%）の明度を変化させた例</p>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>明度が高い色の特徴</summary>
+              <div class="accordion-content">
+                <p>明度が高い色（70%〜100%）は<strong>白に近づき</strong>、以下のような特徴があります：</p>
+
+                <div class="lightness-examples">
+                  <div class="lightness-card high-lightness">
+                    <div class="color-sample-large" style="background: hsl(200, 80%, 85%);">
+                      <span>明度85%</span>
+                    </div>
+                    <h4>高明度の印象</h4>
+                    <ul>
+                      <li><strong>爽快・軽やか</strong>：清潔感や開放感を与える</li>
+                      <li><strong>柔らか・優しい</strong>：穏やかで親しみやすい印象</li>
+                      <li><strong>明るい・ポジティブ</strong>：元気で前向きなイメージ</li>
+                      <li><strong>女性的</strong>：繊細で上品な雰囲気</li>
+                    </ul>
+                    <p class="usage-note"><strong>使用例：</strong>背景色、春・夏のデザイン、子供向けコンテンツ、化粧品・ファッションサイト</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>明度が低い色の特徴</summary>
+              <div class="accordion-content">
+                <p>明度が低い色（0%〜30%）は<strong>黒に近づき</strong>、以下のような特徴があります：</p>
+
+                <div class="lightness-examples">
+                  <div class="lightness-card low-lightness">
+                    <div class="color-sample-large" style="background: hsl(220, 80%, 25%);">
+                      <span style="color: white;">明度25%</span>
+                    </div>
+                    <h4>低明度の印象</h4>
+                    <ul>
+                      <li><strong>落ち着き・安定感</strong>：重厚で信頼できる印象</li>
+                      <li><strong>高級感・洗練</strong>：上質で格式高いイメージ</li>
+                      <li><strong>シック・大人っぽい</strong>：成熟した雰囲気</li>
+                      <li><strong>男性的</strong>：力強く堅実な印象</li>
+                    </ul>
+                    <p class="usage-note"><strong>使用例：</strong>ヘッダー・フッター、高級ブランドサイト、ビジネス・企業サイト、秋・冬のデザイン</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>明度のバランスと配色のコツ</summary>
+              <div class="accordion-content">
+                <p>効果的なデザインには、<strong>明度のバランス</strong>が重要です。</p>
+
+                <div class="lightness-tips">
+                  <div class="tip-item">
+                    <h4>📌 コントラストを意識する</h4>
+                    <p>文字と背景の明度差を十分に確保することで、<strong>可読性が向上</strong>します。</p>
+                    <div class="contrast-examples">
+                      <div class="contrast-good">
+                        <div style="background: hsl(0, 0%, 10%); color: hsl(0, 0%, 95%); padding: 1rem; border-radius: 4px;">
+                          <strong>良い例：</strong>明度差が大きい（85%差）
+                        </div>
+                      </div>
+                      <div class="contrast-bad">
+                        <div style="background: hsl(0, 0%, 50%); color: hsl(0, 0%, 60%); padding: 1rem; border-radius: 4px;">
+                          <strong>悪い例：</strong>明度差が小さい（10%差）
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tip-item">
+                    <h4>📌 明度のグラデーションで統一感を出す</h4>
+                    <p>同じ色相で明度だけを変えた配色は、<strong>調和が取れやすく</strong>、まとまりのあるデザインになります。</p>
+                  </div>
+
+                  <div class="tip-item">
+                    <h4>📌 目的に応じて明度を選ぶ</h4>
+                    <ul>
+                      <li><strong>目立たせたい要素：</strong>周囲と明度差をつける</li>
+                      <li><strong>背景：</strong>高明度（90%以上）か低明度（20%以下）</li>
+                      <li><strong>メインコンテンツ：</strong>中明度（40%〜60%）</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </details>
+
+        <!-- 4. 実際に操作して体感しよう -->
         <details class="accordion-item main-accordion">
           <summary>実際に操作して体感しよう</summary>
           <div class="accordion-content">
