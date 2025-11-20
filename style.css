@@ -176,24 +176,7 @@ body {
   font-size: 1.05rem;
 }
 
-/* 解説セクション */
-.explanation-section {
-  background: white;
-  padding: 2.5rem;
-  margin-bottom: 3rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-}
-
-.explanation-section h3 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  border-bottom: 3px solid #4A90E2;
-  padding-bottom: 0.5rem;
-}
-
+/* 解説テキスト */
 .intro-text {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -288,21 +271,391 @@ body {
   color: black;
 }
 
-/* 体験セクション */
-.experience-section {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+/* メインアコーディオンセクション */
+.main-accordion-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.experience-section h3 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-top: 0;
+/* メインアコーディオン */
+.main-accordion {
+  background: white;
+  border: 3px solid #4A90E2;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.main-accordion:hover {
+  box-shadow: 0 4px 16px rgba(74, 144, 226, 0.2);
+  transform: translateY(-2px);
+}
+
+.main-accordion > summary {
+  cursor: pointer;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: white;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+  transition: all 0.25s ease;
+}
+
+.main-accordion > summary::-webkit-details-marker {
+  display: none;
+}
+
+.main-accordion > summary::before {
+  content: '▼';
+  font-size: 1.1rem;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.main-accordion:not([open]) > summary::before {
+  transform: rotate(-90deg);
+}
+
+.main-accordion > summary:hover {
+  background: linear-gradient(135deg, #357ABD 0%, #2c6ba8 100%);
+}
+
+.main-accordion > .accordion-content {
+  padding: 2rem;
+  background: white;
+  animation: slideDown 0.3s ease;
+}
+
+/* サブアコーディオン */
+.sub-accordion {
   margin-bottom: 1rem;
-  border-bottom: 3px solid #4A90E2;
-  padding-bottom: 0.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sub-accordion:hover {
+  border-color: #4A90E2;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);
+}
+
+.sub-accordion summary {
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #333;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  user-select: none;
+  transition: all 0.25s ease;
+}
+
+.sub-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.sub-accordion summary::before {
+  content: '▶';
+  font-size: 0.9rem;
+  color: #4A90E2;
+  transition: transform 0.3s ease;
+}
+
+.sub-accordion[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.sub-accordion summary:hover {
+  background: #e9ecef;
+}
+
+.sub-accordion[open] summary {
+  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+  color: white;
+}
+
+.sub-accordion[open] summary::before {
+  color: white;
+}
+
+/* 色相環 */
+.color-wheel-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  max-width: 95vw;
+  margin: 3rem auto;
+}
+
+.color-wheel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 65%;
+  border-radius: 50%;
+  background: conic-gradient(
+    hsl(0, 100%, 50%) 0deg,
+    hsl(30, 100%, 50%) 30deg,
+    hsl(60, 100%, 50%) 60deg,
+    hsl(90, 100%, 50%) 90deg,
+    hsl(120, 100%, 50%) 120deg,
+    hsl(150, 100%, 50%) 150deg,
+    hsl(180, 100%, 50%) 180deg,
+    hsl(210, 100%, 50%) 210deg,
+    hsl(240, 100%, 50%) 240deg,
+    hsl(270, 100%, 50%) 270deg,
+    hsl(300, 100%, 50%) 300deg,
+    hsl(330, 100%, 50%) 330deg,
+    hsl(360, 100%, 50%) 360deg
+  );
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2),
+              inset 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.color-wheel::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.color-wheel-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.wheel-label {
+  position: absolute;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* 補色用の色相環 */
+.complementary-wheel-container {
+  position: relative;
+  max-width: 300px;
+  margin: 2rem auto;
+}
+
+.complementary-wheel-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  cursor: crosshair;
+}
+
+.complementary-wheel-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    hsl(0, 100%, 50%) 0deg,
+    hsl(30, 100%, 50%) 30deg,
+    hsl(60, 100%, 50%) 60deg,
+    hsl(90, 100%, 50%) 90deg,
+    hsl(120, 100%, 50%) 120deg,
+    hsl(150, 100%, 50%) 150deg,
+    hsl(180, 100%, 50%) 180deg,
+    hsl(210, 100%, 50%) 210deg,
+    hsl(240, 100%, 50%) 240deg,
+    hsl(270, 100%, 50%) 270deg,
+    hsl(300, 100%, 50%) 300deg,
+    hsl(330, 100%, 50%) 330deg,
+    hsl(360, 100%, 50%) 360deg
+  );
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.complementary-wheel-wrapper:hover .complementary-wheel-bg {
+  transform: scale(1.02);
+}
+
+.complementary-wheel-segments {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wheel-segment {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  transform-origin: left bottom;
+  background: transparent;
+  transition: background 0.2s ease;
+  clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  pointer-events: all;
+}
+
+.wheel-segment.dimmed {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.wheel-segment.highlighted {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.complementary-wheel-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.wheel-instruction {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.complementary-example,
+.analogous-example {
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.complementary-example:hover,
+.analogous-example:hover {
+  background: rgba(74, 144, 226, 0.1);
+  color: #4A90E2;
+}
+
+/* 類似色相用の色相環 */
+.analogous-wheel-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  cursor: crosshair;
+}
+
+.analogous-wheel-wrapper .complementary-wheel-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    hsl(0, 100%, 50%) 0deg,
+    hsl(30, 100%, 50%) 30deg,
+    hsl(60, 100%, 50%) 60deg,
+    hsl(90, 100%, 50%) 90deg,
+    hsl(120, 100%, 50%) 120deg,
+    hsl(150, 100%, 50%) 150deg,
+    hsl(180, 100%, 50%) 180deg,
+    hsl(210, 100%, 50%) 210deg,
+    hsl(240, 100%, 50%) 240deg,
+    hsl(270, 100%, 50%) 270deg,
+    hsl(300, 100%, 50%) 300deg,
+    hsl(330, 100%, 50%) 330deg,
+    hsl(360, 100%, 50%) 360deg
+  );
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.analogous-wheel-wrapper:hover .complementary-wheel-bg {
+  transform: scale(1.02);
+}
+
+.analogous-wheel-segments {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* アコーディオンコンテンツ共通 */
+.accordion-content {
+  padding: 1.5rem;
+  line-height: 1.8;
+  color: #555;
+  background: white;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.accordion-content p {
+  margin: 0.75rem 0;
+}
+
+.accordion-content strong {
+  color: #4A90E2;
+  font-weight: 600;
+}
+
+.accordion-content ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.accordion-content li {
+  margin-bottom: 0.5rem;
 }
 
 .fh-main {
@@ -754,14 +1107,13 @@ footer {
     font-size: 0.85rem;
   }
 
-  .explanation-section,
-  .experience-section {
+  .main-accordion > .accordion-content {
     padding: 1.5rem;
   }
 
-  .explanation-section h3,
-  .experience-section h3 {
-    font-size: 1.5rem;
+  .main-accordion > summary {
+    font-size: 1.2rem;
+    padding: 1.2rem 1.5rem;
   }
 
   .attribute-grid {
@@ -792,6 +1144,16 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .color-wheel-container {
+    width: 340px;
+    height: 340px;
+  }
+
+  .wheel-label {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+  }
+
   footer {
     padding: 1.5rem 1rem;
   }
@@ -819,6 +1181,16 @@ footer {
 
   .grayscale-steps {
     grid-template-columns: 1fr;
+  }
+
+  .color-wheel-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .wheel-label {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.3rem;
   }
 
   .toast {

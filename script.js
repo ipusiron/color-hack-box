@@ -248,3 +248,136 @@ function initializeCopyButtons() {
 
 // コピーボタン初期化実行
 initializeCopyButtons();
+
+// 補色の色相環インタラクティブ機能
+function initializeComplementaryWheel() {
+  const wheelWrapper = document.querySelector('.complementary-wheel-wrapper');
+  const segments = document.querySelectorAll('.wheel-segment');
+
+  if (!wheelWrapper || segments.length === 0) return;
+
+  // 補色を計算（色相環で180度反対）
+  function getComplementaryHue(hue) {
+    return (parseInt(hue) + 180) % 360;
+  }
+
+  // セグメントをハイライト
+  function highlightComplementaryPair(hue1, hue2) {
+    // すべてのセグメントをリセット
+    segments.forEach(segment => {
+      segment.classList.remove('highlighted', 'dimmed');
+    });
+
+    // 該当するセグメントを見つけてハイライト
+    segments.forEach(segment => {
+      const segmentHue = parseInt(segment.getAttribute('data-hue'));
+      if (segmentHue === hue1 || segmentHue === hue2) {
+        segment.classList.add('highlighted');
+      } else {
+        segment.classList.add('dimmed');
+      }
+    });
+  }
+
+  // ハイライトをリセット
+  function resetHighlight() {
+    segments.forEach(segment => {
+      segment.classList.remove('highlighted', 'dimmed');
+    });
+  }
+
+  // 各セグメントにホバーイベント
+  segments.forEach(segment => {
+    segment.addEventListener('mouseenter', () => {
+      const hue = parseInt(segment.getAttribute('data-hue'));
+      const complementaryHue = getComplementaryHue(hue);
+      highlightComplementaryPair(hue, complementaryHue);
+    });
+  });
+
+  // ラッパーからマウスアウト
+  wheelWrapper.addEventListener('mouseleave', resetHighlight);
+
+  // 補色例のホバー
+  const examples = document.querySelectorAll('.complementary-example');
+  examples.forEach(example => {
+    example.addEventListener('mouseenter', () => {
+      const hue1 = parseInt(example.getAttribute('data-hue1'));
+      const hue2 = parseInt(example.getAttribute('data-hue2'));
+      highlightComplementaryPair(hue1, hue2);
+    });
+
+    example.addEventListener('mouseleave', resetHighlight);
+  });
+}
+
+// 類似色相の色相環インタラクティブ機能
+function initializeAnalogousWheel() {
+  const wheelWrapper = document.querySelector('.analogous-wheel-wrapper');
+  const segments = document.querySelectorAll('.analogous-segment');
+
+  if (!wheelWrapper || segments.length === 0) return;
+
+  // 類似色相を計算（隣接する色：±30度）
+  function getAnalogousHues(hue) {
+    const h = parseInt(hue);
+    const prev = (h - 30 + 360) % 360;
+    const next = (h + 30) % 360;
+    return [prev, h, next];
+  }
+
+  // セグメントをハイライト（類似色相：本体+前後）
+  function highlightAnalogousColors(hues) {
+    // すべてのセグメントをリセット
+    segments.forEach(segment => {
+      segment.classList.remove('highlighted', 'dimmed');
+    });
+
+    // 該当するセグメントを見つけてハイライト
+    segments.forEach(segment => {
+      const segmentHue = parseInt(segment.getAttribute('data-hue'));
+      if (hues.includes(segmentHue)) {
+        segment.classList.add('highlighted');
+      } else {
+        segment.classList.add('dimmed');
+      }
+    });
+  }
+
+  // ハイライトをリセット
+  function resetHighlight() {
+    segments.forEach(segment => {
+      segment.classList.remove('highlighted', 'dimmed');
+    });
+  }
+
+  // 各セグメントにホバーイベント
+  segments.forEach(segment => {
+    segment.addEventListener('mouseenter', () => {
+      const hue = parseInt(segment.getAttribute('data-hue'));
+      const analogousHues = getAnalogousHues(hue);
+      highlightAnalogousColors(analogousHues);
+    });
+  });
+
+  // ラッパーからマウスアウト
+  wheelWrapper.addEventListener('mouseleave', resetHighlight);
+
+  // 類似色相例のホバー
+  const examples = document.querySelectorAll('.analogous-example');
+  examples.forEach(example => {
+    example.addEventListener('mouseenter', () => {
+      const huesStr = example.getAttribute('data-hues');
+      const hues = huesStr.split(',').map(h => parseInt(h.trim()));
+      highlightAnalogousColors(hues);
+    });
+
+    example.addEventListener('mouseleave', resetHighlight);
+  });
+}
+
+// 補色機能と類似色相機能の初期化
+document.addEventListener('DOMContentLoaded', () => {
+  initializeComplementaryWheel();
+  initializeAnalogousWheel();
+});

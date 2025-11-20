@@ -53,74 +53,199 @@
         <p>色を理解するための基本となる3つの要素を学びましょう。</p>
       </header>
 
-      <!-- 解説セクション -->
-      <div class="explanation-section">
-        <h3>色の三属性とは？</h3>
-        <p class="intro-text">すべての色は、以下の3つの属性で表現できます。この3つの要素を理解することが、色彩理論の第一歩です。</p>
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
 
-        <div class="attribute-grid">
-          <article class="attribute-card">
-            <h4>🎨 色相 (Hue)</h4>
-            <p><strong>色の種類</strong>を表します。</p>
-            <p>赤・青・緑・黄色など、私たちが「何色か」と呼ぶ要素です。</p>
-            <p class="range-info">範囲: 0〜360°（色相環）</p>
-            <div class="color-samples">
-              <div class="sample-box" style="background: hsl(0, 100%, 50%);">
-                <span>0°/360°</span>
-              </div>
-              <div class="sample-box" style="background: hsl(120, 100%, 50%);">
-                <span>120°</span>
-              </div>
-              <div class="sample-box" style="background: hsl(240, 100%, 50%);">
-                <span>240°</span>
-              </div>
+        <!-- 1. 色の三属性 -->
+        <details class="accordion-item main-accordion">
+          <summary>色の三属性とは？</summary>
+          <div class="accordion-content">
+            <p class="intro-text">すべての色は、以下の3つの属性で表現できます。この3つの要素を理解することが、色彩理論の第一歩です。</p>
+
+            <div class="attribute-grid">
+              <article class="attribute-card">
+                <h4>🎨 色相 (Hue)</h4>
+                <p><strong>色の種類</strong>を表します。</p>
+                <p>赤・青・緑・黄色など、私たちが「何色か」と呼ぶ要素です。</p>
+                <p class="range-info">範囲: 0〜360°（色相環）</p>
+                <div class="color-samples">
+                  <div class="sample-box" style="background: hsl(0, 100%, 50%);">
+                    <span>0°/360°</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(120, 100%, 50%);">
+                    <span>120°</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(240, 100%, 50%);">
+                    <span>240°</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="attribute-card">
+                <h4>💡 明度 (Lightness)</h4>
+                <p><strong>色の明るさ</strong>を表します。</p>
+                <p>同じ赤でも、明るい赤から暗い赤まで変化します。</p>
+                <p class="range-info">範囲: 0〜100%</p>
+                <div class="color-samples">
+                  <div class="sample-box" style="background: hsl(0, 100%, 0%);">
+                    <span style="color: white;">0%</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(0, 100%, 50%);">
+                    <span style="color: white;">50%</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(0, 100%, 100%);">
+                    <span>100%</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="attribute-card">
+                <h4>✨ 彩度 (Saturation)</h4>
+                <p><strong>色の鮮やかさ</strong>を表します。</p>
+                <p>彩度が低いとくすんだ色、高いと鮮やかな色になります。</p>
+                <p class="range-info">範囲: 0〜100%</p>
+                <div class="color-samples">
+                  <div class="sample-box" style="background: hsl(0, 0%, 50%);">
+                    <span style="color: white;">0%</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(0, 50%, 50%);">
+                    <span style="color: white;">50%</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(0, 100%, 50%);">
+                    <span style="color: white;">100%</span>
+                  </div>
+                </div>
+              </article>
             </div>
-          </article>
+          </div>
+        </details>
 
-          <article class="attribute-card">
-            <h4>💡 明度 (Lightness)</h4>
-            <p><strong>色の明るさ</strong>を表します。</p>
-            <p>同じ赤でも、明るい赤から暗い赤まで変化します。</p>
-            <p class="range-info">範囲: 0〜100%</p>
-            <div class="color-samples">
-              <div class="sample-box" style="background: hsl(0, 100%, 0%);">
-                <span style="color: white;">0%</span>
-              </div>
-              <div class="sample-box" style="background: hsl(0, 100%, 50%);">
-                <span style="color: white;">50%</span>
-              </div>
-              <div class="sample-box" style="background: hsl(0, 100%, 100%);">
-                <span>100%</span>
-              </div>
-            </div>
-          </article>
+        <!-- 2. 色相を深く理解する -->
+        <details class="accordion-item main-accordion">
+          <summary>色相を深く理解する</summary>
+          <div class="accordion-content">
 
-          <article class="attribute-card">
-            <h4>✨ 彩度 (Saturation)</h4>
-            <p><strong>色の鮮やかさ</strong>を表します。</p>
-            <p>彩度が低いとくすんだ色、高いと鮮やかな色になります。</p>
-            <p class="range-info">範囲: 0〜100%</p>
-            <div class="color-samples">
-              <div class="sample-box" style="background: hsl(0, 0%, 50%);">
-                <span style="color: white;">0%</span>
-              </div>
-              <div class="sample-box" style="background: hsl(0, 50%, 50%);">
-                <span style="color: white;">50%</span>
-              </div>
-              <div class="sample-box" style="background: hsl(0, 100%, 50%);">
-                <span style="color: white;">100%</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
+            <details class="accordion-item sub-accordion">
+              <summary>色相環とは？</summary>
+              <div class="accordion-content">
+                <p>色相環（しきそうかん）とは、<strong>色相を円状に配置したもの</strong>です。色は個別に独立しているわけではなく、<strong>連続的につながり</strong>を持っています。</p>
+                <p>赤から始まり、オレンジ、黄色、緑、青、紫と移り変わっていき、最終的に再び赤に戻ります。この色の連続性を視覚的に表現したのが色相環です。</p>
 
-      <!-- 体験セクション -->
-      <div class="experience-section">
-        <h3>実際に操作して体感しよう</h3>
-        <p class="intro-text">スライダーを動かして、3つの属性が色にどう影響するかを確認してみましょう。</p>
+                <div class="color-wheel-container">
+                  <div class="color-wheel"></div>
+                  <div class="color-wheel-labels">
+                    <span class="wheel-label" style="top: 15%; left: 50%; transform: translate(-50%, -50%);">0° 赤</span>
+                    <span class="wheel-label" style="top: 18%; left: 68%; transform: translate(-50%, -50%);">30°</span>
+                    <span class="wheel-label" style="top: 32%; left: 82%; transform: translate(-50%, -50%);">60° 黄</span>
+                    <span class="wheel-label" style="top: 50%; left: 85%; transform: translate(-50%, -50%);">90°</span>
+                    <span class="wheel-label" style="top: 68%; left: 82%; transform: translate(-50%, -50%);">120° 緑</span>
+                    <span class="wheel-label" style="top: 82%; left: 68%; transform: translate(-50%, -50%);">150°</span>
+                    <span class="wheel-label" style="top: 85%; left: 50%; transform: translate(-50%, -50%);">180° シアン</span>
+                    <span class="wheel-label" style="top: 82%; left: 32%; transform: translate(-50%, -50%);">210°</span>
+                    <span class="wheel-label" style="top: 68%; left: 18%; transform: translate(-50%, -50%);">240° 青</span>
+                    <span class="wheel-label" style="top: 50%; left: 15%; transform: translate(-50%, -50%);">270°</span>
+                    <span class="wheel-label" style="top: 32%; left: 18%; transform: translate(-50%, -50%);">300° 紫</span>
+                    <span class="wheel-label" style="top: 18%; left: 32%; transform: translate(-50%, -50%);">330°</span>
+                  </div>
+                </div>
 
-        <div class="fh-main">
+                <p>色相環を理解することで、色の関係性や調和のとれた配色を見つけやすくなります。</p>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>補色（ほしょく）とは？</summary>
+              <div class="accordion-content">
+                <p><strong>補色</strong>とは、色相環において<strong>正反対に位置する色同士</strong>のことです。</p>
+
+                <div class="complementary-wheel-container">
+                  <div class="complementary-wheel-wrapper">
+                    <div class="complementary-wheel-bg" id="complementary-wheel"></div>
+                    <div class="complementary-wheel-segments">
+                      <div class="wheel-segment" data-hue="0" style="transform: rotate(0deg);"></div>
+                      <div class="wheel-segment" data-hue="30" style="transform: rotate(30deg);"></div>
+                      <div class="wheel-segment" data-hue="60" style="transform: rotate(60deg);"></div>
+                      <div class="wheel-segment" data-hue="90" style="transform: rotate(90deg);"></div>
+                      <div class="wheel-segment" data-hue="120" style="transform: rotate(120deg);"></div>
+                      <div class="wheel-segment" data-hue="150" style="transform: rotate(150deg);"></div>
+                      <div class="wheel-segment" data-hue="180" style="transform: rotate(180deg);"></div>
+                      <div class="wheel-segment" data-hue="210" style="transform: rotate(210deg);"></div>
+                      <div class="wheel-segment" data-hue="240" style="transform: rotate(240deg);"></div>
+                      <div class="wheel-segment" data-hue="270" style="transform: rotate(270deg);"></div>
+                      <div class="wheel-segment" data-hue="300" style="transform: rotate(300deg);"></div>
+                      <div class="wheel-segment" data-hue="330" style="transform: rotate(330deg);"></div>
+                    </div>
+                    <div class="complementary-wheel-center"></div>
+                  </div>
+                  <p class="wheel-instruction">色相環にマウスをホバーすると補色を表示</p>
+                </div>
+
+                <p>補色の組み合わせには以下のような特徴があります：</p>
+                <ul>
+                  <li><strong>コントラストが強い</strong>：互いに引き立て合い、視覚的なインパクトが大きい</li>
+                  <li><strong>目立つ配色</strong>：広告やWebデザインで注目を集めたい箇所に効果的</li>
+                  <li><strong>使いすぎに注意</strong>：多用すると視覚的に疲れやすくなる</li>
+                </ul>
+                <p>代表的な補色の例：
+                  <span class="complementary-example" data-hue1="0" data-hue2="120"><strong>赤と緑</strong></span>、
+                  <span class="complementary-example" data-hue1="240" data-hue2="30"><strong>青とオレンジ</strong></span>、
+                  <span class="complementary-example" data-hue1="60" data-hue2="270"><strong>黄色と紫</strong></span>
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>類似色相とは？</summary>
+              <div class="accordion-content">
+                <p><strong>類似色相</strong>とは、色相環において<strong>隣り合う色同士</strong>のことです。</p>
+
+                <div class="complementary-wheel-container">
+                  <div class="analogous-wheel-wrapper">
+                    <div class="complementary-wheel-bg" id="analogous-wheel"></div>
+                    <div class="analogous-wheel-segments">
+                      <div class="wheel-segment analogous-segment" data-hue="0" style="transform: rotate(0deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="30" style="transform: rotate(30deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="60" style="transform: rotate(60deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="90" style="transform: rotate(90deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="120" style="transform: rotate(120deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="150" style="transform: rotate(150deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="180" style="transform: rotate(180deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="210" style="transform: rotate(210deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="240" style="transform: rotate(240deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="270" style="transform: rotate(270deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="300" style="transform: rotate(300deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="330" style="transform: rotate(330deg);"></div>
+                    </div>
+                    <div class="complementary-wheel-center"></div>
+                  </div>
+                  <p class="wheel-instruction">色相環にマウスをホバーすると類似色相を表示</p>
+                </div>
+
+                <p>類似色相の組み合わせには以下のような特徴があります：</p>
+                <ul>
+                  <li><strong>調和が取れている</strong>：違和感がなく、自然で落ち着いた印象</li>
+                  <li><strong>統一感がある</strong>：まとまりのあるデザインになりやすい</li>
+                  <li><strong>グラデーション効果</strong>：スムーズな色の移り変わりを表現できる</li>
+                </ul>
+                <p>例：
+                  <span class="analogous-example" data-hues="0,30,330"><strong>赤とオレンジ</strong></span>、
+                  <span class="analogous-example" data-hues="180,210,150"><strong>青と水色</strong></span>、
+                  <span class="analogous-example" data-hues="60,90,30"><strong>黄色と黄緑</strong></span>
+                </p>
+                <p>類似色相は、Webサイトの背景やグラフィックデザインで<strong>安定感のある配色</strong>を作りたいときに最適です。</p>
+              </div>
+            </details>
+
+          </div>
+        </details>
+
+        <!-- 3. 実際に操作して体感しよう -->
+        <details class="accordion-item main-accordion">
+          <summary>実際に操作して体感しよう</summary>
+          <div class="accordion-content">
+            <p class="intro-text">スライダーを動かして、3つの属性が色にどう影響するかを確認してみましょう。</p>
+
+            <div class="fh-main">
           <div class="fh-controls">
             <label for="hue-slider">Hue (色相) <span id="hue-value">0°</span></label>
             <input type="range" id="hue-slider" min="0" max="360" value="0"
@@ -161,8 +286,11 @@
                 <button class="copy-btn" data-copy="hsl" aria-label="HSLコードをコピー">📋</button>
               </div>
             </div>
+            </div>
           </div>
-        </div>
+          </div>
+        </details>
+
       </div>
     </section>
 
