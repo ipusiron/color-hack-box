@@ -3111,3 +3111,403 @@ footer {
     padding: 0.875rem 1.25rem;
   }
 }
+
+/* タブ6: 配色例・目的別パレット */
+.palette-intro {
+  margin: 2rem 0;
+}
+
+.palette-intro h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.palette-intro p {
+  line-height: 1.8;
+  color: #666;
+}
+
+/* パレットセクション */
+.palette-section {
+  margin: 2rem 0;
+}
+
+.palette-section h4 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* パレット例 */
+.palette-example {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.palette-example:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.palette-header {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #4A90E2;
+}
+
+.palette-colors {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.palette-chip {
+  flex: 1;
+  min-width: 100px;
+  min-height: 120px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.palette-chip:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chip-code {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.chip-role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.palette-usage {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 1rem 0 0 0;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* 季節別パレット */
+.seasonal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.seasonal-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.seasonal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.seasonal-card h5 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.seasonal-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.75rem 0;
+  line-height: 1.7;
+}
+
+.seasonal-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.seasonal-keywords span {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: #e7f5ff;
+  color: #1971c2;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* 感情・雰囲気別配色 */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.mood-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mood-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-color: #4A90E2;
+}
+
+.mood-card h5 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.1rem;
+  text-align: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #4A90E2;
+}
+
+.mood-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.75rem 0 1rem 0;
+  line-height: 1.6;
+}
+
+/* ミニパレット */
+.palette-colors-mini {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.mini-chip {
+  flex: 1;
+  height: 60px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.mini-chip:hover {
+  transform: scale(1.05);
+}
+
+/* 使い方ガイド */
+.usage-tips {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.usage-tips h4 {
+  color: #333;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.usage-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.usage-step {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid #4A90E2;
+  transition: transform 0.2s ease;
+}
+
+.usage-step:hover {
+  transform: translateY(-4px);
+}
+
+.step-number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: #4A90E2;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.usage-step h5 {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.usage-step p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.6;
+}
+
+/* アプリケーション例 */
+.application-example {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #4A90E2;
+}
+
+.application-example h4 {
+  color: #333;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.example-scenario {
+  margin: 1.5rem 0;
+}
+
+.example-scenario h5 {
+  color: #4A90E2;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.05rem;
+}
+
+.example-scenario p {
+  color: #666;
+  line-height: 1.7;
+  margin: 0.5rem 0;
+}
+
+.example-scenario ul {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.example-scenario ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* 最終アドバイス */
+.final-advice {
+  background: linear-gradient(135deg, #e7f5ff 0%, #d0ebff 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #4A90E2;
+  margin: 2rem 0;
+}
+
+.final-advice h4 {
+  color: #333;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.final-advice p {
+  color: #333;
+  line-height: 1.8;
+  margin: 0.75rem 0;
+  font-weight: 500;
+}
+
+.final-advice ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.final-advice ul li {
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.final-advice strong {
+  color: #4A90E2;
+  font-weight: 700;
+}
+
+/* モバイル対応 - Tab 6 */
+@media (max-width: 768px) {
+  .palette-colors {
+    flex-direction: column;
+  }
+
+  .palette-chip {
+    min-width: 100%;
+    min-height: 100px;
+  }
+
+  .seasonal-grid,
+  .mood-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .usage-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .application-example {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .palette-example {
+    padding: 1rem;
+  }
+
+  .palette-chip {
+    min-height: 80px;
+  }
+
+  .chip-code {
+    font-size: 0.8rem;
+  }
+
+  .chip-role {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .final-advice {
+    padding: 1.5rem;
+  }
+}
