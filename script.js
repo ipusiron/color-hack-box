@@ -376,8 +376,59 @@ function initializeAnalogousWheel() {
   });
 }
 
-// 補色機能と類似色相機能の初期化
+// グレースケールスライダーの機能
+function initializeGrayscaleSlider() {
+  const slider = document.getElementById('grayscale-slider');
+  const chip = document.getElementById('grayscale-chip');
+  const lightnessDisplay = document.getElementById('grayscale-lightness');
+  const hexDisplay = document.getElementById('grayscale-hex');
+  const rgbDisplay = document.getElementById('grayscale-rgb');
+  const presetButtons = document.querySelectorAll('.preset-btn');
+
+  if (!slider || !chip) return;
+
+  function updateGrayscale(lightness) {
+    const l = parseInt(lightness);
+
+    // HSL形式でグレーを設定
+    chip.style.background = `hsl(0, 0%, ${l}%)`;
+
+    // RGB値を計算（グレーなのでR=G=B）
+    const rgbValue = Math.round((l / 100) * 255);
+
+    // HEX値を計算
+    const hexValue = rgbValue.toString(16).padStart(2, '0').toUpperCase();
+    const hexCode = `#${hexValue}${hexValue}${hexValue}`;
+
+    // 表示を更新
+    if (lightnessDisplay) lightnessDisplay.textContent = `${l}%`;
+    if (hexDisplay) hexDisplay.textContent = hexCode;
+    if (rgbDisplay) rgbDisplay.textContent = `rgb(${rgbValue}, ${rgbValue}, ${rgbValue})`;
+
+    // スライダーの値を更新
+    slider.value = l;
+  }
+
+  // スライダーのイベントリスナー
+  slider.addEventListener('input', (e) => {
+    updateGrayscale(e.target.value);
+  });
+
+  // プリセットボタンのイベントリスナー
+  presetButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const lightness = button.getAttribute('data-lightness');
+      updateGrayscale(lightness);
+    });
+  });
+
+  // 初期表示
+  updateGrayscale(50);
+}
+
+// 補色機能と類似色相機能、グレースケール機能の初期化
 document.addEventListener('DOMContentLoaded', () => {
   initializeComplementaryWheel();
   initializeAnalogousWheel();
+  initializeGrayscaleSlider();
 });

@@ -561,23 +561,1254 @@
 
     <!-- タブ2: 無彩色・グレースケール -->
     <section id="tab2" class="tab-content">
-      <header class="section-header">
+      <header class="fh-header">
         <h2>無彩色・グレースケール</h2>
-        <p>彩度が0の世界を探索しましょう。</p>
+        <p>彩度が0の世界を探索しましょう。白・黒・グレーの奥深さを学びます。</p>
       </header>
-      <div class="placeholder-content">
-        <p>🚧 準備中です。近日公開予定！</p>
+
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
+
+        <!-- 1. 無彩色とは？ -->
+        <details class="accordion-item main-accordion">
+          <summary>無彩色とは？</summary>
+          <div class="accordion-content">
+            <p><strong>無彩色</strong>とは、<strong>彩度が0%の色</strong>のことで、色相を持たない色です。白・黒・グレーのみが該当し、明度（Lightness）のみで表現されます。</p>
+
+            <div class="achromatic-demo">
+              <div class="achromatic-bar">
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 0%);">
+                  <span style="color: white;">0%<br>黒</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 10%);">
+                  <span style="color: white;">10%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 20%);">
+                  <span style="color: white;">20%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 30%);">
+                  <span style="color: white;">30%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 40%);">
+                  <span style="color: white;">40%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 50%);">
+                  <span style="color: white;">50%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 60%);">
+                  <span>60%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 70%);">
+                  <span>70%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 80%);">
+                  <span>80%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 90%);">
+                  <span>90%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 100%); border: 1px solid #ddd;">
+                  <span>100%<br>白</span>
+                </div>
+              </div>
+              <p class="demo-caption">無彩色のグレースケール（明度0%〜100%）</p>
+            </div>
+
+            <div class="achromatic-features">
+              <h4>無彩色の特徴</h4>
+              <ul>
+                <li><strong>色相がない：</strong>どの色相環の位置にも属さない</li>
+                <li><strong>彩度が0%：</strong>鮮やかさがまったくない状態</li>
+                <li><strong>明度のみで変化：</strong>黒（0%）から白（100%）まで</li>
+                <li><strong>RGB値が等しい：</strong>rgb(128, 128, 128)のようにR・G・Bが同じ値</li>
+                <li><strong>どんな色とも相性が良い：</strong>有彩色を引き立てる</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- 2. グレースケールを操作する -->
+        <details class="accordion-item main-accordion">
+          <summary>グレースケールを操作する</summary>
+          <div class="accordion-content">
+            <p>スライダーを動かして、グレーの明度を自由に調整してみましょう。</p>
+
+            <div class="grayscale-interactive">
+              <div class="grayscale-preview">
+                <div id="grayscale-chip" class="grayscale-chip"></div>
+                <div class="grayscale-info">
+                  <div class="info-row">
+                    <span class="info-label">明度</span>
+                    <span id="grayscale-lightness" class="info-value">50%</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">HEX</span>
+                    <span id="grayscale-hex" class="info-value">#808080</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">RGB</span>
+                    <span id="grayscale-rgb" class="info-value">rgb(128, 128, 128)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grayscale-controls">
+                <label for="grayscale-slider">明度を調整</label>
+                <input type="range" id="grayscale-slider" min="0" max="100" value="50"
+                       aria-label="グレーの明度を0%から100%の範囲で調整">
+                <div class="grayscale-presets">
+                  <button class="preset-btn" data-lightness="0">黒</button>
+                  <button class="preset-btn" data-lightness="25">濃いグレー</button>
+                  <button class="preset-btn" data-lightness="50">グレー</button>
+                  <button class="preset-btn" data-lightness="75">明るいグレー</button>
+                  <button class="preset-btn" data-lightness="100">白</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 3. 無彩色の役割 -->
+        <details class="accordion-item main-accordion">
+          <summary>無彩色の役割</summary>
+          <div class="accordion-content">
+            <p>無彩色はデザインにおいて<strong>非常に重要な役割</strong>を果たします。</p>
+
+            <div class="role-grid">
+              <div class="role-card">
+                <h4>📝 テキストカラー</h4>
+                <div class="role-demo" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd;">
+                  <p style="color: #000; margin: 0 0 0.5rem 0; font-weight: 600;">黒（#000000）- 最も高いコントラスト</p>
+                  <p style="color: #333; margin: 0 0 0.5rem 0;">濃いグレー（#333333）- 本文に最適</p>
+                  <p style="color: #666; margin: 0 0 0.5rem 0;">グレー（#666666）- 補助テキスト</p>
+                  <p style="color: #999; margin: 0;">明るいグレー（#999999）- 薄いテキスト</p>
+                </div>
+                <p>黒や濃いグレーは本文テキストに、明るいグレーはキャプションや補助情報に使用します。</p>
+              </div>
+
+              <div class="role-card">
+                <h4>🎨 背景色</h4>
+                <div class="role-demo-bg">
+                  <div style="background: #f8f9fa; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                    <span style="color: #333;">明るいグレー背景 (#f8f9fa)</span>
+                  </div>
+                  <div style="background: #e9ecef; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                    <span style="color: #333;">中間グレー背景 (#e9ecef)</span>
+                  </div>
+                  <div style="background: #343a40; padding: 1rem; border-radius: 4px;">
+                    <span style="color: white;">ダークグレー背景 (#343a40)</span>
+                  </div>
+                </div>
+                <p>白や明るいグレーは明るい背景に、濃いグレーや黒はダークモードに使用します。</p>
+              </div>
+
+              <div class="role-card">
+                <h4>🔲 UI要素</h4>
+                <div class="role-demo-ui">
+                  <button style="background: #6c757d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; margin-right: 0.5rem;">グレーボタン</button>
+                  <input type="text" placeholder="グレーボーダー" style="border: 2px solid #ced4da; padding: 0.5rem; border-radius: 4px;">
+                </div>
+                <p>ボタン、入力欄、区切り線など、UIパーツの多くに無彩色が使われます。</p>
+              </div>
+
+              <div class="role-card">
+                <h4>✨ 有彩色を引き立てる</h4>
+                <div class="role-demo-accent">
+                  <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <div style="width: 80px; height: 80px; background: #e9ecef; border-radius: 8px;"></div>
+                    <div style="width: 80px; height: 80px; background: #e9ecef; border-radius: 8px;"></div>
+                    <div style="width: 80px; height: 80px; background: #4A90E2; border-radius: 8px;"></div>
+                    <div style="width: 80px; height: 80px; background: #e9ecef; border-radius: 8px;"></div>
+                  </div>
+                </div>
+                <p>無彩色をベースにすることで、アクセントカラーが際立ちます。</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 4. コントラスト比とアクセシビリティ -->
+        <details class="accordion-item main-accordion">
+          <summary>コントラスト比とアクセシビリティ</summary>
+          <div class="accordion-content">
+            <p>Webデザインでは、<strong>WCAGアクセシビリティガイドライン</strong>に基づいたコントラスト比の確保が重要です。</p>
+
+            <div class="wcag-info">
+              <h4>WCAG 2.1のコントラスト基準</h4>
+              <table class="wcag-table">
+                <thead>
+                  <tr>
+                    <th>レベル</th>
+                    <th>通常テキスト</th>
+                    <th>大きいテキスト</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>AA（最低基準）</strong></td>
+                    <td>4.5:1 以上</td>
+                    <td>3:1 以上</td>
+                  </tr>
+                  <tr>
+                    <td><strong>AAA（推奨）</strong></td>
+                    <td>7:1 以上</td>
+                    <td>4.5:1 以上</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="contrast-examples-achromatic">
+              <h4>コントラスト比の例</h4>
+
+              <div class="contrast-demo good-contrast">
+                <div style="background: #fff; color: #000; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>✓ 良い例：</strong>白背景 + 黒テキスト（21:1）
+                </div>
+                <p class="contrast-note">最高のコントラスト。読みやすさ抜群。</p>
+              </div>
+
+              <div class="contrast-demo good-contrast">
+                <div style="background: #fff; color: #333; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>✓ 良い例：</strong>白背景 + 濃いグレー（12.6:1）
+                </div>
+                <p class="contrast-note">AAA基準をクリア。目に優しく読みやすい。</p>
+              </div>
+
+              <div class="contrast-demo ok-contrast">
+                <div style="background: #fff; color: #666; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>△ 注意：</strong>白背景 + グレー（5.7:1）
+                </div>
+                <p class="contrast-note">AA基準はクリアするが、小さい文字には不向き。</p>
+              </div>
+
+              <div class="contrast-demo bad-contrast">
+                <div style="background: #fff; color: #999; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>✗ 悪い例：</strong>白背景 + 明るいグレー（2.8:1）
+                </div>
+                <p class="contrast-note">基準を満たさない。読みづらい。</p>
+              </div>
+            </div>
+
+            <div class="accessibility-tips">
+              <h4>💡 アクセシビリティのヒント</h4>
+              <ul>
+                <li>本文テキストは<strong>#333以下の濃いグレー</strong>を使用</li>
+                <li>白背景には黒〜濃いグレー、黒背景には白〜明るいグレーを使用</li>
+                <li>重要なボタンやリンクは<strong>十分なコントラスト</strong>を確保</li>
+                <li>薄いグレーは装飾やボーダーのみに使用し、テキストには避ける</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- 5. モノクロデザインの魅力 -->
+        <details class="accordion-item main-accordion">
+          <summary>モノクロデザインの魅力</summary>
+          <div class="accordion-content">
+            <p>無彩色のみで構成された<strong>モノクロデザイン</strong>は、シンプルで洗練された印象を与えます。</p>
+
+            <div class="monochrome-benefits">
+              <h4>モノクロデザインのメリット</h4>
+              <div class="benefit-grid">
+                <div class="benefit-card">
+                  <span class="benefit-icon">🎯</span>
+                  <h5>集中力向上</h5>
+                  <p>色の情報がないため、コンテンツに集中しやすい</p>
+                </div>
+                <div class="benefit-card">
+                  <span class="benefit-icon">✨</span>
+                  <h5>洗練された印象</h5>
+                  <p>シンプルで高級感のあるデザインを実現</p>
+                </div>
+                <div class="benefit-card">
+                  <span class="benefit-icon">📐</span>
+                  <h5>レイアウトが際立つ</h5>
+                  <p>構造や余白の美しさが強調される</p>
+                </div>
+                <div class="benefit-card">
+                  <span class="benefit-icon">🌍</span>
+                  <h5>普遍的</h5>
+                  <p>文化や流行に左右されない普遍的なデザイン</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="monochrome-tips">
+              <h4>📌 モノクロデザインのコツ</h4>
+              <ul>
+                <li><strong>階層を明度で表現：</strong>重要な要素は濃く、補助的な要素は薄く</li>
+                <li><strong>余白を活用：</strong>無彩色だからこそ余白の美しさが際立つ</li>
+                <li><strong>テクスチャで変化をつける：</strong>影、グラデーション、パターンを活用</li>
+                <li><strong>タイポグラフィを重視：</strong>フォントの選択と大きさで個性を出す</li>
+                <li><strong>1色のアクセント：</strong>必要に応じて1色だけ有彩色を加える</li>
+              </ul>
+            </div>
+
+            <div class="monochrome-example">
+              <h4>モノクロ + アクセントカラーの例</h4>
+              <div class="accent-demo">
+                <div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); padding: 2rem; border-radius: 12px; color: white;">
+                  <h3 style="margin-top: 0; font-size: 1.5rem;">モノクロベースのデザイン</h3>
+                  <p style="color: #ecf0f1; margin: 1rem 0;">背景とテキストは無彩色でシンプルに</p>
+                  <button style="background: #3498db; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                    アクセントカラー
+                  </button>
+                </div>
+              </div>
+              <p class="demo-caption">無彩色をベースに、青のアクセントカラーで重要な要素を強調</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- 6. 無彩色のカラーコードに注目する -->
+        <details class="accordion-item main-accordion">
+          <summary>無彩色のカラーコードに注目する</summary>
+          <div class="accordion-content">
+            <p>無彩色のカラーコードには、興味深い<strong>規則性</strong>があります。HEX形式のカラーコードを観察してみましょう。</p>
+
+            <div class="hex-pattern-info">
+              <h4>無彩色の特徴的なパターン</h4>
+              <p>無彩色のHEXコードは、<strong>同じ数字やアルファベットが並ぶ</strong>パターンになります。これは、RGB値が等しいためです。</p>
+
+              <div class="hex-structure">
+                <div class="hex-explanation">
+                  <div class="hex-box">
+                    <span class="hex-symbol">#</span>
+                    <span class="hex-part red">88</span>
+                    <span class="hex-part green">88</span>
+                    <span class="hex-part blue">88</span>
+                  </div>
+                  <div class="hex-labels">
+                    <span class="label-arrow red">↑ R (赤)</span>
+                    <span class="label-arrow green">↑ G (緑)</span>
+                    <span class="label-arrow blue">↑ B (青)</span>
+                  </div>
+                  <p class="hex-note">無彩色では、R・G・Bの値がすべて同じになります</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="hex-brightness">
+              <h4>16進数と明度の関係</h4>
+              <p>HEXコードは<strong>16進数</strong>で表現されます。<strong>0〜F</strong>の16種類の文字を使い、以下のような対応関係があります：</p>
+
+              <div class="hex-scale">
+                <div class="hex-scale-bar">
+                  <div class="scale-item dark">
+                    <span class="scale-value">0</span>
+                    <span class="scale-label">最も暗い<br>（明度0%）</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">3</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">6</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">9</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">C</span>
+                  </div>
+                  <div class="scale-item bright">
+                    <span class="scale-value">F</span>
+                    <span class="scale-label">最も明るい<br>（明度100%）</span>
+                  </div>
+                </div>
+                <p class="scale-note">
+                  <strong>0に近いほど暗く（明度が低い）、Fに近いほど明るく（明度が高い）</strong>なります
+                </p>
+              </div>
+            </div>
+
+            <div class="common-grays">
+              <h4>よく使われる無彩色のカラーコード</h4>
+
+              <div class="gray-examples-grid">
+                <div class="gray-example-card" style="background: #000000;">
+                  <div class="gray-color-display black">
+                    <span class="color-name" style="color: white;">黒</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#000000</p>
+                    <p class="gray-detail">明度: 0%<br>すべてが最小値（0）</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #333333;">
+                  <div class="gray-color-display very-dark">
+                    <span class="color-name" style="color: white;">濃いグレー</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#333333</p>
+                    <p class="gray-detail">明度: 20%<br>本文テキストに最適</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #666666;">
+                  <div class="gray-color-display dark">
+                    <span class="color-name" style="color: white;">グレー</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#666666</p>
+                    <p class="gray-detail">明度: 40%<br>補助テキストに</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #999999;">
+                  <div class="gray-color-display medium">
+                    <span class="color-name">中間グレー</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#999999</p>
+                    <p class="gray-detail">明度: 60%<br>ボーダーやアイコン</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #CCCCCC;">
+                  <div class="gray-color-display light">
+                    <span class="color-name">明るいグレー</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#CCCCCC</p>
+                    <p class="gray-detail">明度: 80%<br>背景や区切り線</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #FFFFFF; border: 2px solid #ddd;">
+                  <div class="gray-color-display white">
+                    <span class="color-name">白</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#FFFFFF</p>
+                    <p class="gray-detail">明度: 100%<br>すべてが最大値（F）</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hex-tips">
+              <h4>💡 カラーコードを覚えるコツ</h4>
+              <div class="tip-boxes">
+                <div class="tip-box">
+                  <h5>🎯 キリの良い数字を覚える</h5>
+                  <ul>
+                    <li><strong>#000</strong>、<strong>#333</strong>、<strong>#666</strong>、<strong>#999</strong>、<strong>#CCC</strong>、<strong>#FFF</strong></li>
+                    <li>3桁表記は2桁ずつ展開される（#333 → #333333）</li>
+                  </ul>
+                </div>
+
+                <div class="tip-box">
+                  <h5>📊 16進数の対応関係</h5>
+                  <p>16進数の0〜F は、10進数の0〜255に対応します</p>
+                  <ul>
+                    <li>#000000 = rgb(0, 0, 0)</li>
+                    <li>#808080 = rgb(128, 128, 128)</li>
+                    <li>#FFFFFF = rgb(255, 255, 255)</li>
+                  </ul>
+                </div>
+
+                <div class="tip-box">
+                  <h5>⚡ 便利な使い分け</h5>
+                  <ul>
+                    <li><strong>テキスト：</strong>#000、#333（濃いめ）</li>
+                    <li><strong>補助テキスト：</strong>#666、#999（中間）</li>
+                    <li><strong>背景・ボーダー：</strong>#CCC、#EEE、#F5F5F5（明るめ）</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="hex-practice">
+              <h4>🔍 パターンを見つける練習</h4>
+              <p>以下のカラーコードを見て、無彩色かどうか判断してみましょう：</p>
+
+              <div class="practice-grid">
+                <div class="practice-item achromatic">
+                  <div class="practice-color" style="background: #777777;"></div>
+                  <p class="practice-code">#777777</p>
+                  <p class="practice-answer">✓ 無彩色（グレー）</p>
+                </div>
+
+                <div class="practice-item chromatic">
+                  <div class="practice-color" style="background: #7A7777;"></div>
+                  <p class="practice-code">#7A7777</p>
+                  <p class="practice-answer">✗ 有彩色（わずかに赤みがある）</p>
+                </div>
+
+                <div class="practice-item achromatic">
+                  <div class="practice-color" style="background: #ABABAB;"></div>
+                  <p class="practice-code">#ABABAB</p>
+                  <p class="practice-answer">✓ 無彩色（明るいグレー）</p>
+                </div>
+
+                <div class="practice-item chromatic">
+                  <div class="practice-color" style="background: #ABACAB;"></div>
+                  <p class="practice-code">#ABACAB</p>
+                  <p class="practice-answer">✗ 有彩色（わずかに緑みがある）</p>
+                </div>
+              </div>
+
+              <p class="practice-note">
+                <strong>ポイント：</strong>無彩色のHEXコードは、2文字ずつのペアがすべて同じになります！
+              </p>
+            </div>
+
+          </div>
+        </details>
+
       </div>
     </section>
 
     <!-- タブ3: 色の印象と心理 -->
     <section id="tab3" class="tab-content">
-      <header class="section-header">
+      <header class="fh-header">
         <h2>色の印象と心理</h2>
         <p>色が与える心理的効果を学びましょう。</p>
       </header>
-      <div class="placeholder-content">
-        <p>🚧 準備中です。近日公開予定！</p>
+
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
+
+        <!-- 1. 色の心理効果とは？ -->
+        <details class="accordion-item main-accordion">
+          <summary>色の心理効果とは？</summary>
+          <div class="accordion-content">
+            <p><strong>色の心理効果</strong>とは、色が人間の感情や行動に与える影響のことです。色は単なる視覚情報ではなく、私たちの<strong>心理状態</strong>や<strong>行動パターン</strong>に深く関わっています。</p>
+
+            <div class="psychology-intro">
+              <h4>色が影響を与える領域</h4>
+              <div class="influence-grid">
+                <div class="influence-card">
+                  <span class="influence-icon">🧠</span>
+                  <h5>感情</h5>
+                  <p>色は気分や感情を変化させます。赤は興奮、青は落ち着きをもたらします。</p>
+                </div>
+                <div class="influence-card">
+                  <span class="influence-icon">💭</span>
+                  <h5>連想</h5>
+                  <p>色は特定のイメージを呼び起こします。緑は自然、白は清潔さを連想させます。</p>
+                </div>
+                <div class="influence-card">
+                  <span class="influence-icon">🎯</span>
+                  <h5>行動</h5>
+                  <p>色は購買行動や意思決定に影響します。黄色は注意を引き、青は信頼感を高めます。</p>
+                </div>
+                <div class="influence-card">
+                  <span class="influence-icon">🌡️</span>
+                  <h5>体感温度</h5>
+                  <p>暖色は暖かく、寒色は涼しく感じさせる効果があります。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="color-categories">
+              <h4>色の分類</h4>
+              <div class="category-boxes">
+                <div class="category-box warm">
+                  <h5>暖色系</h5>
+                  <div class="category-samples">
+                    <div class="cat-sample" style="background: hsl(0, 80%, 55%);"></div>
+                    <div class="cat-sample" style="background: hsl(30, 90%, 60%);"></div>
+                    <div class="cat-sample" style="background: hsl(50, 90%, 55%);"></div>
+                  </div>
+                  <p>赤・オレンジ・黄色<br><strong>温かく活発な印象</strong></p>
+                </div>
+                <div class="category-box cool">
+                  <h5>寒色系</h5>
+                  <div class="category-samples">
+                    <div class="cat-sample" style="background: hsl(200, 80%, 55%);"></div>
+                    <div class="cat-sample" style="background: hsl(220, 80%, 55%);"></div>
+                    <div class="cat-sample" style="background: hsl(280, 60%, 55%);"></div>
+                  </div>
+                  <p>青・水色・紫<br><strong>涼しく落ち着いた印象</strong></p>
+                </div>
+                <div class="category-box neutral">
+                  <h5>中性色</h5>
+                  <div class="category-samples">
+                    <div class="cat-sample" style="background: hsl(120, 50%, 45%);"></div>
+                    <div class="cat-sample" style="background: hsl(330, 70%, 70%);"></div>
+                    <div class="cat-sample" style="background: hsl(30, 40%, 40%);"></div>
+                  </div>
+                  <p>緑・ピンク・茶色<br><strong>バランスの取れた印象</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 2. 赤色の心理効果 -->
+        <details class="accordion-item main-accordion">
+          <summary>🔴 赤色の心理効果</summary>
+          <div class="accordion-content">
+            <div class="color-psychology-header" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 0.5rem 0;">赤色 (Red)</h3>
+              <p style="margin: 0; opacity: 0.95;">情熱・エネルギー・行動を促す色</p>
+            </div>
+
+            <div class="psychology-details">
+              <div class="psych-section">
+                <h4>🎨 心理的効果</h4>
+                <ul>
+                  <li><strong>興奮・刺激：</strong>心拍数を上げ、アドレナリンを分泌させる</li>
+                  <li><strong>注意喚起：</strong>最も目立つ色で、視線を引きつける</li>
+                  <li><strong>行動促進：</strong>購買意欲や食欲を増進させる</li>
+                  <li><strong>エネルギッシュ：</strong>活力や情熱を感じさせる</li>
+                </ul>
+              </div>
+
+              <div class="psych-section">
+                <h4>💭 連想されるもの</h4>
+                <div class="association-tags">
+                  <span class="tag-positive">情熱</span>
+                  <span class="tag-positive">愛</span>
+                  <span class="tag-positive">エネルギー</span>
+                  <span class="tag-positive">勇気</span>
+                  <span class="tag-neutral">火</span>
+                  <span class="tag-neutral">血</span>
+                  <span class="tag-negative">危険</span>
+                  <span class="tag-negative">警告</span>
+                  <span class="tag-negative">攻撃性</span>
+                </div>
+              </div>
+
+              <div class="psych-section">
+                <h4>✅ ポジティブな印象</h4>
+                <p>情熱的、勇気、自信、活力、愛情、強さ、決断力</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>⚠️ ネガティブな印象</h4>
+                <p>危険、怒り、攻撃的、暴力的、警告、禁止</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>🎯 使用例・活用シーン</h4>
+                <ul>
+                  <li><strong>セール・キャンペーン：</strong>緊急性や特別感を演出</li>
+                  <li><strong>CTAボタン：</strong>「今すぐ購入」などのアクション促進</li>
+                  <li><strong>飲食業界：</strong>食欲を刺激するレストランやファーストフード</li>
+                  <li><strong>警告表示：</strong>エラーメッセージや注意喚起</li>
+                  <li><strong>スポーツブランド：</strong>活力とエネルギーを表現</li>
+                </ul>
+              </div>
+
+              <div class="color-variations">
+                <h4>赤色のバリエーション</h4>
+                <div class="variation-grid">
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(0, 90%, 40%);"></div>
+                    <p class="var-name">深紅</p>
+                    <p class="var-desc">高級感・格式</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(0, 80%, 55%);"></div>
+                    <p class="var-name">純粋な赤</p>
+                    <p class="var-desc">情熱・エネルギー</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(0, 70%, 75%);"></div>
+                    <p class="var-name">ピンクレッド</p>
+                    <p class="var-desc">優しさ・親しみ</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 3. 青色の心理効果 -->
+        <details class="accordion-item main-accordion">
+          <summary>🔵 青色の心理効果</summary>
+          <div class="accordion-content">
+            <div class="color-psychology-header" style="background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 0.5rem 0;">青色 (Blue)</h3>
+              <p style="margin: 0; opacity: 0.95;">信頼・冷静・知性を象徴する色</p>
+            </div>
+
+            <div class="psychology-details">
+              <div class="psych-section">
+                <h4>🎨 心理的効果</h4>
+                <ul>
+                  <li><strong>鎮静効果：</strong>心を落ち着かせ、リラックスさせる</li>
+                  <li><strong>信頼感：</strong>誠実さや安全性を感じさせる</li>
+                  <li><strong>集中力向上：</strong>冷静な判断や思考を促進</li>
+                  <li><strong>体感温度低下：</strong>涼しく感じさせる効果</li>
+                </ul>
+              </div>
+
+              <div class="psych-section">
+                <h4>💭 連想されるもの</h4>
+                <div class="association-tags">
+                  <span class="tag-positive">信頼</span>
+                  <span class="tag-positive">誠実</span>
+                  <span class="tag-positive">知性</span>
+                  <span class="tag-positive">冷静</span>
+                  <span class="tag-neutral">空</span>
+                  <span class="tag-neutral">海</span>
+                  <span class="tag-neutral">水</span>
+                  <span class="tag-negative">冷たさ</span>
+                  <span class="tag-negative">悲しみ</span>
+                </div>
+              </div>
+
+              <div class="psych-section">
+                <h4>✅ ポジティブな印象</h4>
+                <p>信頼、誠実、知性、冷静、平和、安全、清潔、プロフェッショナル</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>⚠️ ネガティブな印象</h4>
+                <p>冷たい、無関心、悲しい、保守的、距離感</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>🎯 使用例・活用シーン</h4>
+                <ul>
+                  <li><strong>企業サイト：</strong>信頼性や専門性をアピール</li>
+                  <li><strong>金融・保険：</strong>安全性と信頼感を強調</li>
+                  <li><strong>医療・ヘルスケア：</strong>清潔感と安心感を提供</li>
+                  <li><strong>SNS・通信：</strong>Facebook、Twitter、Skypeなど</li>
+                  <li><strong>学習環境：</strong>集中力を高める</li>
+                </ul>
+              </div>
+
+              <div class="color-variations">
+                <h4>青色のバリエーション</h4>
+                <div class="variation-grid">
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(210, 80%, 30%);"></div>
+                    <p class="var-name">ネイビー</p>
+                    <p class="var-desc">格式・権威</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(210, 80%, 55%);"></div>
+                    <p class="var-name">鮮やかな青</p>
+                    <p class="var-desc">信頼・クリア</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(200, 70%, 75%);"></div>
+                    <p class="var-name">スカイブルー</p>
+                    <p class="var-desc">爽やか・開放感</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 4. 緑色の心理効果 -->
+        <details class="accordion-item main-accordion">
+          <summary>🟢 緑色の心理効果</summary>
+          <div class="accordion-content">
+            <div class="color-psychology-header" style="background: linear-gradient(135deg, #51cf66 0%, #37b24d 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 0.5rem 0;">緑色 (Green)</h3>
+              <p style="margin: 0; opacity: 0.95;">自然・調和・成長を表す色</p>
+            </div>
+
+            <div class="psychology-details">
+              <div class="psych-section">
+                <h4>🎨 心理的効果</h4>
+                <ul>
+                  <li><strong>リラックス：</strong>目の疲れを軽減し、心を癒す</li>
+                  <li><strong>バランス：</strong>暖色と寒色の中間で調和を生む</li>
+                  <li><strong>安心感：</strong>自然の色で安全性を感じさせる</li>
+                  <li><strong>成長促進：</strong>新鮮さや再生をイメージさせる</li>
+                </ul>
+              </div>
+
+              <div class="psych-section">
+                <h4>💭 連想されるもの</h4>
+                <div class="association-tags">
+                  <span class="tag-positive">自然</span>
+                  <span class="tag-positive">健康</span>
+                  <span class="tag-positive">成長</span>
+                  <span class="tag-positive">調和</span>
+                  <span class="tag-positive">平和</span>
+                  <span class="tag-neutral">植物</span>
+                  <span class="tag-neutral">森</span>
+                  <span class="tag-neutral">エコ</span>
+                  <span class="tag-negative">未熟</span>
+                </div>
+              </div>
+
+              <div class="psych-section">
+                <h4>✅ ポジティブな印象</h4>
+                <p>自然、健康、新鮮、成長、調和、平和、安全、リラックス</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>⚠️ ネガティブな印象</h4>
+                <p>未熟、嫉妬、毒（濃い緑の場合）</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>🎯 使用例・活用シーン</h4>
+                <ul>
+                  <li><strong>環境・エコ関連：</strong>自然保護や持続可能性をアピール</li>
+                  <li><strong>健康・医療：</strong>健康的なイメージを強調</li>
+                  <li><strong>食品・オーガニック：</strong>新鮮さや自然由来を表現</li>
+                  <li><strong>金融（一部）：</strong>成長や安定を象徴</li>
+                  <li><strong>成功メッセージ：</strong>「完了」「成功」の表示</li>
+                </ul>
+              </div>
+
+              <div class="color-variations">
+                <h4>緑色のバリエーション</h4>
+                <div class="variation-grid">
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(120, 60%, 30%);"></div>
+                    <p class="var-name">深緑</p>
+                    <p class="var-desc">落ち着き・自然</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(120, 70%, 45%);"></div>
+                    <p class="var-name">鮮やかな緑</p>
+                    <p class="var-desc">活力・新鮮</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(90, 60%, 70%);"></div>
+                    <p class="var-name">黄緑</p>
+                    <p class="var-desc">若々しさ・春</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 5. 黄色の心理効果 -->
+        <details class="accordion-item main-accordion">
+          <summary>🟡 黄色の心理効果</summary>
+          <div class="accordion-content">
+            <div class="color-psychology-header" style="background: linear-gradient(135deg, #ffd43b 0%, #fab005 100%); color: #333; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 0.5rem 0;">黄色 (Yellow)</h3>
+              <p style="margin: 0; opacity: 0.95;">明るさ・楽観・注目を集める色</p>
+            </div>
+
+            <div class="psychology-details">
+              <div class="psych-section">
+                <h4>🎨 心理的効果</h4>
+                <ul>
+                  <li><strong>注意喚起：</strong>視認性が高く、警告や注目を集める</li>
+                  <li><strong>楽観性：</strong>明るく前向きな気持ちにさせる</li>
+                  <li><strong>知的刺激：</strong>創造性や思考を活性化</li>
+                  <li><strong>エネルギー：</strong>活発で陽気な印象を与える</li>
+                </ul>
+              </div>
+
+              <div class="psych-section">
+                <h4>💭 連想されるもの</h4>
+                <div class="association-tags">
+                  <span class="tag-positive">太陽</span>
+                  <span class="tag-positive">明るさ</span>
+                  <span class="tag-positive">希望</span>
+                  <span class="tag-positive">楽観</span>
+                  <span class="tag-positive">幸福</span>
+                  <span class="tag-neutral">金</span>
+                  <span class="tag-neutral">光</span>
+                  <span class="tag-negative">注意</span>
+                  <span class="tag-negative">臆病</span>
+                </div>
+              </div>
+
+              <div class="psych-section">
+                <h4>✅ ポジティブな印象</h4>
+                <p>明るい、楽観的、幸福、希望、知性、創造性、エネルギー</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>⚠️ ネガティブな印象</h4>
+                <p>注意・警告、臆病、不安定、刺激が強すぎる</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>🎯 使用例・活用シーン</h4>
+                <ul>
+                  <li><strong>注意喚起：</strong>工事現場や警告サイン</li>
+                  <li><strong>子供向け：</strong>明るく楽しい印象を演出</li>
+                  <li><strong>飲食業：</strong>食欲を刺激（ファーストフード等）</li>
+                  <li><strong>セール・特典：</strong>「お得」や「特別」を強調</li>
+                  <li><strong>エンターテインメント：</strong>陽気で楽しい雰囲気</li>
+                </ul>
+              </div>
+
+              <div class="color-variations">
+                <h4>黄色のバリエーション</h4>
+                <div class="variation-grid">
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(45, 90%, 40%);"></div>
+                    <p class="var-name">ゴールド</p>
+                    <p class="var-desc">高級・価値</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(50, 95%, 55%);"></div>
+                    <p class="var-name">鮮やかな黄色</p>
+                    <p class="var-desc">明るさ・活力</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(50, 80%, 80%);"></div>
+                    <p class="var-name">クリームイエロー</p>
+                    <p class="var-desc">優しさ・温かみ</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 6. オレンジ色の心理効果 -->
+        <details class="accordion-item main-accordion">
+          <summary>🟠 オレンジ色の心理効果</summary>
+          <div class="accordion-content">
+            <div class="color-psychology-header" style="background: linear-gradient(135deg, #ff922b 0%, #fd7e14 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 0.5rem 0;">オレンジ色 (Orange)</h3>
+              <p style="margin: 0; opacity: 0.95;">活力・親しみ・創造性を示す色</p>
+            </div>
+
+            <div class="psychology-details">
+              <div class="psych-section">
+                <h4>🎨 心理的効果</h4>
+                <ul>
+                  <li><strong>親しみやすさ：</strong>温かく友好的な印象を与える</li>
+                  <li><strong>活力：</strong>赤と黄色の良いバランスでエネルギッシュ</li>
+                  <li><strong>食欲増進：</strong>食品業界で効果的</li>
+                  <li><strong>社交性：</strong>コミュニケーションを促進</li>
+                </ul>
+              </div>
+
+              <div class="psych-section">
+                <h4>💭 連想されるもの</h4>
+                <div class="association-tags">
+                  <span class="tag-positive">活力</span>
+                  <span class="tag-positive">創造性</span>
+                  <span class="tag-positive">親しみ</span>
+                  <span class="tag-positive">温かみ</span>
+                  <span class="tag-neutral">秋</span>
+                  <span class="tag-neutral">夕日</span>
+                  <span class="tag-neutral">オレンジ（果物）</span>
+                </div>
+              </div>
+
+              <div class="psych-section">
+                <h4>✅ ポジティブな印象</h4>
+                <p>活発、親しみやすい、温かい、創造的、楽しい、社交的</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>⚠️ ネガティブな印象</h4>
+                <p>安っぽい（使い方次第）、目立ちすぎる</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>🎯 使用例・活用シーン</h4>
+                <ul>
+                  <li><strong>CTAボタン：</strong>赤よりも柔らかくアクションを促す</li>
+                  <li><strong>飲食業：</strong>食欲を刺激し親しみやすさを演出</li>
+                  <li><strong>教育・子供向け：</strong>楽しく活発な雰囲気</li>
+                  <li><strong>クリエイティブ業界：</strong>創造性と活力を表現</li>
+                  <li><strong>イベント・エンタメ：</strong>明るく楽しい雰囲気</li>
+                </ul>
+              </div>
+
+              <div class="color-variations">
+                <h4>オレンジ色のバリエーション</h4>
+                <div class="variation-grid">
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(25, 80%, 45%);"></div>
+                    <p class="var-name">バーントオレンジ</p>
+                    <p class="var-desc">落ち着き・秋</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(30, 90%, 60%);"></div>
+                    <p class="var-name">鮮やかなオレンジ</p>
+                    <p class="var-desc">活力・明るさ</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(30, 80%, 75%);"></div>
+                    <p class="var-name">ピーチ</p>
+                    <p class="var-desc">優しさ・温もり</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 7. 紫色の心理効果 -->
+        <details class="accordion-item main-accordion">
+          <summary>🟣 紫色の心理効果</summary>
+          <div class="accordion-content">
+            <div class="color-psychology-header" style="background: linear-gradient(135deg, #9775fa 0%, #845ef7 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 0.5rem 0;">紫色 (Purple)</h3>
+              <p style="margin: 0; opacity: 0.95;">高貴・神秘・創造性を象徴する色</p>
+            </div>
+
+            <div class="psychology-details">
+              <div class="psych-section">
+                <h4>🎨 心理的効果</h4>
+                <ul>
+                  <li><strong>高級感：</strong>歴史的に王族や貴族の色</li>
+                  <li><strong>神秘性：</strong>スピリチュアルや精神性を連想</li>
+                  <li><strong>創造性：</strong>芸術的で想像力を刺激</li>
+                  <li><strong>独創性：</strong>個性的で他と差別化</li>
+                </ul>
+              </div>
+
+              <div class="psych-section">
+                <h4>💭 連想されるもの</h4>
+                <div class="association-tags">
+                  <span class="tag-positive">高貴</span>
+                  <span class="tag-positive">神秘</span>
+                  <span class="tag-positive">創造性</span>
+                  <span class="tag-positive">優雅</span>
+                  <span class="tag-neutral">王族</span>
+                  <span class="tag-neutral">魔法</span>
+                  <span class="tag-neutral">スピリチュアル</span>
+                  <span class="tag-negative">不安定</span>
+                </div>
+              </div>
+
+              <div class="psych-section">
+                <h4>✅ ポジティブな印象</h4>
+                <p>高貴、神秘的、創造的、優雅、芸術的、精神的、贅沢</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>⚠️ ネガティブな印象</h4>
+                <p>不安定、現実離れ、孤独、傲慢</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>🎯 使用例・活用シーン</h4>
+                <ul>
+                  <li><strong>高級ブランド：</strong>上質さや格式を表現</li>
+                  <li><strong>美容・コスメ：</strong>優雅で女性的な印象</li>
+                  <li><strong>クリエイティブ業界：</strong>芸術性や独創性を強調</li>
+                  <li><strong>スピリチュアル：</strong>瞑想やヨガ関連</li>
+                  <li><strong>テクノロジー（一部）：</strong>革新性や先進性</li>
+                </ul>
+              </div>
+
+              <div class="color-variations">
+                <h4>紫色のバリエーション</h4>
+                <div class="variation-grid">
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(280, 70%, 35%);"></div>
+                    <p class="var-name">ロイヤルパープル</p>
+                    <p class="var-desc">高貴・権威</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(280, 65%, 60%);"></div>
+                    <p class="var-name">鮮やかな紫</p>
+                    <p class="var-desc">創造性・神秘</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(280, 50%, 80%);"></div>
+                    <p class="var-name">ラベンダー</p>
+                    <p class="var-desc">優しさ・癒し</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 8. ピンク色の心理効果 -->
+        <details class="accordion-item main-accordion">
+          <summary>🌸 ピンク色の心理効果</summary>
+          <div class="accordion-content">
+            <div class="color-psychology-header" style="background: linear-gradient(135deg, #ff6b9d 0%, #ff8ac6 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 0.5rem 0;">ピンク色 (Pink)</h3>
+              <p style="margin: 0; opacity: 0.95;">優しさ・愛情・女性性を表す色</p>
+            </div>
+
+            <div class="psychology-details">
+              <div class="psych-section">
+                <h4>🎨 心理的効果</h4>
+                <ul>
+                  <li><strong>癒し：</strong>心を穏やかにし、優しい気持ちにさせる</li>
+                  <li><strong>愛情：</strong>ロマンチックで温かい印象</li>
+                  <li><strong>女性性：</strong>柔らかく繊細な雰囲気</li>
+                  <li><strong>若々しさ：</strong>可愛らしくフレッシュ</li>
+                </ul>
+              </div>
+
+              <div class="psych-section">
+                <h4>💭 連想されるもの</h4>
+                <div class="association-tags">
+                  <span class="tag-positive">愛情</span>
+                  <span class="tag-positive">優しさ</span>
+                  <span class="tag-positive">ロマンス</span>
+                  <span class="tag-positive">可愛らしさ</span>
+                  <span class="tag-neutral">女性</span>
+                  <span class="tag-neutral">桜</span>
+                  <span class="tag-neutral">甘さ</span>
+                  <span class="tag-negative">幼稚</span>
+                </div>
+              </div>
+
+              <div class="psych-section">
+                <h4>✅ ポジティブな印象</h4>
+                <p>優しい、愛情深い、ロマンチック、可愛い、穏やか、癒し</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>⚠️ ネガティブな印象</h4>
+                <p>幼稚、甘すぎる、弱々しい、女性的すぎる</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>🎯 使用例・活用シーン</h4>
+                <ul>
+                  <li><strong>美容・コスメ：</strong>女性向け商品の定番色</li>
+                  <li><strong>ベビー用品：</strong>優しく可愛らしい印象</li>
+                  <li><strong>スイーツ・カフェ：</strong>甘くて柔らかい雰囲気</li>
+                  <li><strong>ウェディング：</strong>ロマンチックで幸福な演出</li>
+                  <li><strong>ヘルスケア：</strong>温かみと癒しを提供</li>
+                </ul>
+              </div>
+
+              <div class="color-variations">
+                <h4>ピンク色のバリエーション</h4>
+                <div class="variation-grid">
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(340, 85%, 40%);"></div>
+                    <p class="var-name">ローズ</p>
+                    <p class="var-desc">情熱・大人っぽさ</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(330, 80%, 70%);"></div>
+                    <p class="var-name">鮮やかなピンク</p>
+                    <p class="var-desc">可愛い・華やか</p>
+                  </div>
+                  <div class="var-item">
+                    <div class="var-color" style="background: hsl(330, 50%, 85%);"></div>
+                    <p class="var-name">パステルピンク</p>
+                    <p class="var-desc">優しさ・柔らか</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 9. 黒色・白色の心理効果 -->
+        <details class="accordion-item main-accordion">
+          <summary>⚫⚪ 黒色・白色の心理効果</summary>
+          <div class="accordion-content">
+
+            <!-- 黒色 -->
+            <div class="color-psychology-header" style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem;">
+              <h3 style="margin: 0 0 0.5rem 0;">黒色 (Black)</h3>
+              <p style="margin: 0; opacity: 0.95;">力強さ・高級感・洗練を象徴する色</p>
+            </div>
+
+            <div class="psychology-details">
+              <div class="psych-section">
+                <h4>🎨 心理的効果</h4>
+                <ul>
+                  <li><strong>高級感：</strong>上質で洗練された印象</li>
+                  <li><strong>力強さ：</strong>威厳や権威を感じさせる</li>
+                  <li><strong>シック：</strong>大人っぽく落ち着いた雰囲気</li>
+                  <li><strong>引き締め効果：</strong>デザインを引き締める</li>
+                </ul>
+              </div>
+
+              <div class="psych-section">
+                <h4>💭 連想されるもの</h4>
+                <div class="association-tags">
+                  <span class="tag-positive">高級</span>
+                  <span class="tag-positive">洗練</span>
+                  <span class="tag-positive">力</span>
+                  <span class="tag-positive">格式</span>
+                  <span class="tag-neutral">夜</span>
+                  <span class="tag-neutral">フォーマル</span>
+                  <span class="tag-negative">暗闇</span>
+                  <span class="tag-negative">恐怖</span>
+                  <span class="tag-negative">死</span>
+                </div>
+              </div>
+
+              <div class="psych-section">
+                <h4>✅ ポジティブな印象</h4>
+                <p>高級、洗練、力強い、格式、シック、モダン、プロフェッショナル</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>⚠️ ネガティブな印象</h4>
+                <p>暗い、重い、恐怖、悲しみ、死、邪悪</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>🎯 使用例・活用シーン</h4>
+                <ul>
+                  <li><strong>高級ブランド：</strong>シャネル、グッチなどラグジュアリー</li>
+                  <li><strong>ファッション：</strong>万能色で洗練された印象</li>
+                  <li><strong>テキスト：</strong>可読性が高く本文に最適</li>
+                  <li><strong>フォーマル：</strong>正式な場や重要な情報</li>
+                </ul>
+              </div>
+            </div>
+
+            <hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">
+
+            <!-- 白色 -->
+            <div class="color-psychology-header" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); color: #333; padding: 2rem; border-radius: 12px; margin-bottom: 1.5rem; border: 2px solid #dee2e6;">
+              <h3 style="margin: 0 0 0.5rem 0;">白色 (White)</h3>
+              <p style="margin: 0; opacity: 0.95;">純粋・清潔・シンプルを表す色</p>
+            </div>
+
+            <div class="psychology-details">
+              <div class="psych-section">
+                <h4>🎨 心理的効果</h4>
+                <ul>
+                  <li><strong>清潔感：</strong>衛生的で爽やかな印象</li>
+                  <li><strong>純粋：</strong>無垢で素直なイメージ</li>
+                  <li><strong>シンプル：</strong>ミニマルで洗練</li>
+                  <li><strong>開放感：</strong>広く明るい空間を演出</li>
+                </ul>
+              </div>
+
+              <div class="psych-section">
+                <h4>💭 連想されるもの</h4>
+                <div class="association-tags">
+                  <span class="tag-positive">純粋</span>
+                  <span class="tag-positive">清潔</span>
+                  <span class="tag-positive">平和</span>
+                  <span class="tag-positive">シンプル</span>
+                  <span class="tag-neutral">雪</span>
+                  <span class="tag-neutral">光</span>
+                  <span class="tag-neutral">医療</span>
+                  <span class="tag-negative">空虚</span>
+                  <span class="tag-negative">冷たさ</span>
+                </div>
+              </div>
+
+              <div class="psych-section">
+                <h4>✅ ポジティブな印象</h4>
+                <p>純粋、清潔、平和、シンプル、明るい、誠実、新しい</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>⚠️ ネガティブな印象</h4>
+                <p>空虚、冷たい、無機質、味気ない</p>
+              </div>
+
+              <div class="psych-section">
+                <h4>🎯 使用例・活用シーン</h4>
+                <ul>
+                  <li><strong>医療・健康：</strong>清潔感と信頼性を強調</li>
+                  <li><strong>ミニマルデザイン：</strong>Apple製品などシンプルで洗練</li>
+                  <li><strong>背景色：</strong>最も一般的な背景色</li>
+                  <li><strong>ウェディング：</strong>純粋さと新しい始まり</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </details>
+
       </div>
     </section>
 
