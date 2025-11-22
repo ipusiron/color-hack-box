@@ -1,11 +1,39 @@
 <!--
 ---
-title: Color Hack Box
-category: web, educational, color-theory
+id: day101
+slug: color-hack-box
+
+title: "Color Hack Box"
+
+subtitle_ja: "色の三要素を体感する学習ツール"
+subtitle_en: "Interactive tool to learn hue, saturation & lightness"
+
+description_ja: "HSL操作を通じて色相・明度・彩度を直感的に理解できるウェブツール。リアルタイムに視覚フィードバックとカラーコード変換を提供します。"
+description_en: "An interactive web tool that lets you explore hue, saturation and lightness (HSL) through real-time visual feedback and color code conversion."
+
+category_ja:
+  - Webデザイン
+  - 色彩理論
+category_en:
+  - Web
+  - Color Theory
+
 difficulty: 1
-description: "Interactive web tool for exploring color fundamentals through HSL manipulation — learn about hue, saturation, and lightness with real-time visual feedback and color code conversion."
-tags: [color, hsl, rgb, hex, color-theory, web, javascript, educational]
-demo: https://ipusiron.github.io/color-hack-box/
+
+tags:
+  - color
+  - hsl
+  - rgb
+  - hex
+  - color-theory
+  - web
+  - javascript
+  - educational
+
+repo_url: "https://github.com/ipusiron/color-hack-box"
+demo_url: "https://ipusiron.github.io/color-hack-box/"
+
+hub: true
 ---
 !-->
 
