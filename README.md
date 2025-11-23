@@ -15,7 +15,7 @@ category_ja:
   - Webデザイン
   - 色彩理論
 category_en:
-  - Web
+  - Web Design
   - Color Theory
 
 difficulty: 1
