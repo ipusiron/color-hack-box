@@ -11,6 +11,12 @@
   <meta name="author" content="ipusiron">
   <meta name="robots" content="index, follow">
 
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; frame-ancestors 'none';">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ipusiron.github.io/color-hack-box/">
@@ -734,7 +740,7 @@
                 <h4>🔲 UI要素</h4>
                 <div class="role-demo-ui">
                   <button style="background: #6c757d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; margin-right: 0.5rem;">グレーボタン</button>
-                  <input type="text" placeholder="グレーボーダー" style="border: 2px solid #ced4da; padding: 0.5rem; border-radius: 4px;">
+                  <input type="text" placeholder="グレーボーダー" style="border: 2px solid #ced4da; padding: 0.5rem; border-radius: 4px;" autocomplete="off" readonly>
                 </div>
                 <p>ボタン、入力欄、区切り線など、UIパーツの多くに無彩色が使われます。</p>
               </div>
@@ -3759,7 +3765,7 @@
 
   <footer>
     <div class="footer">
-      🔗 GitHubリポジトリはこちら（ <a href="https://github.com/ipusiron/color-hack-box" target="_blank" rel="noopener">ipusiron/color-hack-box</a> ）
+      🔗 GitHubリポジトリはこちら（ <a href="https://github.com/ipusiron/color-hack-box" target="_blank" rel="noopener noreferrer">ipusiron/color-hack-box</a> ）
     </div>
   </footer>
 
