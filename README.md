@@ -208,19 +208,10 @@ git clone https://github.com/ipusiron/color-hack-box.git
 cd color-hack-box
 ```
 
-2. **ブラウザーで開く**:
-```bash
-# macOS
-open index.html
+2. **ローカルサーバーで起動**（必須）:
 
-# Linux
-xdg-open index.html
+> **注意**: このアプリケーションはタブコンテンツを動的に読み込むため、HTTPサーバー経由でのアクセスが必須です。`file://`プロトコルでは動作しません。
 
-# Windows
-start index.html
-```
-
-または、ローカルサーバーで起動:
 ```bash
 # Python 3の場合
 python -m http.server 8000
@@ -246,14 +237,34 @@ npx http-server
 
 ```
 color-hack-box/
-├── index.html          # メインHTMLファイル（UI構造）
-├── script.js           # JavaScript（色変換ロジック、イベント処理）
+├── index.html          # シェルHTML（ナビゲーション、タブコンテナ）
+├── script.js           # JavaScript（TabLoader、PaletteRenderer、色変換ロジック）
 ├── style.css           # スタイルシート（レイアウト、レスポンシブ対応）
+├── tabs/               # タブコンテンツ（遅延読み込み）
+│   ├── tab1-rgb.html       # RGBカラースペース
+│   ├── tab2-basics.html    # 色の三要素（基礎）
+│   ├── tab3-grayscale.html # 無彩色・グレースケール
+│   ├── tab4-psychology.html# 色の印象と心理
+│   ├── tab5-tone.html      # トーン別パレット
+│   ├── tab6-ratio.html     # 配色と比率
+│   ├── tab7-palettes.html  # 配色例（データ駆動テンプレート）
+│   └── tab8-misc.html      # 雑学・補足
+├── data/
+│   └── palettes.json   # パレットデータ（Tab 7用、JSON形式）
 ├── assets/             # 画像などのリソース（スクリーンショットなど）
 ├── LICENSE             # MITライセンス
 ├── README.md           # このファイル
+├── CLAUDE.md           # Claude Code用の開発ガイド
 └── .nojekyll           # GitHub Pages設定
 ```
+
+### アーキテクチャ
+
+本ツールはモジュラーアーキテクチャを採用しています：
+
+- **遅延読み込み**: タブコンテンツはクリック時に`fetch()`で動的に読み込み
+- **キャッシュ機構**: 一度読み込んだタブは再読み込み不要
+- **データ駆動**: Tab 7のパレットは`palettes.json`から生成
 
 ---
 

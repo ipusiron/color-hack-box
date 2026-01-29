@@ -1,0 +1,410 @@
+<header class="fh-header">
+  <h2>RGBカラースペース</h2>
+  <p>RGB色空間を3次元ベクトルとして視覚化し、色の構成を学びましょう。</p>
+</header>
+
+<div class="main-accordion-section">
+
+  <!-- 1. RGBとは？ -->
+  <details class="accordion-item main-accordion">
+    <summary>RGBとは？</summary>
+    <div class="accordion-content">
+      <p class="intro-text"><strong>RGB</strong>は、<strong>Red（赤）</strong>、<strong>Green（緑）</strong>、<strong>Blue（青）</strong>の3つの光の原色を組み合わせて色を表現するモデルです。</p>
+
+      <div class="attribute-grid">
+        <article class="attribute-card">
+          <h4>🔴 Red (赤)</h4>
+          <p>暖かさとエネルギーを表す色。</p>
+          <p class="range-info">範囲: 0〜255</p>
+          <div class="color-samples">
+            <div class="sample-box" style="background: rgb(255, 0, 0);"><span style="color: white;">255</span></div>
+            <div class="sample-box" style="background: rgb(128, 0, 0);"><span style="color: white;">128</span></div>
+            <div class="sample-box" style="background: rgb(64, 0, 0);"><span style="color: white;">64</span></div>
+          </div>
+        </article>
+
+        <article class="attribute-card">
+          <h4>🟢 Green (緑)</h4>
+          <p>自然と安らぎを表す色。</p>
+          <p class="range-info">範囲: 0〜255</p>
+          <div class="color-samples">
+            <div class="sample-box" style="background: rgb(0, 255, 0);"><span>255</span></div>
+            <div class="sample-box" style="background: rgb(0, 128, 0);"><span style="color: white;">128</span></div>
+            <div class="sample-box" style="background: rgb(0, 64, 0);"><span style="color: white;">64</span></div>
+          </div>
+        </article>
+
+        <article class="attribute-card">
+          <h4>🔵 Blue (青)</h4>
+          <p>冷静さと信頼を表す色。</p>
+          <p class="range-info">範囲: 0〜255</p>
+          <div class="color-samples">
+            <div class="sample-box" style="background: rgb(0, 0, 255);"><span style="color: white;">255</span></div>
+            <div class="sample-box" style="background: rgb(0, 0, 128);"><span style="color: white;">128</span></div>
+            <div class="sample-box" style="background: rgb(0, 0, 64);"><span style="color: white;">64</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="rgb-theory-info">
+        <h4>💡 加法混色</h4>
+        <p>RGBは<strong>加法混色</strong>の原理に基づいています。3つの光をすべて最大（255）にすると<strong>白</strong>になり、すべて0にすると<strong>黒</strong>になります。</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- 2. RGBを操作する -->
+  <details class="accordion-item main-accordion" open>
+    <summary>RGBを操作する</summary>
+    <div class="accordion-content">
+      <p>スライダーを動かして、RGBの各チャンネルが色にどう影響するかを確認しましょう。</p>
+
+      <div class="rgb-interactive">
+        <div class="rgb-controls">
+          <div class="rgb-slider-group">
+            <label for="r-slider" class="rgb-label red">
+              R (赤) <span id="r-value">128</span>
+            </label>
+            <input type="range" id="r-slider" class="rgb-slider red-slider"
+                   min="0" max="255" value="128"
+                   aria-label="赤の値を0から255の範囲で調整">
+          </div>
+
+          <div class="rgb-slider-group">
+            <label for="g-slider" class="rgb-label green">
+              G (緑) <span id="g-value">128</span>
+            </label>
+            <input type="range" id="g-slider" class="rgb-slider green-slider"
+                   min="0" max="255" value="128"
+                   aria-label="緑の値を0から255の範囲で調整">
+          </div>
+
+          <div class="rgb-slider-group">
+            <label for="b-slider" class="rgb-label blue">
+              B (青) <span id="b-value">128</span>
+            </label>
+            <input type="range" id="b-slider" class="rgb-slider blue-slider"
+                   min="0" max="255" value="128"
+                   aria-label="青の値を0から255の範囲で調整">
+          </div>
+
+          <div class="rgb-presets">
+            <button class="rgb-preset-btn" data-r="255" data-g="0" data-b="0"
+                    style="background: rgb(255, 0, 0);">
+              <span style="color: white;">赤</span>
+            </button>
+            <button class="rgb-preset-btn" data-r="255" data-g="165" data-b="0"
+                    style="background: rgb(255, 165, 0);">
+              <span style="color: white;">オレンジ</span>
+            </button>
+            <button class="rgb-preset-btn" data-r="255" data-g="255" data-b="0"
+                    style="background: rgb(255, 255, 0);">
+              <span>黄</span>
+            </button>
+            <button class="rgb-preset-btn" data-r="0" data-g="0" data-b="0"
+                    style="background: rgb(0, 0, 0); border: 2px solid #666;">
+              <span style="color: white;">黒</span>
+            </button>
+            <button class="rgb-preset-btn" data-r="0" data-g="0" data-b="255"
+                    style="background: rgb(0, 0, 255);">
+              <span style="color: white;">青</span>
+            </button>
+          </div>
+
+          <div class="fh-buttons">
+            <button id="btn-rgb-random">ランダム生成</button>
+            <button id="btn-rgb-reset">リセット</button>
+          </div>
+        </div>
+
+        <div class="rgb-preview">
+          <div id="rgb-color-chip" class="rgb-color-chip"></div>
+          <div class="color-codes">
+            <div class="code-item">
+              <span class="code-label">HEX</span>
+              <span id="rgb-hex-code" class="code-value">#808080</span>
+              <button class="copy-btn" data-copy="rgb-hex" aria-label="HEXコードをコピー">📋</button>
+            </div>
+            <div class="code-item">
+              <span class="code-label">RGB</span>
+              <span id="rgb-rgb-code" class="code-value">R: 128  G: 128  B: 128</span>
+              <button class="copy-btn" data-copy="rgb-rgb" aria-label="RGBコードをコピー">📋</button>
+            </div>
+            <div class="code-item">
+              <span class="code-label">HSL</span>
+              <span id="rgb-hsl-code" class="code-value">H: 0°  S: 0%  L: 50%</span>
+              <button class="copy-btn" data-copy="rgb-hsl" aria-label="HSLコードをコピー">📋</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- 3. RGB 3Dキューブ -->
+  <details class="accordion-item main-accordion">
+    <summary>RGB 3Dカラーキューブ</summary>
+    <div class="accordion-content">
+      <p>RGBの色空間は<strong>3次元の立方体（キューブ）</strong>として表現できます。各軸がR、G、Bに対応し、キューブ内の位置が色を表します。</p>
+
+      <div class="rgb-cube-container">
+        <div class="rgb-cube-scene">
+          <div class="rgb-cube" id="rgb-cube">
+            <!-- Front face (Blue = 255) -->
+            <div class="cube-face cube-front"></div>
+            <!-- Back face (Blue = 0) -->
+            <div class="cube-face cube-back"></div>
+            <!-- Right face (Red = 255) -->
+            <div class="cube-face cube-right"></div>
+            <!-- Left face (Red = 0) -->
+            <div class="cube-face cube-left"></div>
+            <!-- Top face (Green = 255) -->
+            <div class="cube-face cube-top"></div>
+            <!-- Bottom face (Green = 0) -->
+            <div class="cube-face cube-bottom"></div>
+            <!-- Current color point - 3D sphere -->
+            <div class="cube-point" id="cube-point">
+              <div class="sphere-ring ring-xy"></div>
+              <div class="sphere-ring ring-xz"></div>
+              <div class="sphere-ring ring-yz"></div>
+              <div class="sphere-core"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cube-controls">
+          <p class="cube-instruction">キューブをドラッグして回転</p>
+          <button id="btn-set-cube-point" class="cube-set-btn">上のRGBをキューブに反映</button>
+          <div class="cube-legend">
+            <div class="legend-item">
+              <span class="legend-axis red">→ R軸</span>
+              <span class="legend-desc">（右: 赤↑）</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-axis green">↑ G軸</span>
+              <span class="legend-desc">（上: 緑↑）</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-axis blue">◉ B軸</span>
+              <span class="legend-desc">（手前: 青↑）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cube-corners">
+        <p class="corners-instruction">頂点をクリックでRGBをセット:</p>
+        <div class="corner-grid-inline">
+          <button class="corner-btn" data-r="0" data-g="0" data-b="0" style="background: rgb(0, 0, 0);" title="黒 (0,0,0)">
+            <span style="color: white;">黒</span>
+          </button>
+          <button class="corner-btn" data-r="255" data-g="0" data-b="0" style="background: rgb(255, 0, 0);" title="赤 (255,0,0)">
+            <span style="color: white;">赤</span>
+          </button>
+          <button class="corner-btn" data-r="0" data-g="255" data-b="0" style="background: rgb(0, 255, 0);" title="緑 (0,255,0)">
+            <span>緑</span>
+          </button>
+          <button class="corner-btn" data-r="0" data-g="0" data-b="255" style="background: rgb(0, 0, 255);" title="青 (0,0,255)">
+            <span style="color: white;">青</span>
+          </button>
+          <button class="corner-btn" data-r="255" data-g="255" data-b="0" style="background: rgb(255, 255, 0);" title="黄 (255,255,0)">
+            <span>黄</span>
+          </button>
+          <button class="corner-btn" data-r="255" data-g="0" data-b="255" style="background: rgb(255, 0, 255);" title="マゼンタ (255,0,255)">
+            <span style="color: white;">M</span>
+          </button>
+          <button class="corner-btn" data-r="0" data-g="255" data-b="255" style="background: rgb(0, 255, 255);" title="シアン (0,255,255)">
+            <span>C</span>
+          </button>
+          <button class="corner-btn" data-r="255" data-g="255" data-b="255" style="background: rgb(255, 255, 255); border: 1px solid #ccc;" title="白 (255,255,255)">
+            <span>白</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- 4. RGBベクトルと色の類似度 -->
+  <details class="accordion-item main-accordion">
+    <summary>【発展】RGBベクトルと色の類似度</summary>
+    <div class="accordion-content">
+      <p>RGBは3つの値（R, G, B）で構成されるため、<strong>3次元ベクトル</strong>として捉えることができます。これにより、2つの色がどれだけ「近い」か「遠い」かを<strong>数学的に計算</strong>できます。</p>
+
+      <div class="vector-concept">
+        <h4>🧮 色をベクトルとして表現</h4>
+        <p>例えば、赤色 <code>rgb(255, 0, 0)</code> はベクトル <strong>(255, 0, 0)</strong> として表せます。</p>
+        <div class="vector-examples">
+          <div class="vector-item">
+            <div class="vector-color" style="background: rgb(255, 0, 0);"></div>
+            <span>赤 = (255, 0, 0)</span>
+          </div>
+          <div class="vector-item">
+            <div class="vector-color" style="background: rgb(0, 0, 255);"></div>
+            <span>青 = (0, 0, 255)</span>
+          </div>
+          <div class="vector-item">
+            <div class="vector-color" style="background: rgb(255, 128, 0);"></div>
+            <span>オレンジ = (255, 128, 0)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="similarity-methods">
+        <h4>📐 色の類似度を測る方法</h4>
+
+        <div class="method-card">
+          <h5>ユークリッド距離</h5>
+          <p>2点間の直線距離。値が<strong>小さいほど似ている</strong>。</p>
+          <code>d = √((R₁-R₂)² + (G₁-G₂)² + (B₁-B₂)²)</code>
+        </div>
+
+        <div class="method-card">
+          <h5>コサイン類似度</h5>
+          <p>ベクトルの向きの近さ。<strong>1に近いほど似ている</strong>（-1〜1の範囲）。</p>
+          <code>cos θ = (A·B) / (|A| × |B|)</code>
+          <p class="method-note">明るさの違いを無視し、色味の方向性を比較するのに適しています。</p>
+        </div>
+      </div>
+
+      <div class="similarity-calculator">
+        <h4>🔬 コサイン類似度を計算してみよう</h4>
+        <p>2つの色を指定して、どれだけ似ているか計算します。</p>
+
+        <div class="color-compare-inputs">
+          <div class="compare-color-box">
+            <label>色A</label>
+            <div class="compare-color-preview" id="compare-color-a" style="background: rgb(255, 0, 0);"></div>
+            <div class="compare-sliders">
+              <div class="mini-slider-group">
+                <span class="mini-label">R</span>
+                <input type="range" id="compare-r-a" min="0" max="255" value="255" class="mini-slider red-slider">
+                <span id="compare-r-a-val" class="mini-val">255</span>
+              </div>
+              <div class="mini-slider-group">
+                <span class="mini-label">G</span>
+                <input type="range" id="compare-g-a" min="0" max="255" value="0" class="mini-slider green-slider">
+                <span id="compare-g-a-val" class="mini-val">0</span>
+              </div>
+              <div class="mini-slider-group">
+                <span class="mini-label">B</span>
+                <input type="range" id="compare-b-a" min="0" max="255" value="0" class="mini-slider blue-slider">
+                <span id="compare-b-a-val" class="mini-val">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="compare-vs">VS</div>
+
+          <div class="compare-color-box">
+            <label>色B</label>
+            <div class="compare-color-preview" id="compare-color-b" style="background: rgb(255, 128, 0);"></div>
+            <div class="compare-sliders">
+              <div class="mini-slider-group">
+                <span class="mini-label">R</span>
+                <input type="range" id="compare-r-b" min="0" max="255" value="255" class="mini-slider red-slider">
+                <span id="compare-r-b-val" class="mini-val">255</span>
+              </div>
+              <div class="mini-slider-group">
+                <span class="mini-label">G</span>
+                <input type="range" id="compare-g-b" min="0" max="255" value="128" class="mini-slider green-slider">
+                <span id="compare-g-b-val" class="mini-val">128</span>
+              </div>
+              <div class="mini-slider-group">
+                <span class="mini-label">B</span>
+                <input type="range" id="compare-b-b" min="0" max="255" value="0" class="mini-slider blue-slider">
+                <span id="compare-b-b-val" class="mini-val">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Comparison Cube -->
+        <div class="compare-cube-section">
+          <h5>3Dキューブで可視化</h5>
+          <p class="compare-cube-desc">原点から同じ<strong>方向</strong>＝コサイン類似度が高い（色味が同じ）<br>2点間の<strong>距離</strong>が近い＝ユークリッド距離が小さい（明るさも含めて近い）</p>
+          <div class="compare-cube-wrapper">
+            <div class="compare-cube-scene" id="compare-cube-scene">
+              <div class="compare-cube" id="compare-cube">
+                <!-- Wireframe cube edges -->
+                <div class="wire-face wire-front"></div>
+                <div class="wire-face wire-back"></div>
+                <div class="wire-face wire-right"></div>
+                <div class="wire-face wire-left"></div>
+                <div class="wire-face wire-top"></div>
+                <div class="wire-face wire-bottom"></div>
+                <!-- Origin point (black corner) -->
+                <div class="origin-point"></div>
+                <!-- Origin label -->
+                <div class="origin-label">原点(0,0,0)</div>
+                <!-- Color point A -->
+                <div class="compare-point point-a" id="compare-point-a">
+                  <div class="sphere-ring ring-xy"></div>
+                  <div class="sphere-ring ring-xz"></div>
+                  <div class="sphere-ring ring-yz"></div>
+                  <div class="sphere-core"></div>
+                </div>
+                <!-- Color point B -->
+                <div class="compare-point point-b" id="compare-point-b">
+                  <div class="sphere-ring ring-xy"></div>
+                  <div class="sphere-ring ring-xz"></div>
+                  <div class="sphere-ring ring-yz"></div>
+                  <div class="sphere-core"></div>
+                </div>
+                <!-- Distance line between A and B -->
+                <div class="distance-line" id="distance-line"></div>
+              </div>
+            </div>
+            <div class="compare-cube-legend">
+              <div class="legend-row">
+                <span class="legend-dot dot-a"></span>
+                <span>色A</span>
+              </div>
+              <div class="legend-row">
+                <span class="legend-dot dot-b"></span>
+                <span>色B</span>
+              </div>
+              <div class="legend-row">
+                <span class="legend-line"></span>
+                <span>ユークリッド距離</span>
+              </div>
+              <p class="legend-note">キューブをドラッグして回転</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="similarity-result">
+          <div class="result-row">
+            <span class="result-label">ベクトルA:</span>
+            <span id="vector-a-display" class="result-value">(255, 0, 0)</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">ベクトルB:</span>
+            <span id="vector-b-display" class="result-value">(255, 128, 0)</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">内積 A·B:</span>
+            <span id="dot-product-display" class="result-value">65025</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">|A| × |B|:</span>
+            <span id="magnitude-display" class="result-value">72539.5</span>
+          </div>
+          <div class="result-row highlight">
+            <span class="result-label">コサイン類似度:</span>
+            <span id="cosine-similarity-display" class="result-value cosine-value">0.896</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">ユークリッド距離:</span>
+            <span id="euclidean-display" class="result-value">128.0</span>
+          </div>
+        </div>
+
+        <div class="similarity-interpretation" id="similarity-interpretation">
+          <p>📊 <strong>解釈:</strong> コサイン類似度 0.896 は「かなり似ている」色です。赤とオレンジは色相が近いためです。</p>
+        </div>
+      </div>
+
+    </div>
+  </details>
+
+</div>

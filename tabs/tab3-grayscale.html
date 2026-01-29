@@ -1,0 +1,498 @@
+      <header class="fh-header">
+        <h2>無彩色・グレースケール</h2>
+        <p>彩度が0の世界を探索しましょう。白・黒・グレーの奥深さを学びます。</p>
+      </header>
+
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
+
+        <!-- 1. 無彩色とは？ -->
+        <details class="accordion-item main-accordion">
+          <summary>無彩色とは？</summary>
+          <div class="accordion-content">
+            <p><strong>無彩色</strong>とは、<strong>彩度が0%の色</strong>のことで、色相を持たない色です。白・黒・グレーのみが該当し、明度（Lightness）のみで表現されます。</p>
+
+            <div class="achromatic-demo">
+              <div class="achromatic-bar">
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 0%);">
+                  <span style="color: white;">0%<br>黒</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 10%);">
+                  <span style="color: white;">10%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 20%);">
+                  <span style="color: white;">20%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 30%);">
+                  <span style="color: white;">30%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 40%);">
+                  <span style="color: white;">40%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 50%);">
+                  <span style="color: white;">50%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 60%);">
+                  <span>60%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 70%);">
+                  <span>70%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 80%);">
+                  <span>80%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 90%);">
+                  <span>90%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 100%); border: 1px solid #ddd;">
+                  <span>100%<br>白</span>
+                </div>
+              </div>
+              <p class="demo-caption">無彩色のグレースケール（明度0%〜100%）</p>
+            </div>
+
+            <div class="achromatic-features">
+              <h4>無彩色の特徴</h4>
+              <ul>
+                <li><strong>色相がない：</strong>どの色相環の位置にも属さない</li>
+                <li><strong>彩度が0%：</strong>鮮やかさがまったくない状態</li>
+                <li><strong>明度のみで変化：</strong>黒（0%）から白（100%）まで</li>
+                <li><strong>RGB値が等しい：</strong>rgb(128, 128, 128)のようにR・G・Bが同じ値</li>
+                <li><strong>どんな色とも相性が良い：</strong>有彩色を引き立てる</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- 2. グレースケールを操作する -->
+        <details class="accordion-item main-accordion">
+          <summary>グレースケールを操作する</summary>
+          <div class="accordion-content">
+            <p>スライダーを動かして、グレーの明度を自由に調整してみましょう。</p>
+
+            <div class="grayscale-interactive">
+              <div class="grayscale-preview">
+                <div id="grayscale-chip" class="grayscale-chip"></div>
+                <div class="grayscale-info">
+                  <div class="info-row">
+                    <span class="info-label">明度</span>
+                    <span id="grayscale-lightness" class="info-value">50%</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">HEX</span>
+                    <span id="grayscale-hex" class="info-value">#808080</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">RGB</span>
+                    <span id="grayscale-rgb" class="info-value">rgb(128, 128, 128)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grayscale-controls">
+                <label for="grayscale-slider">明度を調整</label>
+                <input type="range" id="grayscale-slider" min="0" max="100" value="50"
+                       aria-label="グレーの明度を0%から100%の範囲で調整">
+                <div class="grayscale-presets">
+                  <button class="preset-btn" data-lightness="0">黒</button>
+                  <button class="preset-btn" data-lightness="25">濃いグレー</button>
+                  <button class="preset-btn" data-lightness="50">グレー</button>
+                  <button class="preset-btn" data-lightness="75">明るいグレー</button>
+                  <button class="preset-btn" data-lightness="100">白</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 3. 無彩色の役割 -->
+        <details class="accordion-item main-accordion">
+          <summary>無彩色の役割</summary>
+          <div class="accordion-content">
+            <p>無彩色はデザインにおいて<strong>非常に重要な役割</strong>を果たします。</p>
+
+            <div class="role-grid">
+              <div class="role-card">
+                <h4>📝 テキストカラー</h4>
+                <div class="role-demo" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd;">
+                  <p style="color: #000; margin: 0 0 0.5rem 0; font-weight: 600;">黒（#000000）- 最も高いコントラスト</p>
+                  <p style="color: #333; margin: 0 0 0.5rem 0;">濃いグレー（#333333）- 本文に最適</p>
+                  <p style="color: #666; margin: 0 0 0.5rem 0;">グレー（#666666）- 補助テキスト</p>
+                  <p style="color: #999; margin: 0;">明るいグレー（#999999）- 薄いテキスト</p>
+                </div>
+                <p>黒や濃いグレーは本文テキストに、明るいグレーはキャプションや補助情報に使用します。</p>
+              </div>
+
+              <div class="role-card">
+                <h4>🎨 背景色</h4>
+                <div class="role-demo-bg">
+                  <div style="background: #f8f9fa; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                    <span style="color: #333;">明るいグレー背景 (#f8f9fa)</span>
+                  </div>
+                  <div style="background: #e9ecef; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                    <span style="color: #333;">中間グレー背景 (#e9ecef)</span>
+                  </div>
+                  <div style="background: #343a40; padding: 1rem; border-radius: 4px;">
+                    <span style="color: white;">ダークグレー背景 (#343a40)</span>
+                  </div>
+                </div>
+                <p>白や明るいグレーは明るい背景に、濃いグレーや黒はダークモードに使用します。</p>
+              </div>
+
+              <div class="role-card">
+                <h4>🔲 UI要素</h4>
+                <div class="role-demo-ui">
+                  <button style="background: #6c757d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; margin-right: 0.5rem;">グレーボタン</button>
+                  <input type="text" placeholder="グレーボーダー" style="border: 2px solid #ced4da; padding: 0.5rem; border-radius: 4px;" autocomplete="off" readonly>
+                </div>
+                <p>ボタン、入力欄、区切り線など、UIパーツの多くに無彩色が使われます。</p>
+              </div>
+
+              <div class="role-card">
+                <h4>✨ 有彩色を引き立てる</h4>
+                <div class="role-demo-accent">
+                  <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <div style="width: 80px; height: 80px; background: #e9ecef; border-radius: 8px;"></div>
+                    <div style="width: 80px; height: 80px; background: #e9ecef; border-radius: 8px;"></div>
+                    <div style="width: 80px; height: 80px; background: #4A90E2; border-radius: 8px;"></div>
+                    <div style="width: 80px; height: 80px; background: #e9ecef; border-radius: 8px;"></div>
+                  </div>
+                </div>
+                <p>無彩色をベースにすることで、アクセントカラーが際立ちます。</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 4. コントラスト比とアクセシビリティ -->
+        <details class="accordion-item main-accordion">
+          <summary>コントラスト比とアクセシビリティ</summary>
+          <div class="accordion-content">
+            <p>Webデザインでは、<strong>WCAGアクセシビリティガイドライン</strong>に基づいたコントラスト比の確保が重要です。</p>
+
+            <div class="wcag-info">
+              <h4>WCAG 2.1のコントラスト基準</h4>
+              <table class="wcag-table">
+                <thead>
+                  <tr>
+                    <th>レベル</th>
+                    <th>通常テキスト</th>
+                    <th>大きいテキスト</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>AA（最低基準）</strong></td>
+                    <td>4.5:1 以上</td>
+                    <td>3:1 以上</td>
+                  </tr>
+                  <tr>
+                    <td><strong>AAA（推奨）</strong></td>
+                    <td>7:1 以上</td>
+                    <td>4.5:1 以上</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="contrast-examples-achromatic">
+              <h4>コントラスト比の例</h4>
+
+              <div class="contrast-demo good-contrast">
+                <div style="background: #fff; color: #000; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>✓ 良い例：</strong>白背景 + 黒テキスト（21:1）
+                </div>
+                <p class="contrast-note">最高のコントラスト。読みやすさ抜群。</p>
+              </div>
+
+              <div class="contrast-demo good-contrast">
+                <div style="background: #fff; color: #333; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>✓ 良い例：</strong>白背景 + 濃いグレー（12.6:1）
+                </div>
+                <p class="contrast-note">AAA基準をクリア。目に優しく読みやすい。</p>
+              </div>
+
+              <div class="contrast-demo ok-contrast">
+                <div style="background: #fff; color: #666; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>△ 注意：</strong>白背景 + グレー（5.7:1）
+                </div>
+                <p class="contrast-note">AA基準はクリアするが、小さい文字には不向き。</p>
+              </div>
+
+              <div class="contrast-demo bad-contrast">
+                <div style="background: #fff; color: #999; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>✗ 悪い例：</strong>白背景 + 明るいグレー（2.8:1）
+                </div>
+                <p class="contrast-note">基準を満たさない。読みづらい。</p>
+              </div>
+            </div>
+
+            <div class="accessibility-tips">
+              <h4>💡 アクセシビリティのヒント</h4>
+              <ul>
+                <li>本文テキストは<strong>#333以下の濃いグレー</strong>を使用</li>
+                <li>白背景には黒〜濃いグレー、黒背景には白〜明るいグレーを使用</li>
+                <li>重要なボタンやリンクは<strong>十分なコントラスト</strong>を確保</li>
+                <li>薄いグレーは装飾やボーダーのみに使用し、テキストには避ける</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- 5. モノクロデザインの魅力 -->
+        <details class="accordion-item main-accordion">
+          <summary>モノクロデザインの魅力</summary>
+          <div class="accordion-content">
+            <p>無彩色のみで構成された<strong>モノクロデザイン</strong>は、シンプルで洗練された印象を与えます。</p>
+
+            <div class="monochrome-benefits">
+              <h4>モノクロデザインのメリット</h4>
+              <div class="benefit-grid">
+                <div class="benefit-card">
+                  <span class="benefit-icon">🎯</span>
+                  <h5>集中力向上</h5>
+                  <p>色の情報がないため、コンテンツに集中しやすい</p>
+                </div>
+                <div class="benefit-card">
+                  <span class="benefit-icon">✨</span>
+                  <h5>洗練された印象</h5>
+                  <p>シンプルで高級感のあるデザインを実現</p>
+                </div>
+                <div class="benefit-card">
+                  <span class="benefit-icon">📐</span>
+                  <h5>レイアウトが際立つ</h5>
+                  <p>構造や余白の美しさが強調される</p>
+                </div>
+                <div class="benefit-card">
+                  <span class="benefit-icon">🌍</span>
+                  <h5>普遍的</h5>
+                  <p>文化や流行に左右されない普遍的なデザイン</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="monochrome-tips">
+              <h4>📌 モノクロデザインのコツ</h4>
+              <ul>
+                <li><strong>階層を明度で表現：</strong>重要な要素は濃く、補助的な要素は薄く</li>
+                <li><strong>余白を活用：</strong>無彩色だからこそ余白の美しさが際立つ</li>
+                <li><strong>テクスチャで変化をつける：</strong>影、グラデーション、パターンを活用</li>
+                <li><strong>タイポグラフィを重視：</strong>フォントの選択と大きさで個性を出す</li>
+                <li><strong>1色のアクセント：</strong>必要に応じて1色だけ有彩色を加える</li>
+              </ul>
+            </div>
+
+            <div class="monochrome-example">
+              <h4>モノクロ + アクセントカラーの例</h4>
+              <div class="accent-demo">
+                <div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); padding: 2rem; border-radius: 12px; color: white;">
+                  <h3 style="margin-top: 0; font-size: 1.5rem;">モノクロベースのデザイン</h3>
+                  <p style="color: #ecf0f1; margin: 1rem 0;">背景とテキストは無彩色でシンプルに</p>
+                  <button style="background: #3498db; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                    アクセントカラー
+                  </button>
+                </div>
+              </div>
+              <p class="demo-caption">無彩色をベースに、青のアクセントカラーで重要な要素を強調</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- 6. 無彩色のカラーコードに注目する -->
+        <details class="accordion-item main-accordion">
+          <summary>無彩色のカラーコードに注目する</summary>
+          <div class="accordion-content">
+            <p>無彩色のカラーコードには、興味深い<strong>規則性</strong>があります。HEX形式のカラーコードを観察してみましょう。</p>
+
+            <div class="hex-pattern-info">
+              <h4>無彩色の特徴的なパターン</h4>
+              <p>無彩色のHEXコードは、<strong>同じ数字やアルファベットが並ぶ</strong>パターンになります。これは、RGB値が等しいためです。</p>
+
+              <div class="hex-structure">
+                <div class="hex-explanation">
+                  <div class="hex-box">
+                    <span class="hex-symbol">#</span>
+                    <span class="hex-part red">88</span>
+                    <span class="hex-part green">88</span>
+                    <span class="hex-part blue">88</span>
+                  </div>
+                  <div class="hex-labels">
+                    <span class="label-arrow red">↑ R (赤)</span>
+                    <span class="label-arrow green">↑ G (緑)</span>
+                    <span class="label-arrow blue">↑ B (青)</span>
+                  </div>
+                  <p class="hex-note">無彩色では、R・G・Bの値がすべて同じになります</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="hex-brightness">
+              <h4>16進数と明度の関係</h4>
+              <p>HEXコードは<strong>16進数</strong>で表現されます。<strong>0〜F</strong>の16種類の文字を使い、以下のような対応関係があります：</p>
+
+              <div class="hex-scale">
+                <div class="hex-scale-bar">
+                  <div class="scale-item dark">
+                    <span class="scale-value">0</span>
+                    <span class="scale-label">最も暗い<br>（明度0%）</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">3</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">6</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">9</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">C</span>
+                  </div>
+                  <div class="scale-item bright">
+                    <span class="scale-value">F</span>
+                    <span class="scale-label">最も明るい<br>（明度100%）</span>
+                  </div>
+                </div>
+                <p class="scale-note">
+                  <strong>0に近いほど暗く（明度が低い）、Fに近いほど明るく（明度が高い）</strong>なります
+                </p>
+              </div>
+            </div>
+
+            <div class="common-grays">
+              <h4>よく使われる無彩色のカラーコード</h4>
+
+              <div class="gray-examples-grid">
+                <div class="gray-example-card" style="background: #000000;">
+                  <div class="gray-color-display black">
+                    <span class="color-name" style="color: white;">黒</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#000000</p>
+                    <p class="gray-detail">明度: 0%<br>すべてが最小値（0）</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #333333;">
+                  <div class="gray-color-display very-dark">
+                    <span class="color-name" style="color: white;">濃いグレー</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#333333</p>
+                    <p class="gray-detail">明度: 20%<br>本文テキストに最適</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #666666;">
+                  <div class="gray-color-display dark">
+                    <span class="color-name" style="color: white;">グレー</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#666666</p>
+                    <p class="gray-detail">明度: 40%<br>補助テキストに</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #999999;">
+                  <div class="gray-color-display medium">
+                    <span class="color-name">中間グレー</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#999999</p>
+                    <p class="gray-detail">明度: 60%<br>ボーダーやアイコン</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #CCCCCC;">
+                  <div class="gray-color-display light">
+                    <span class="color-name">明るいグレー</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#CCCCCC</p>
+                    <p class="gray-detail">明度: 80%<br>背景や区切り線</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #FFFFFF; border: 2px solid #ddd;">
+                  <div class="gray-color-display white">
+                    <span class="color-name">白</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#FFFFFF</p>
+                    <p class="gray-detail">明度: 100%<br>すべてが最大値（F）</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hex-tips">
+              <h4>💡 カラーコードを覚えるコツ</h4>
+              <div class="tip-boxes">
+                <div class="tip-box">
+                  <h5>🎯 キリの良い数字を覚える</h5>
+                  <ul>
+                    <li><strong>#000</strong>、<strong>#333</strong>、<strong>#666</strong>、<strong>#999</strong>、<strong>#CCC</strong>、<strong>#FFF</strong></li>
+                    <li>3桁表記は2桁ずつ展開される（#333 → #333333）</li>
+                  </ul>
+                </div>
+
+                <div class="tip-box">
+                  <h5>📊 16進数の対応関係</h5>
+                  <p>16進数の0〜F は、10進数の0〜255に対応します</p>
+                  <ul>
+                    <li>#000000 = rgb(0, 0, 0)</li>
+                    <li>#808080 = rgb(128, 128, 128)</li>
+                    <li>#FFFFFF = rgb(255, 255, 255)</li>
+                  </ul>
+                </div>
+
+                <div class="tip-box">
+                  <h5>⚡ 便利な使い分け</h5>
+                  <ul>
+                    <li><strong>テキスト：</strong>#000、#333（濃いめ）</li>
+                    <li><strong>補助テキスト：</strong>#666、#999（中間）</li>
+                    <li><strong>背景・ボーダー：</strong>#CCC、#EEE、#F5F5F5（明るめ）</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="hex-practice">
+              <h4>🔍 パターンを見つける練習</h4>
+              <p>以下のカラーコードを見て、無彩色かどうか判断してみましょう：</p>
+
+              <div class="practice-grid">
+                <div class="practice-item achromatic">
+                  <div class="practice-color" style="background: #777777;"></div>
+                  <p class="practice-code">#777777</p>
+                  <p class="practice-answer">✓ 無彩色（グレー）</p>
+                </div>
+
+                <div class="practice-item chromatic">
+                  <div class="practice-color" style="background: #7A7777;"></div>
+                  <p class="practice-code">#7A7777</p>
+                  <p class="practice-answer">✗ 有彩色（わずかに赤みがある）</p>
+                </div>
+
+                <div class="practice-item achromatic">
+                  <div class="practice-color" style="background: #ABABAB;"></div>
+                  <p class="practice-code">#ABABAB</p>
+                  <p class="practice-answer">✓ 無彩色（明るいグレー）</p>
+                </div>
+
+                <div class="practice-item chromatic">
+                  <div class="practice-color" style="background: #ABACAB;"></div>
+                  <p class="practice-code">#ABACAB</p>
+                  <p class="practice-answer">✗ 有彩色（わずかに緑みがある）</p>
+                </div>
+              </div>
+
+              <p class="practice-note">
+                <strong>ポイント：</strong>無彩色のHEXコードは、2文字ずつのペアがすべて同じになります！
+              </p>
+            </div>
+
+          </div>
+        </details>
+
+      </div>

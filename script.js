@@ -1,16 +1,285 @@
-// スライダー要素取得
-const hueSlider        = document.getElementById('hue-slider');
-const lightnessSlider  = document.getElementById('lightness-slider');
-const saturationSlider = document.getElementById('saturation-slider');
+// ===== TabLoader モジュール =====
+// タブコンテンツを動的に読み込むためのモジュール
+const TabLoader = {
+  cache: new Map(),
+  loadingTabs: new Set(),
 
-const hueValueDisplay        = document.getElementById('hue-value');
-const lightnessValueDisplay  = document.getElementById('lightness-value');
-const saturationValueDisplay = document.getElementById('saturation-value');
+  // タブHTMLを読み込み（キャッシュあり）
+  async load(tabId) {
+    // キャッシュにあればそれを返す
+    if (this.cache.has(tabId)) {
+      return this.cache.get(tabId);
+    }
 
-const colorChip   = document.getElementById('color-chip');
-const hexCode     = document.getElementById('hex-code');
-const rgbCode     = document.getElementById('rgb-code');
-const hslCode     = document.getElementById('hsl-code');
+    // 既に読み込み中なら待機
+    if (this.loadingTabs.has(tabId)) {
+      return new Promise((resolve) => {
+        const checkCache = setInterval(() => {
+          if (this.cache.has(tabId)) {
+            clearInterval(checkCache);
+            resolve(this.cache.get(tabId));
+          }
+        }, 50);
+      });
+    }
+
+    this.loadingTabs.add(tabId);
+
+    try {
+      const tabFileName = this.getTabFileName(tabId);
+      const response = await fetch(`tabs/${tabFileName}`);
+      if (!response.ok) {
+        throw new Error(`Failed to load tab: ${tabFileName}`);
+      }
+      const html = await response.text();
+      this.cache.set(tabId, html);
+      return html;
+    } catch (error) {
+      console.error(`Error loading ${tabId}:`, error);
+      return `<p class="error">タブの読み込みに失敗しました。</p>`;
+    } finally {
+      this.loadingTabs.delete(tabId);
+    }
+  },
+
+  // タブIDからファイル名を取得
+  getTabFileName(tabId) {
+    const tabMap = {
+      'tab1': 'tab1-rgb.html',
+      'tab2': 'tab2-basics.html',
+      'tab3': 'tab3-grayscale.html',
+      'tab4': 'tab4-psychology.html',
+      'tab5': 'tab5-tone.html',
+      'tab6': 'tab6-ratio.html',
+      'tab7': 'tab7-palettes.html',
+      'tab8': 'tab8-misc.html'
+    };
+    return tabMap[tabId] || `${tabId}.html`;
+  },
+
+  // タブをコンテナにレンダリング
+  async renderTab(tabId, container) {
+    // 既に読み込み済みならスキップ
+    if (container.getAttribute('data-loaded') === 'true') {
+      return;
+    }
+
+    // ローディング表示
+    container.innerHTML = '<div class="tab-loading"><div class="loading-spinner"></div><p>読み込み中...</p></div>';
+
+    const html = await this.load(tabId);
+    container.innerHTML = html;
+    container.setAttribute('data-loaded', 'true');
+
+    // タブ固有のコンポーネントを初期化
+    await this.initializeTabComponents(tabId);
+  },
+
+  // タブ固有のコンポーネントを初期化
+  async initializeTabComponents(tabId) {
+    switch (tabId) {
+      case 'tab1':
+        initializeRGBSliders();
+        initializeRGBCube();
+        initializeSimilarityCalculator();
+        initializeCopyButtons();
+        break;
+      case 'tab2':
+        initializeSliders();
+        updateColor();
+        initializeComplementaryWheel();
+        initializeAnalogousWheel();
+        initializeCopyButtons();
+        break;
+      case 'tab3':
+        initializeGrayscaleSlider();
+        break;
+      case 'tab7':
+        await PaletteRenderer.renderAll();
+        break;
+      default:
+        // 他のタブは特別な初期化不要
+        break;
+    }
+  }
+};
+
+// ===== PaletteRenderer モジュール =====
+// パレットデータをJSONから読み込み、HTMLを生成するモジュール
+const PaletteRenderer = {
+  data: null,
+
+  // パレットデータを読み込み
+  async loadData() {
+    if (this.data) {
+      return this.data;
+    }
+
+    try {
+      const response = await fetch('data/palettes.json');
+      if (!response.ok) {
+        throw new Error('Failed to load palettes.json');
+      }
+      this.data = await response.json();
+      return this.data;
+    } catch (error) {
+      console.error('Error loading palette data:', error);
+      return null;
+    }
+  },
+
+  // 単一パレットのHTMLを生成
+  createPaletteHTML(palette) {
+    const colorsHTML = palette.colors.map(color => {
+      const textColor = this.getContrastColor(color.hex);
+      const borderStyle = color.hex.toUpperCase() === '#FFFFFF' ? 'border: 2px solid #e9ecef;' : '';
+      return `
+        <div class="palette-chip" style="background: ${color.hex}; ${borderStyle}">
+          <span class="chip-code" style="color: ${textColor};">${color.hex}</span>
+          ${color.role ? `<span class="chip-role">${color.role}</span>` : ''}
+        </div>
+      `;
+    }).join('');
+
+    let html = '<div class="palette-example">';
+    if (palette.name) {
+      html += `<div class="palette-header">${palette.name}</div>`;
+    }
+    html += `<div class="palette-colors">${colorsHTML}</div>`;
+    if (palette.usage) {
+      html += `<p class="palette-usage">${palette.usage}</p>`;
+    }
+    html += '</div>';
+
+    return html;
+  },
+
+  // パレットセクションのHTMLを生成
+  createSectionHTML(section) {
+    let html = `<div class="palette-section">`;
+    html += `<h4>${section.icon} ${section.title}</h4>`;
+    if (section.description) {
+      html += `<p>${section.description}</p>`;
+    }
+    section.palettes.forEach(palette => {
+      html += this.createPaletteHTML(palette);
+    });
+    html += '</div>';
+    return html;
+  },
+
+  // 季節カードのHTMLを生成
+  createSeasonalCardHTML(season) {
+    const colorsHTML = season.colors.map(color => {
+      const textColor = this.getContrastColor(color);
+      return `<div class="palette-chip" style="background: ${color};"><span class="chip-code" style="color: ${textColor};">${color}</span></div>`;
+    }).join('');
+
+    return `
+      <div class="seasonal-card">
+        <h4>${season.icon} ${season.name}</h4>
+        <p class="season-desc">${season.description}</p>
+        <div class="palette-colors">${colorsHTML}</div>
+        <p class="season-keyword"><strong>キーワード：</strong>${season.keywords}</p>
+      </div>
+    `;
+  },
+
+  // ムードカードのHTMLを生成
+  createMoodCardHTML(mood) {
+    const chipsHTML = mood.colors.map(color =>
+      `<div class="mini-chip" style="background: ${color};"></div>`
+    ).join('');
+
+    return `
+      <div class="mood-card">
+        <h4>${mood.icon} ${mood.name}</h4>
+        <div class="palette-colors-mini">${chipsHTML}</div>
+        <p>${mood.description}</p>
+      </div>
+    `;
+  },
+
+  // 背景色に対するコントラスト色を取得
+  getContrastColor(hex) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return luminance > 0.5 ? '#000000' : '#ffffff';
+  },
+
+  // 全パレットをレンダリング
+  async renderAll() {
+    const data = await this.loadData();
+    if (!data) return;
+
+    // 目的別パレット
+    const purposeContainer = document.getElementById('palette-purpose');
+    if (purposeContainer && data.purpose) {
+      let html = '<p>Webサイトやアプリの<strong>目的に応じた配色パレット</strong>を紹介します。それぞれの目的に最適化された配色で、効果的なデザインを実現できます。</p>';
+      data.purpose.forEach((section, index) => {
+        html += this.createSectionHTML(section);
+        if (index < data.purpose.length - 1) {
+          html += '<hr style="margin: 3rem 0; border: none; border-top: 2px solid #e9ecef;">';
+        }
+      });
+      purposeContainer.innerHTML = html;
+    }
+
+    // 業種別パレット
+    const industryContainer = document.getElementById('palette-industry');
+    if (industryContainer && data.industry) {
+      let html = '<p>各<strong>業種の特性に合わせた配色パレット</strong>を紹介します。業種ごとに求められる印象や雰囲気を色で表現します。</p>';
+      data.industry.forEach(section => {
+        html += this.createSectionHTML(section);
+      });
+      industryContainer.innerHTML = html;
+    }
+
+    // 季節別パレット
+    const seasonContainer = document.getElementById('palette-season');
+    if (seasonContainer && data.seasons) {
+      let html = '<p>季節感を表現する配色パレットです。キャンペーンやイベントデザインに活用できます。</p>';
+      html += '<div class="seasonal-grid">';
+      data.seasons.forEach(season => {
+        html += this.createSeasonalCardHTML(season);
+      });
+      html += '</div>';
+      seasonContainer.innerHTML = html;
+    }
+
+    // 感情・雰囲気別
+    const moodContainer = document.getElementById('palette-mood');
+    if (moodContainer && data.moods) {
+      let html = '<p>表現したい<strong>感情や雰囲気</strong>に合わせた配色パレットです。デザインの目的に応じて選びましょう。</p>';
+      html += '<div class="mood-grid">';
+      data.moods.forEach(mood => {
+        html += this.createMoodCardHTML(mood);
+      });
+      html += '</div>';
+      moodContainer.innerHTML = html;
+    }
+  }
+};
+
+// ===== スライダー要素取得（遅延初期化対応） =====
+let hueSlider, lightnessSlider, saturationSlider;
+let hueValueDisplay, lightnessValueDisplay, saturationValueDisplay;
+let colorChip, hexCode, rgbCode, hslCode;
+
+function initializeHSLElements() {
+  hueSlider = document.getElementById('hue-slider');
+  lightnessSlider = document.getElementById('lightness-slider');
+  saturationSlider = document.getElementById('saturation-slider');
+  hueValueDisplay = document.getElementById('hue-value');
+  lightnessValueDisplay = document.getElementById('lightness-value');
+  saturationValueDisplay = document.getElementById('saturation-value');
+  colorChip = document.getElementById('color-chip');
+  hexCode = document.getElementById('hex-code');
+  rgbCode = document.getElementById('rgb-code');
+  hslCode = document.getElementById('hsl-code');
+}
 
 // 初期設定値
 let hue        = 0;
@@ -49,6 +318,14 @@ function updateColor() {
 }
 
 function initializeSliders() {
+  // 要素を取得（遅延読み込み対応）
+  initializeHSLElements();
+
+  if (!hueSlider || !lightnessSlider || !saturationSlider) {
+    console.log('HSL sliders not found - tab may not be loaded yet');
+    return;
+  }
+
   hueSlider.value        = hue;
   lightnessSlider.value  = lightness;
   saturationSlider.value = saturation;
@@ -66,27 +343,32 @@ function initializeSliders() {
     updateColor();
   });
 
-  document.getElementById('btn-random').addEventListener('click', () => {
-    hue        = Math.floor(Math.random()*361);
-    lightness  = Math.floor(Math.random()*101);
-    saturation = Math.floor(Math.random()*101);
-    // スライダーの値を直接更新（イベントリスナーを再追加しない）
-    hueSlider.value = hue;
-    lightnessSlider.value = lightness;
-    saturationSlider.value = saturation;
-    updateColor();
-  });
-  document.getElementById('btn-reset').addEventListener('click', () => {
-    hue        = 0;
-    lightness  = 50;
-    saturation = 50;
-    // スライダーの値を直接更新（イベントリスナーを再追加しない）
-    hueSlider.value = hue;
-    lightnessSlider.value = lightness;
-    saturationSlider.value = saturation;
-    updateColor();
-  });
-  // 実験モードへの遷移ボタンは別タブ／別モード用実装を後で
+  const btnRandom = document.getElementById('btn-random');
+  const btnReset = document.getElementById('btn-reset');
+
+  if (btnRandom) {
+    btnRandom.addEventListener('click', () => {
+      hue        = Math.floor(Math.random()*361);
+      lightness  = Math.floor(Math.random()*101);
+      saturation = Math.floor(Math.random()*101);
+      hueSlider.value = hue;
+      lightnessSlider.value = lightness;
+      saturationSlider.value = saturation;
+      updateColor();
+    });
+  }
+
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      hue        = 0;
+      lightness  = 50;
+      saturation = 50;
+      hueSlider.value = hue;
+      lightnessSlider.value = lightness;
+      saturationSlider.value = saturation;
+      updateColor();
+    });
+  }
 }
 
 function hslToRgb(h, s, l) {
@@ -124,27 +406,18 @@ function rgbToHex(r, g, b) {
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 
-// 初期化実行
-if (hueSlider && lightnessSlider && saturationSlider && colorChip) {
-  initializeSliders();
-  updateColor();
-  console.log('Color Hack Box initialized successfully');
-} else {
-  console.error('Failed to find slider or color chip elements');
-  console.log('hueSlider:', hueSlider);
-  console.log('lightnessSlider:', lightnessSlider);
-  console.log('saturationSlider:', saturationSlider);
-  console.log('colorChip:', colorChip);
-}
+// 初期化実行（遅延読み込みのため削除 - TabLoaderが担当）
+// HSLスライダーはtab2読み込み時にTabLoader.initializeTabComponents()で初期化される
 
-// タブ切り替え機能
+// タブ切り替え機能（遅延読み込み対応）
 function initializeTabs() {
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
 
   tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', async () => {
       const targetTab = button.getAttribute('data-tab');
+      const targetContent = document.getElementById(targetTab);
 
       // すべてのタブボタンとコンテンツから active クラスを削除
       tabButtons.forEach(btn => btn.classList.remove('active'));
@@ -152,7 +425,10 @@ function initializeTabs() {
 
       // クリックされたタブボタンと対応するコンテンツに active クラスを追加
       button.classList.add('active');
-      document.getElementById(targetTab).classList.add('active');
+      targetContent.classList.add('active');
+
+      // タブコンテンツを遅延読み込み
+      await TabLoader.renderTab(targetTab, targetContent);
 
       // アクティブなタブボタンを中央にスクロール
       button.scrollIntoView({
@@ -162,6 +438,16 @@ function initializeTabs() {
       });
     });
   });
+
+  // 初期表示タブ（tab1）を読み込み
+  const activeTab = document.querySelector('.tab-btn.active');
+  if (activeTab) {
+    const tabId = activeTab.getAttribute('data-tab');
+    const container = document.getElementById(tabId);
+    if (container) {
+      TabLoader.renderTab(tabId, container);
+    }
+  }
 }
 
 // タブ初期化実行
@@ -265,8 +551,7 @@ function initializeCopyButtons() {
   });
 }
 
-// コピーボタン初期化実行
-initializeCopyButtons();
+// コピーボタン初期化はTabLoader.initializeTabComponents()から呼び出される
 
 // 補色の色相環インタラクティブ機能
 function initializeComplementaryWheel() {
@@ -960,12 +1245,8 @@ function initializeSimilarityCalculator() {
   updateSimilarity();
 }
 
-// 補色機能と類似色相機能、グレースケール機能、RGB機能の初期化
+// DOMContentLoaded - 遅延読み込みのため初期化はTabLoaderが担当
+// 各機能はタブ読み込み時にTabLoader.initializeTabComponents()から呼び出される
 document.addEventListener('DOMContentLoaded', () => {
-  initializeComplementaryWheel();
-  initializeAnalogousWheel();
-  initializeGrayscaleSlider();
-  initializeRGBSliders();
-  initializeRGBCube();
-  initializeSimilarityCalculator();
+  console.log('Color Hack Box initialized - tabs will be loaded on demand');
 });
