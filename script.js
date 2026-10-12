@@ -750,8 +750,19 @@ function initializeContrastChecker() {
   const preview = document.getElementById('contrast-preview');
   const ratioOutput = document.getElementById('contrast-ratio');
   const error = document.getElementById('contrast-error');
+  const targetSelect = document.getElementById('contrast-target');
+  const targetStatus = document.getElementById('contrast-target-status');
+  const suggestion = document.getElementById('contrast-suggestion');
+  const suggestionPreview = document.getElementById('contrast-suggestion-preview');
+  const suggestionForeground = document.getElementById('contrast-suggestion-foreground');
+  const suggestionBackground = document.getElementById('contrast-suggestion-background');
+  const suggestionRatio = document.getElementById('contrast-suggestion-ratio');
+  const suggestionNote = document.getElementById('contrast-suggestion-note');
+  const applySuggestion = document.getElementById('contrast-apply-suggestion');
+  const copySuggestion = document.getElementById('contrast-copy-suggestion');
+  let currentSuggestion = null;
 
-  if (!foregroundPicker || !foregroundText || !backgroundPicker || !backgroundText || !preview || !ratioOutput) return;
+  if (!foregroundPicker || !foregroundText || !backgroundPicker || !backgroundText || !preview || !ratioOutput || !targetSelect) return;
 
   function setResult(id, passed) {
     const element = document.getElementById(`contrast-${id}`);
@@ -766,6 +777,9 @@ function initializeContrastChecker() {
     const background = ColorCore.normalizeHex(backgroundText.value);
     if (!foreground || !background) {
       error.textContent = 'HEXは #RGB または #RRGGBB 形式で入力してください。';
+      if (targetStatus) targetStatus.textContent = '';
+      if (suggestion) suggestion.hidden = true;
+      currentSuggestion = null;
       return false;
     }
 
@@ -778,11 +792,37 @@ function initializeContrastChecker() {
     const result = ColorCore.evaluateContrast(foreground, background);
     preview.style.color = foreground;
     preview.style.backgroundColor = background;
-    ratioOutput.textContent = `${result.ratio.toFixed(2)}:1`;
+    ratioOutput.textContent = `${result.ratio.toFixed(3)}:1`;
     setResult('aa-normal', result.aaNormal);
     setResult('aa-large', result.aaLarge);
     setResult('aaa-normal', result.aaaNormal);
     setResult('aaa-large', result.aaaLarge);
+    setResult('non-text', result.ratio >= 3);
+
+    const target = ColorCore.getContrastTarget(targetSelect.value);
+    if (!target) return true;
+    const passed = result.ratio >= target.ratio;
+    if (targetStatus) {
+      targetStatus.classList.toggle('pass', passed);
+      targetStatus.classList.toggle('fail', !passed);
+      targetStatus.textContent = `${target.label}（${target.ratio}:1）: ${passed ? '適合' : '不適合'}`;
+    }
+
+    currentSuggestion = passed ? null : ColorCore.suggestContrastPair(foreground, background, target.ratio);
+    if (suggestion) suggestion.hidden = passed;
+    if (currentSuggestion && suggestionPreview && suggestionForeground && suggestionBackground && suggestionRatio && suggestionNote) {
+      suggestionPreview.style.color = currentSuggestion.foreground;
+      suggestionPreview.style.backgroundColor = currentSuggestion.background;
+      suggestionForeground.textContent = currentSuggestion.foreground;
+      suggestionBackground.textContent = currentSuggestion.background;
+      suggestionRatio.textContent = `${currentSuggestion.ratio.toFixed(3)}:1`;
+      const changeLabels = {
+        foreground: '前景色だけを調整した候補です。',
+        background: '背景色だけを調整した候補です。',
+        both: '片方の色だけでは基準に届かないため、前景色と背景色の両方を調整した候補です。'
+      };
+      suggestionNote.textContent = `${changeLabels[currentSuggestion.changed]} 黒または白方向へ段階調整した一案であり、ブランドや見え方に最適な唯一の配色ではありません。`;
+    }
     return true;
   }
 
@@ -799,11 +839,37 @@ function initializeContrastChecker() {
 
   bindPair(foregroundPicker, foregroundText);
   bindPair(backgroundPicker, backgroundText);
+  targetSelect.addEventListener('change', render);
   swapButton?.addEventListener('click', () => {
     const previousForeground = foregroundText.value;
     foregroundText.value = backgroundText.value;
     backgroundText.value = previousForeground;
     render();
+  });
+  applySuggestion?.addEventListener('click', () => {
+    if (!currentSuggestion) return;
+    foregroundText.value = currentSuggestion.foreground;
+    backgroundText.value = currentSuggestion.background;
+    render();
+    showToast('✓ 配色候補を入力欄へ反映しました');
+  });
+  copySuggestion?.addEventListener('click', async () => {
+    if (!currentSuggestion) return;
+    const text = `前景色 ${currentSuggestion.foreground} / 背景色 ${currentSuggestion.background}`;
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast('✓ 配色候補をクリップボードにコピーしました');
+    } catch (error) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+      document.body.appendChild(textArea);
+      textArea.select();
+      const copied = document.execCommand('copy');
+      textArea.remove();
+      showToast(copied ? '✓ 配色候補をクリップボードにコピーしました' : '❌ コピーに失敗しました');
+    }
   });
 
   render();

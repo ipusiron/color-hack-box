@@ -40,7 +40,7 @@ Key areas to test:
 7. Accordion open/close (60 sections across 8 tabs)
 8. Responsive layout at 600px and 768px breakpoints
 9. Tab navigation and lazy loading (check Network tab in DevTools)
-10. WCAG contrast checker and keyboard tab navigation
+10. WCAG contrast checker, target switching, suggested color application/copy, and keyboard tab navigation
 
 ## Architecture
 
@@ -148,7 +148,7 @@ HSL Input → hslToRgb() → rgbToHex() → UI Update
 - **UI text**: Japanese
 - **Code**: English variable/function names
 - **Color formats**: HEX uppercase with # (`#FF5733`), RGB/HSL with labels for display
-- **Accessibility**: WCAG 2.2 text contrast calculation; this does not certify whole-page conformance
+- **Accessibility**: WCAG 2.2 text/non-text contrast target selection and suggested color pairs; calculations do not certify whole-page conformance
 
 ## Common Tasks
 

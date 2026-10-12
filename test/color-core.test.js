@@ -42,3 +42,41 @@ test('赤背景では黒文字の比率が白文字を上回る', () => {
 test('暗い背景では白文字を選ぶ', () => {
   assert.equal(ColorCore.bestTextColor('#222222'), '#FFFFFF');
 });
+
+test('用途ごとのコントラスト基準を返す', () => {
+  assert.equal(ColorCore.getContrastTarget('aa-normal').ratio, 4.5);
+  assert.equal(ColorCore.getContrastTarget('aaa-normal').ratio, 7);
+  assert.equal(ColorCore.getContrastTarget('aa-large').ratio, 3);
+  assert.equal(ColorCore.getContrastTarget('aaa-large').ratio, 4.5);
+  assert.equal(ColorCore.getContrastTarget('non-text').ratio, 3);
+  assert.equal(ColorCore.getContrastTarget('unknown'), null);
+});
+
+test('基準を満たす配色は変更しない', () => {
+  const candidate = ColorCore.suggestContrastPair('#000000', '#FFFFFF', 7);
+  assert.deepEqual(candidate, {
+    foreground: '#000000',
+    background: '#FFFFFF',
+    ratio: 21,
+    changed: 'none'
+  });
+});
+
+test('不適合の配色から基準を満たす候補を返す', () => {
+  const candidate = ColorCore.suggestContrastPair('#999999', '#FFFFFF', 4.5);
+  assert.ok(candidate.ratio >= 4.5);
+  assert.equal(candidate.background, '#FFFFFF');
+  assert.equal(candidate.changed, 'foreground');
+  assert.ok(ColorCore.contrastRatio(candidate.foreground, candidate.background) >= 4.5);
+});
+
+test('片方だけの調整で届かない場合は両方を変更する', () => {
+  const candidate = ColorCore.suggestContrastPair('#777777', '#777777', 7);
+  assert.equal(candidate.changed, 'both');
+  assert.ok(candidate.ratio >= 7);
+});
+
+test('候補生成の引数を検証する', () => {
+  assert.throws(() => ColorCore.suggestContrastPair('red', '#FFFFFF', 4.5), /valid HEX/);
+  assert.throws(() => ColorCore.suggestContrastPair('#000000', '#FFFFFF', 22), /between 1 and 21/);
+});

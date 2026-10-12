@@ -221,16 +221,49 @@
                 <strong>表示例</strong>
                 <span>読みやすさは文字サイズや書体にも左右されます。</span>
               </div>
+              <label class="contrast-target-control" for="contrast-target">
+                <span>確認する基準</span>
+                <select id="contrast-target">
+                  <option value="aa-normal">AA 通常文字（4.5:1）</option>
+                  <option value="aaa-normal">AAA 通常文字（7:1）</option>
+                  <option value="aa-large">AA 大きい文字（3:1）</option>
+                  <option value="aaa-large">AAA 大きい文字（4.5:1）</option>
+                  <option value="non-text">非テキスト（3:1）</option>
+                </select>
+              </label>
               <div class="contrast-result" aria-live="polite">
-                <p>コントラスト比 <output id="contrast-ratio">12.63:1</output></p>
+                <p>コントラスト比 <output id="contrast-ratio">12.635:1</output></p>
+                <p id="contrast-target-status" class="contrast-target-status"></p>
                 <div class="contrast-badges">
                   <span id="contrast-aa-normal" data-label="AA 通常文字">AA 通常文字: 適合</span>
                   <span id="contrast-aa-large" data-label="AA 大きい文字">AA 大きい文字: 適合</span>
                   <span id="contrast-aaa-normal" data-label="AAA 通常文字">AAA 通常文字: 適合</span>
                   <span id="contrast-aaa-large" data-label="AAA 大きい文字">AAA 大きい文字: 適合</span>
+                  <span id="contrast-non-text" data-label="非テキスト">非テキスト: 適合</span>
                 </div>
               </div>
-              <p class="contrast-limit">この判定は文字と背景の色の組合せだけを評価します。文字サイズ、太さ、背景画像、状態変化、非テキスト要素を含むページ全体の適合を証明するものではありません。</p>
+              <section id="contrast-suggestion" class="contrast-suggestion" aria-labelledby="contrast-suggestion-title" hidden>
+                <h5 id="contrast-suggestion-title">基準を満たす配色候補</h5>
+                <div id="contrast-suggestion-preview" class="contrast-suggestion-preview">
+                  <strong>候補の表示例</strong>
+                  <span>前景色と背景色を確認できます。</span>
+                </div>
+                <dl class="contrast-suggestion-values">
+                  <div><dt>前景色</dt><dd><code id="contrast-suggestion-foreground">#333333</code></dd></div>
+                  <div><dt>背景色</dt><dd><code id="contrast-suggestion-background">#FFFFFF</code></dd></div>
+                  <div><dt>比率</dt><dd><output id="contrast-suggestion-ratio">12.635:1</output></dd></div>
+                </dl>
+                <p id="contrast-suggestion-note" class="contrast-suggestion-note">黒または白方向へ段階調整した一案であり、最適な唯一の配色ではありません。</p>
+                <div class="contrast-suggestion-actions">
+                  <button id="contrast-apply-suggestion" type="button">候補を入力欄へ反映</button>
+                  <button id="contrast-copy-suggestion" type="button">HEXをコピー</button>
+                </div>
+              </section>
+              <div class="contrast-limit">
+                <p><strong>この検査で分かること：</strong>指定した2色の相対輝度による比率と、選んだ数値基準を満たすかどうかです。比率は小数第3位まで表示しますが、判定には丸める前の値を使います。</p>
+                <p><strong>この検査だけでは分からないこと：</strong>文字の実際の大きさ・太さ、画像やグラデーション上の最小比率、hover・focus・disabledなど各状態、UI部品が接する色、色以外の識別手段です。結果はページ全体のWCAG適合を証明しません。</p>
+                <p>非テキスト3:1は、操作に必要なUI部品の視覚情報や、内容理解に必要な図形を、その隣接色と比べる目安です。装飾や非アクティブ部品などには例外があります。</p>
+              </div>
             </section>
 
             <div class="contrast-examples-achromatic">
