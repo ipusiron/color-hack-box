@@ -4357,6 +4357,232 @@ footer {
   }
 }
 
+/* Tab 8: 色覚シミュレーションと配色監査 */
+.cvd-limit-note {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 5px solid #b45309;
+  border-radius: 8px;
+  background: #fff7ed;
+  color: #78350f;
+}
+
+.cvd-limit-note p {
+  margin: 0.4rem 0 0;
+}
+
+.cvd-lab {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 2px solid #dbe4ee;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.cvd-controls,
+.cvd-comparison,
+.noncolor-examples {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.cvd-controls label,
+.cvd-audit-heading label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 700;
+}
+
+.cvd-controls textarea,
+.cvd-controls select,
+.cvd-audit-heading select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem;
+  border: 2px solid #94a3b8;
+  border-radius: 8px;
+  background: #fff;
+  color: #172033;
+  font: inherit;
+}
+
+.cvd-controls textarea {
+  resize: vertical;
+  font-family: "Courier New", monospace;
+}
+
+.cvd-samples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+
+.cvd-samples button {
+  min-height: 44px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #64748b;
+  border-radius: 8px;
+  background: #fff;
+  color: #172033;
+  cursor: pointer;
+}
+
+.cvd-samples button:hover,
+.cvd-samples button:focus-visible {
+  background: #e8f1fb;
+}
+
+.cvd-error {
+  min-height: 1.5em;
+  margin: 0.5rem 0;
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.cvd-comparison h5,
+.cvd-audit-heading h5,
+.noncolor-card h5 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+.cvd-swatch-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.cvd-swatch {
+  min-height: 72px;
+  padding: 0.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+.cvd-swatch-marker {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.7rem;
+  min-height: 1.7rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.cvd-swatch code,
+.cvd-pair-label code {
+  color: inherit;
+}
+
+.cvd-audit-heading {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.cvd-audit-heading p {
+  margin: 0;
+}
+
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+  outline-offset: 3px;
+}
+
+.cvd-audit-table {
+  min-width: 790px;
+  margin: 0;
+}
+
+.cvd-pair-label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cvd-pair-chip {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid #475569;
+  border-radius: 4px;
+}
+
+.audit-pass {
+  color: #166534;
+  font-weight: 700;
+}
+
+.audit-fail {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.noncolor-card {
+  padding: 1rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.noncolor-card.recommended {
+  border-color: #15803d;
+  background: #f0fdf4;
+}
+
+.noncolor-card p {
+  margin: 0.5rem 0;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  vertical-align: -0.1rem;
+}
+
+.status-dot-red { background: #d32f2f; }
+.status-dot-green { background: #388e3c; }
+
+@media (min-width: 600px) {
+  .cvd-swatch-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .cvd-audit-heading {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.5fr);
+    align-items: end;
+  }
+
+  .noncolor-examples {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .cvd-lab {
+    padding: 1.5rem;
+  }
+
+  .cvd-controls,
+  .cvd-comparison {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* タブ7: 配色例・目的別パレット */
 .palette-intro {
   margin: 2rem 0;
