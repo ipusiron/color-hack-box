@@ -41,6 +41,31 @@ body {
   margin: 0;
 }
 
+.language-switch {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.9rem;
+}
+
+.language-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.55rem 1rem;
+  border: 2px solid #4A90E2;
+  border-radius: 8px;
+  background: #fff;
+  color: #245f9e;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.language-switch a:hover,
+.language-switch a:focus-visible {
+  background: #e8f1fb;
+}
+
 /* タブナビゲーション */
 .tab-navigation {
   display: flex;

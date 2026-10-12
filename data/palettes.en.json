@@ -1,0 +1,480 @@
+{
+  "purpose": [
+    {
+      "icon": "🏢",
+      "title": "Corporate site",
+      "description": "A color scheme that expresses a company's reliability and professionalism. Creates a sense of stability with a calm tone.",
+      "palettes": [
+        {
+          "name": "Palette 1: Classic Blue",
+          "colors": [
+            {
+              "hex": "#f8f9fa",
+              "role": "base"
+            },
+            {
+              "hex": "#2c3e50",
+              "role": "main"
+            },
+            {
+              "hex": "#3498db",
+              "role": "sub"
+            },
+            {
+              "hex": "#e74c3c",
+              "role": "accent"
+            }
+          ],
+          "usage": "Demonstrates trust and professionalism. For financial/IT companies"
+        },
+        {
+          "name": "Palette 2: Modern Green",
+          "colors": [
+            {
+              "hex": "#ffffff",
+              "role": "base"
+            },
+            {
+              "hex": "#27ae60",
+              "role": "main"
+            },
+            {
+              "hex": "#34495e",
+              "role": "sub"
+            },
+            {
+              "hex": "#f39c12",
+              "role": "accent"
+            }
+          ],
+          "usage": "growth and stability. For environmental and healthcare companies"
+        }
+      ]
+    },
+    {
+      "icon": "🛍️",
+      "title": "EC site/shop",
+      "description": "Color schemes that stimulate purchasing intent and make products look attractive. Visibility and accent are important.",
+      "palettes": [
+        {
+          "name": "Palette 1: Fresh orange",
+          "colors": [
+            {
+              "hex": "#fef5e7",
+              "role": "base"
+            },
+            {
+              "hex": "#e67e22",
+              "role": "main"
+            },
+            {
+              "hex": "#d35400",
+              "role": "sub"
+            },
+            {
+              "hex": "#c0392b",
+              "role": "accent"
+            }
+          ],
+          "usage": "Liveliness and friendliness. For food and miscellaneous goods shops"
+        },
+        {
+          "name": "Palette 2: Elegant Purple",
+          "colors": [
+            {
+              "hex": "#f4ecf7",
+              "role": "base"
+            },
+            {
+              "hex": "#8e44ad",
+              "role": "main"
+            },
+            {
+              "hex": "#2c3e50",
+              "role": "sub"
+            },
+            {
+              "hex": "#e74c3c",
+              "role": "accent"
+            }
+          ],
+          "usage": "Luxury and elegance. For beauty and fashion"
+        }
+      ]
+    },
+    {
+      "icon": "📝",
+      "title": "Blog/media site",
+      "description": "The color scheme emphasizes readability and familiarity. Choose colors that won't strain your eyes even when you browse for long periods of time.",
+      "palettes": [
+        {
+          "name": "Palette 1: Natural beige",
+          "colors": [
+            {
+              "hex": "#faf8f3",
+              "role": "base"
+            },
+            {
+              "hex": "#5d4e37",
+              "role": "main"
+            },
+            {
+              "hex": "#8b7355",
+              "role": "sub"
+            },
+            {
+              "hex": "#d35400",
+              "role": "accent"
+            }
+          ],
+          "usage": "Warmth and calmness. For lifestyle blogs"
+        },
+        {
+          "name": "Palette 2: Clean white",
+          "colors": [
+            {
+              "hex": "#ffffff",
+              "role": "base"
+            },
+            {
+              "hex": "#333333",
+              "role": "main"
+            },
+            {
+              "hex": "#3498db",
+              "role": "sub"
+            },
+            {
+              "hex": "#e74c3c",
+              "role": "accent"
+            }
+          ],
+          "usage": "Simple and easy to read. For tech blogs"
+        }
+      ]
+    },
+    {
+      "icon": "🎨",
+      "title": "portfolio creative",
+      "description": "A color scheme that complements your work and expresses your individuality. For designers and creators.",
+      "palettes": [
+        {
+          "name": "Palette 1: Modern Dark",
+          "colors": [
+            {
+              "hex": "#1a1a1a",
+              "role": "base"
+            },
+            {
+              "hex": "#ffffff",
+              "role": "main"
+            },
+            {
+              "hex": "#666666",
+              "role": "sub"
+            },
+            {
+              "hex": "#00d9ff",
+              "role": "accent"
+            }
+          ],
+          "usage": "Sophistication and modernity. For designers"
+        },
+        {
+          "name": "Palette 2: Vivid colorful",
+          "colors": [
+            {
+              "hex": "#f8f9fa",
+              "role": "base"
+            },
+            {
+              "hex": "#ff6b9d",
+              "role": "main"
+            },
+            {
+              "hex": "#4ecdc4",
+              "role": "sub"
+            },
+            {
+              "hex": "#ffe66d",
+              "role": "accent"
+            }
+          ],
+          "usage": "Pop and fun. For illustrators"
+        }
+      ]
+    }
+  ],
+  "industry": [
+    {
+      "icon": "🏥",
+      "title": "Medical/Healthcare",
+      "description": "Expresses a sense of cleanliness, security, and reliability. The color scheme is based on blue, green, and white.",
+      "palettes": [
+        {
+          "colors": [
+            {
+              "hex": "#f0f8ff"
+            },
+            {
+              "hex": "#4a90e2"
+            },
+            {
+              "hex": "#27ae60"
+            },
+            {
+              "hex": "#ffffff"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🎓",
+      "title": "Education/Learning",
+      "description": "Intelligent and approachable. It has a bright color scheme using blue, green, and orange.",
+      "palettes": [
+        {
+          "colors": [
+            {
+              "hex": "#fff9e6"
+            },
+            {
+              "hex": "#3498db"
+            },
+            {
+              "hex": "#f39c12"
+            },
+            {
+              "hex": "#27ae60"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🍽️",
+      "title": "Food/Restaurant",
+      "description": "Warm colors that stimulate your appetite. The main colors are red, orange, and brown.",
+      "palettes": [
+        {
+          "colors": [
+            {
+              "hex": "#fff5e6"
+            },
+            {
+              "hex": "#e74c3c"
+            },
+            {
+              "hex": "#d35400"
+            },
+            {
+              "hex": "#8b4513"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "💻",
+      "title": "Technology/IT",
+      "description": "Advanced and professional. It has a cool color scheme using blue, gray, and black.",
+      "palettes": [
+        {
+          "colors": [
+            {
+              "hex": "#ecf0f1"
+            },
+            {
+              "hex": "#2c3e50"
+            },
+            {
+              "hex": "#3498db"
+            },
+            {
+              "hex": "#00d9ff"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🏦",
+      "title": "Finance/Insurance",
+      "description": "Trust and stability. Use calming colors such as blue, green, and gray.",
+      "palettes": [
+        {
+          "colors": [
+            {
+              "hex": "#f8f9fa"
+            },
+            {
+              "hex": "#1e3a8a"
+            },
+            {
+              "hex": "#059669"
+            },
+            {
+              "hex": "#6b7280"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🎮",
+      "title": "Entertainment/Games",
+      "description": "Fun and exciting. The vivid and colorful color scheme creates a lively atmosphere.",
+      "palettes": [
+        {
+          "colors": [
+            {
+              "hex": "#1a1a1a"
+            },
+            {
+              "hex": "#ff006e"
+            },
+            {
+              "hex": "#8338ec"
+            },
+            {
+              "hex": "#00f5ff"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "seasons": [
+    {
+      "icon": "🌸",
+      "name": "Spring",
+      "description": "Soft and bright colors. Pastel colors evoke a feeling of new beginnings.",
+      "colors": [
+        "#ffebee",
+        "#ffc9d9",
+        "#b8e6b8",
+        "#fff9c4"
+      ],
+      "keywords": "Cherry blossoms, fresh greenery, refreshing, gentle"
+    },
+    {
+      "icon": "☀️",
+      "name": "Summer",
+      "description": "Bright and lively colors. Energetic and open atmosphere.",
+      "colors": [
+        "#00bcd4",
+        "#ffeb3b",
+        "#ff5722",
+        "#4caf50"
+      ],
+      "keywords": "sea, sun, vitality, bright"
+    },
+    {
+      "icon": "🍂",
+      "name": "Autumn",
+      "description": "Calm and warm colors. Produce warmth with deep colors.",
+      "colors": [
+        "#d4a574",
+        "#c17817",
+        "#8b4513",
+        "#dc143c"
+      ],
+      "keywords": "Autumn leaves, harvest, warmth, bitterness"
+    },
+    {
+      "icon": "❄️",
+      "name": "Winter",
+      "description": "Cool and quiet colors. White and blue colors express a sense of cleanliness and calmness.",
+      "colors": [
+        "#e3f2fd",
+        "#64b5f6",
+        "#1976d2",
+        "#37474f"
+      ],
+      "keywords": "snow, silence, clean, cool"
+    }
+  ],
+  "moods": [
+    {
+      "icon": "🛡️",
+      "name": "Trust and peace of mind",
+      "colors": [
+        "#3498db",
+        "#2c3e50",
+        "#ecf0f1"
+      ],
+      "description": "Calm color scheme of blue and gray"
+    },
+    {
+      "icon": "⚡",
+      "name": "Vitality/vigor",
+      "colors": [
+        "#e74c3c",
+        "#f39c12",
+        "#ffeb3b"
+      ],
+      "description": "Warm colors of red, orange, and yellow"
+    },
+    {
+      "icon": "🌿",
+      "name": "Kindness/Healing",
+      "colors": [
+        "#a8e6cf",
+        "#dcedc1",
+        "#ffd3b6"
+      ],
+      "description": "pastel soft colors"
+    },
+    {
+      "icon": "💎",
+      "name": "Luxury/high quality",
+      "colors": [
+        "#1a1a1a",
+        "#d4af37",
+        "#8b4789"
+      ],
+      "description": "Black, gold, and deep purple color scheme"
+    },
+    {
+      "icon": "🎉",
+      "name": "fun/pop",
+      "colors": [
+        "#ff6b9d",
+        "#4ecdc4",
+        "#ffe66d"
+      ],
+      "description": "Vivid colorful color scheme"
+    },
+    {
+      "icon": "🏙️",
+      "name": "modern/sophisticated",
+      "colors": [
+        "#2c3e50",
+        "#ecf0f1",
+        "#95a5a6"
+      ],
+      "description": "Minimal gray and white color scheme"
+    },
+    {
+      "icon": "🌳",
+      "name": "natural",
+      "colors": [
+        "#27ae60",
+        "#8b4513",
+        "#f5deb3"
+      ],
+      "description": "Earthy tones of green, brown, and beige"
+    },
+    {
+      "icon": "🔥",
+      "name": "Passionate/Dramatic",
+      "colors": [
+        "#c0392b",
+        "#1a1a1a",
+        "#f39c12"
+      ],
+      "description": "Strong color scheme of deep red, black, and gold"
+    }
+  ]
+}
