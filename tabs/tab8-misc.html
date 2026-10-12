@@ -21,27 +21,106 @@
           </div>
         </details>
 
-        <details class="accordion-item main-accordion">
-          <summary>👁️ 色覚異常とユニバーサルデザイン</summary>
+        <details class="accordion-item main-accordion" open>
+          <summary>👁️ 色覚多様性と、色だけに頼らない設計</summary>
           <div class="accordion-content">
-          <h3>👁️ 色覚異常とユニバーサルデザイン</h3>
-          <p>世界人口の約8%（男性の約5%、女性の約0.5%）が何らかの色覚特性を持っています。</p>
+          <h3>👁️ 色覚多様性と、色だけに頼らない設計</h3>
+          <p>色の見え方には個人差があります。特定の色の組み合わせを一律に「安全」「危険」と決めず、実際の配色を確認し、文字・形・模様などの手がかりも併用しましょう。</p>
 
-          <h4>主な色覚特性のタイプ</h4>
-          <ul>
-            <li><strong>1型（P型）：</strong> 赤色の感度が弱い（約1%）</li>
-            <li><strong>2型（D型）：</strong> 緑色の感度が弱い（最も一般的、約5%）</li>
-            <li><strong>3型（T型）：</strong> 青色の感度が弱い（非常に稀）</li>
-          </ul>
+          <div class="cvd-limit-note" role="note">
+            <strong>このシミュレーションの限界</strong>
+            <p>Machado・Oliveira・Fernandes（2009）の強度1.0の行列を使った近似表示です。当事者一人ひとりの見え方を再現するものではなく、医学的な診断やWCAG適合の判定にも使えません。表示機器や閲覧環境によっても見え方は変わります。</p>
+          </div>
 
-          <h4>配慮すべきポイント</h4>
+          <section class="cvd-lab" aria-labelledby="cvd-lab-heading">
+            <h4 id="cvd-lab-heading">配色の比較と一括検査</h4>
+            <div class="cvd-controls">
+              <label for="cvd-palette-input">
+                パレット（HEX、2〜8色）
+                <textarea id="cvd-palette-input" rows="3" spellcheck="false">#D32F2F #388E3C #1976D2 #FBC02D</textarea>
+              </label>
+              <label for="cvd-type">
+                近似表示
+                <select id="cvd-type">
+                  <option value="protanopia">1型2色覚（P型）の近似</option>
+                  <option value="deuteranopia" selected>2型2色覚（D型）の近似</option>
+                  <option value="tritanopia">3型2色覚（T型）の近似</option>
+                  <option value="normal">変換なし</option>
+                </select>
+              </label>
+            </div>
+            <div class="cvd-samples" aria-label="パレット例">
+              <span>例：</span>
+              <button type="button" data-cvd-palette="#D32F2F #388E3C #1976D2 #FBC02D">状態表示</button>
+              <button type="button" data-cvd-palette="#0072B2 #E69F00 #009E73 #CC79A7">カテゴリ</button>
+              <button type="button" data-cvd-palette="#FFFFFF #767676 #333333 #000000">グレースケール</button>
+            </div>
+            <p id="cvd-input-error" class="cvd-error" role="alert"></p>
+
+            <div class="cvd-comparison" aria-label="変換前後のパレット比較">
+              <div>
+                <h5>元の配色</h5>
+                <div id="cvd-original-palette" class="cvd-swatch-list"></div>
+              </div>
+              <div>
+                <h5>近似表示</h5>
+                <div id="cvd-simulated-palette" class="cvd-swatch-list"></div>
+              </div>
+            </div>
+
+            <div class="cvd-audit-heading">
+              <div>
+                <h5>全組み合わせのコントラスト</h5>
+                <p id="cvd-audit-status" aria-live="polite"></p>
+              </div>
+              <label for="cvd-pair-filter">
+                表示
+                <select id="cvd-pair-filter">
+                  <option value="all">すべて</option>
+                  <option value="aa-fail">通常文字4.5:1の未達だけ</option>
+                  <option value="three-fail">3:1の未達だけ</option>
+                </select>
+              </label>
+            </div>
+            <div class="table-scroll" tabindex="0" aria-label="コントラスト検査結果。横にスクロールできます">
+              <table class="comparison-table cvd-audit-table">
+                <thead>
+                  <tr>
+                    <th>元の組み合わせ</th>
+                    <th>比率</th>
+                    <th>AA通常文字<br>4.5:1</th>
+                    <th>大きい文字・非テキストの目安<br>3:1</th>
+                    <th>近似表示での比率<br>（観察補助）</th>
+                  </tr>
+                </thead>
+                <tbody id="cvd-audit-body"></tbody>
+              </table>
+            </div>
+            <p class="usage-note">数値基準の判定対象は元の配色です。大きい文字にはサイズ・太さの条件があり、非テキスト3:1にも適用範囲と例外があります。近似表示後の比率は、WCAGの合否ではなく比較の手がかりです。</p>
+          </section>
+
+          <h4>色以外の手がかりを加える</h4>
+          <div class="noncolor-examples">
+            <div class="noncolor-card">
+              <h5>色だけ</h5>
+              <p><span class="status-dot status-dot-red" aria-hidden="true"></span> サーバーA</p>
+              <p><span class="status-dot status-dot-green" aria-hidden="true"></span> サーバーB</p>
+              <small>色が区別できないと状態が分かりません。</small>
+            </div>
+            <div class="noncolor-card recommended">
+              <h5>形＋文字＋色</h5>
+              <p><span aria-hidden="true">▲</span> サーバーA：障害</p>
+              <p><span aria-hidden="true">●</span> サーバーB：正常</p>
+              <small>形と状態名からも同じ情報を受け取れます。</small>
+            </div>
+          </div>
           <ul>
-            <li><strong>色だけに頼らない：</strong> アイコン、パターン、テキストラベルを併用する</li>
-            <li><strong>赤と緑の組み合わせを避ける：</strong> 最も識別困難な組み合わせ</li>
-            <li><strong>明度差を確保する：</strong> 色相が見分けにくくても明度で区別できるように</li>
-            <li><strong>青と黄色を活用：</strong> ほとんどの色覚特性で識別可能な組み合わせ</li>
+            <li>入力エラーは枠色だけでなく、アイコンと説明文でも示す</li>
+            <li>グラフは凡例の色だけでなく、線種・模様・直接ラベルを併用する</li>
+            <li>リンクは本文との色差に加えて、下線など色以外の識別方法を用意する</li>
+            <li>可能なら実機、ブラウザーの開発者ツール、複数の確認者でも検証する</li>
           </ul>
-          <p class="usage-note">🔧 <strong>検証ツール：</strong> Chrome DevToolsの「Emulate vision deficiencies」で色覚シミュレーションが可能。</p>
+          <p class="source-note">参考：<a href="https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html" target="_blank" rel="noopener noreferrer">Machadoらの色覚シミュレーション資料</a>、<a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html" target="_blank" rel="noopener noreferrer">W3C「Use of Color」</a></p>
           </div>
         </details>
 

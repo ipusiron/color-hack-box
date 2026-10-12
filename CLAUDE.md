@@ -41,6 +41,7 @@ Key areas to test:
 8. Responsive layout at 600px and 768px breakpoints
 9. Tab navigation and lazy loading (check Network tab in DevTools)
 10. WCAG contrast checker, target switching, suggested color application/copy, and keyboard tab navigation
+11. Tab 8 color-vision approximation, palette pair audit/filtering, and horizontal table scrolling at 320px
 
 ## Architecture
 
@@ -50,8 +51,9 @@ Key areas to test:
 color-hack-box/
   index.html              (~160 lines - shell only)
   color-core.js           (DOM-independent WCAG contrast calculations)
+  accessibility-core.js   (DOM-independent CVD approximation and palette audit)
   script.js               (~1,500 lines - TabLoader, PaletteRenderer, core logic)
-  style.css               (unchanged - responsive design)
+  style.css               (responsive design)
   tabs/
     tab1-rgb.html         (RGB color space content)
     tab2-basics.html      (HSL basics content)
@@ -73,7 +75,8 @@ The application uses a lazy-loading architecture:
 1. **index.html (Shell)**: Contains only navigation, empty tab containers, and footer
 2. **TabLoader**: Fetches tab HTML files on-demand with caching
 3. **PaletteRenderer**: Reads `palettes.json` and generates Tab 7 content dynamically
-4. **Tab HTML files**: Self-contained content (header + accordions) per tab
+4. **AccessibilityCore**: Applies the Machado et al. (2009) severity-1.0 matrices and audits every palette pair without DOM access
+5. **Tab HTML files**: Self-contained content (header + accordions) per tab
 
 ### Key Modules (script.js)
 
@@ -126,7 +129,7 @@ HSL Input → hslToRgb() → rgbToHex() → UI Update
 | 5 | トーン別パレット | 3x3 tone map, tone-based color grids |
 | 6 | 配色と比率 | 70:25:5 and 60:30:10 ratio visualizations |
 | 7 | 配色例・目的別パレット | JSON-driven palettes by purpose/industry/season/mood |
-| 8 | 雑学・補足 | Cultural differences, color vision, RGB vs CMYK |
+| 8 | 雑学・補足 | Cultural differences, CVD approximation, palette pair audit, non-color cues, RGB vs CMYK |
 
 ### Interactive Features
 
@@ -136,6 +139,7 @@ HSL Input → hslToRgb() → rgbToHex() → UI Update
 - **Accordion System**: Native `<details>/<summary>` with CSS animations
 - **Copy Functionality**: Clipboard API with textarea fallback, toast feedback
 - **Tab Management**: Lazy loading with active state and auto-scroll to center
+- **Accessibility Lab**: 2-8 color palette comparison, three CVD approximations, pairwise contrast filtering, and non-color cue examples
 
 ### Responsive Breakpoints
 

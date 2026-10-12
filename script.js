@@ -98,12 +98,136 @@ const TabLoader = {
       case 'tab7':
         await PaletteRenderer.renderAll();
         break;
+      case 'tab8':
+        initializeColorAccessibilityLab();
+        break;
       default:
         // 他のタブは特別な初期化不要
         break;
     }
   }
 };
+
+// ===== 色覚シミュレーション・パレット一括検査 =====
+function initializeColorAccessibilityLab() {
+  const input = document.getElementById('cvd-palette-input');
+  const typeSelect = document.getElementById('cvd-type');
+  const filterSelect = document.getElementById('cvd-pair-filter');
+  const originalContainer = document.getElementById('cvd-original-palette');
+  const simulatedContainer = document.getElementById('cvd-simulated-palette');
+  const tableBody = document.getElementById('cvd-audit-body');
+  const status = document.getElementById('cvd-audit-status');
+  const error = document.getElementById('cvd-input-error');
+  if (!input || !typeSelect || !filterSelect || !originalContainer || !simulatedContainer || !tableBody || !status || !error) return;
+
+  let latestAudit = null;
+
+  function renderSwatches(container, colors) {
+    container.replaceChildren();
+    colors.forEach((color, index) => {
+      const item = document.createElement('div');
+      item.className = 'cvd-swatch';
+      item.style.backgroundColor = color;
+      item.style.color = ColorCore.bestTextColor(color);
+      const marker = document.createElement('span');
+      marker.className = 'cvd-swatch-marker';
+      marker.textContent = String(index + 1);
+      const code = document.createElement('code');
+      code.textContent = color;
+      item.append(marker, code);
+      container.append(item);
+    });
+  }
+
+  function pairLabel(pair, simulated = false) {
+    const first = simulated ? pair.simulatedFirst : pair.first;
+    const second = simulated ? pair.simulatedSecond : pair.second;
+    const wrapper = document.createElement('span');
+    wrapper.className = 'cvd-pair-label';
+    [first, second].forEach((color) => {
+      const chip = document.createElement('span');
+      chip.className = 'cvd-pair-chip';
+      chip.style.backgroundColor = color;
+      chip.setAttribute('aria-hidden', 'true');
+      wrapper.append(chip);
+    });
+    const text = document.createElement('code');
+    text.textContent = `${first} / ${second}`;
+    wrapper.append(text);
+    return wrapper;
+  }
+
+  function renderTable() {
+    if (!latestAudit) return;
+    const filter = filterSelect.value;
+    const visiblePairs = latestAudit.pairs.filter((pair) => {
+      if (filter === 'aa-fail') return !pair.aaNormal;
+      if (filter === 'three-fail') return !pair.threeToOne;
+      return true;
+    });
+    tableBody.replaceChildren();
+
+    visiblePairs.forEach((pair) => {
+      const row = document.createElement('tr');
+      const pairCell = document.createElement('td');
+      pairCell.append(pairLabel(pair));
+      const ratioCell = document.createElement('td');
+      ratioCell.textContent = `${pair.ratio.toFixed(2)}:1`;
+      const aaCell = document.createElement('td');
+      aaCell.className = pair.aaNormal ? 'audit-pass' : 'audit-fail';
+      aaCell.textContent = pair.aaNormal ? '✓ 達成' : '× 未達';
+      const threeCell = document.createElement('td');
+      threeCell.className = pair.threeToOne ? 'audit-pass' : 'audit-fail';
+      threeCell.textContent = pair.threeToOne ? '✓ 達成' : '× 未達';
+      const simulatedCell = document.createElement('td');
+      simulatedCell.append(pairLabel(pair, true), document.createElement('br'));
+      simulatedCell.append(`${pair.simulatedRatio.toFixed(2)}:1`);
+      row.append(pairCell, ratioCell, aaCell, threeCell, simulatedCell);
+      tableBody.append(row);
+    });
+
+    if (visiblePairs.length === 0) {
+      const row = document.createElement('tr');
+      const cell = document.createElement('td');
+      cell.colSpan = 5;
+      cell.textContent = 'この条件に該当する組み合わせはありません。';
+      row.append(cell);
+      tableBody.append(row);
+    }
+
+    const aaFailures = latestAudit.pairs.filter((pair) => !pair.aaNormal).length;
+    const threeFailures = latestAudit.pairs.filter((pair) => !pair.threeToOne).length;
+    status.textContent = `${latestAudit.pairs.length}組を検査：通常文字4.5:1未達 ${aaFailures}組、3:1未達 ${threeFailures}組。`;
+  }
+
+  function update() {
+    const parsed = AccessibilityCore.parsePaletteInput(input.value);
+    if (parsed.invalid.length > 0) {
+      error.textContent = `HEXとして読めない値：${parsed.invalid.join('、')}`;
+      return;
+    }
+    if (parsed.colors.length < 2 || parsed.colors.length > 8) {
+      error.textContent = '重複を除き、2〜8色のHEXコードを入力してください。';
+      return;
+    }
+    error.textContent = '';
+    latestAudit = AccessibilityCore.auditPalette(parsed.colors, typeSelect.value);
+    renderSwatches(originalContainer, latestAudit.colors);
+    renderSwatches(simulatedContainer, latestAudit.simulatedColors);
+    renderTable();
+  }
+
+  document.querySelectorAll('[data-cvd-palette]').forEach((button) => {
+    button.addEventListener('click', () => {
+      input.value = button.getAttribute('data-cvd-palette');
+      update();
+    });
+  });
+  input.addEventListener('input', update);
+  typeSelect.addEventListener('change', update);
+  filterSelect.addEventListener('change', renderTable);
+  update();
+}
 
 // ===== PaletteRenderer モジュール =====
 // パレットデータをJSONから読み込み、HTMLを生成するモジュール
