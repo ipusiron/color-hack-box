@@ -37,6 +37,8 @@ hub: true
 ---
 !-->
 
+[English](README.en.md) · 日本語
+
 # Color Hack Box – 色の三要素を体感する学習ツール
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/ipusiron/color-hack-box?style=social)
@@ -256,8 +258,11 @@ npm test
 color-hack-box/
 ├── .github/workflows/ # Node.jsの自動テスト
 ├── index.html          # シェルHTML（ナビゲーション、タブコンテナ）
+├── index.en.html       # 英語版シェルHTML
 ├── color-core.js       # WCAGコントラスト計算（DOM非依存）
 ├── accessibility-core.js # 色覚近似・パレット一括検査（DOM非依存）
+├── language-init.js    # 言語選択・保存・初期リダイレクト
+├── ui-messages.js      # 動的メッセージの日英辞書
 ├── script.js           # JavaScript（TabLoader、PaletteRenderer、色変換ロジック）
 ├── style.css           # スタイルシート（レイアウト、レスポンシブ対応）
 ├── tabs/               # タブコンテンツ（遅延読み込み）
@@ -268,14 +273,17 @@ color-hack-box/
 │   ├── tab5-tone.html      # トーン別パレット
 │   ├── tab6-ratio.html     # 配色と比率
 │   ├── tab7-palettes.html  # 配色例（データ駆動テンプレート）
-│   └── tab8-misc.html      # 雑学・補足
+│   ├── tab8-misc.html      # 雑学・補足
+│   └── en/                 # 8タブの英語版
 ├── data/
-│   └── palettes.json   # パレットデータ（Tab 7用、JSON形式）
+│   ├── palettes.json      # 日本語パレットデータ
+│   └── palettes.en.json   # 英語パレットデータ
 ├── assets/             # 画像などのリソース（スクリーンショットなど）
 ├── test/               # Node.js標準テスト
 ├── package.json        # テストコマンド
 ├── LICENSE             # MITライセンス
 ├── README.md           # このファイル
+├── README.en.md        # 英語版README
 ├── CLAUDE.md           # Claude Code用の開発ガイド
 └── .nojekyll           # GitHub Pages設定
 ```

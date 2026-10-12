@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Hack Box – An interactive tool to learn the three elements of color</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="An interactive color-theory learning tool with HSL controls, 50+ palettes, color wheels, contrast checks, and color-vision approximations.">
+  <meta name="keywords" content="color theory,HSL,RGB,HEX,color palette,color wheel,contrast,accessibility,web design,learning tool">
+  <meta name="author" content="ipusiron">
+  <meta name="robots" content="index, follow">
+
+  <!-- Browser security policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self';">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ipusiron.github.io/color-hack-box/">
+  <meta property="og:title" content="Color Hack Box – Interactive color-theory lab">
+  <meta property="og:description" content="Learn color fundamentals and palette design across eight interactive tabs.">
+  <meta property="og:image" content="https://ipusiron.github.io/color-hack-box/assets/screenshot.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://ipusiron.github.io/color-hack-box/">
+  <meta name="twitter:title" content="Color Hack Box – Interactive color-theory lab">
+  <meta name="twitter:description" content="Learn color fundamentals and palette design across eight interactive tabs.">
+  <meta name="twitter:image" content="https://ipusiron.github.io/color-hack-box/assets/screenshot.png">
+
+  <!-- Canonical URL -->
+    <link rel="canonical" href="https://ipusiron.github.io/color-hack-box/index.en.html">
+  <link rel="alternate" hreflang="ja" href="https://ipusiron.github.io/color-hack-box/index.html">
+  <link rel="alternate" hreflang="en" href="https://ipusiron.github.io/color-hack-box/index.en.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojZmYwMDAwIi8+PHN0b3Agb2Zmc2V0PSIzMyUiIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmZmMDAiLz48c3RvcCBvZmZzZXQ9IjY2JSIgc3R5bGU9InN0b3AtY29sb3I6IzAwZmYwMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6IzAwZmZmZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcng9IjYiIGZpbGw9InVybCgjZykiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSI4IiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC40Ii8+PGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <script src="language-init.js"></script>
+
+  <!-- Loading Spinner Styles -->
+  <style>
+    .tab-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      color: #6c757d;
+    }
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #e9ecef;
+      border-top-color: #4A90E2;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .tab-loading p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .error {
+      color: #dc3545;
+      padding: 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Color Hack Box</h1>
+      <p>Interactive tool to learn color theory experientially</p>
+      <div class="language-switch"><a href="index.html?lang=ja" hreflang="ja">日本語</a></div>
+    </header>
+
+    <!-- タブナビゲーション -->
+    <nav class="tab-navigation" role="tablist" aria-label="Learning topics">
+      <button id="tab-button-1" class="tab-btn active" data-tab="tab1" role="tab" aria-selected="true" aria-controls="tab1" tabindex="0" aria-label="RGB color space">
+        <span class="tab-number">1</span>
+        <span class="tab-text">RGB</span>
+      </button>
+      <button id="tab-button-2" class="tab-btn" data-tab="tab2" role="tab" aria-selected="false" aria-controls="tab2" tabindex="-1" aria-label="Learn the three elements of color">
+        <span class="tab-number">2</span>
+        <span class="tab-text">Color basics</span>
+      </button>
+      <button id="tab-button-3" class="tab-btn" data-tab="tab3" role="tab" aria-selected="false" aria-controls="tab3" tabindex="-1" aria-label="Neutral color and grayscale">
+        <span class="tab-number">3</span>
+        <span class="tab-text">Grayscale</span>
+      </button>
+      <button id="tab-button-4" class="tab-btn" data-tab="tab4" role="tab" aria-selected="false" aria-controls="tab4" tabindex="-1" aria-label="Impressions and psychological effects of colors">
+        <span class="tab-number">4</span>
+        <span class="tab-text">Color psychology</span>
+      </button>
+      <button id="tab-button-5" class="tab-btn" data-tab="tab5" role="tab" aria-selected="false" aria-controls="tab5" tabindex="-1" aria-label="Color palette by tone">
+        <span class="tab-number">5</span>
+        <span class="tab-text">Tone</span>
+      </button>
+      <button id="tab-button-6" class="tab-btn" data-tab="tab6" role="tab" aria-selected="false" aria-controls="tab6" tabindex="-1" aria-label="Relationship between color scheme and proportion">
+        <span class="tab-number">6</span>
+        <span class="tab-text">Color ratio</span>
+      </button>
+      <button id="tab-button-7" class="tab-btn" data-tab="tab7" role="tab" aria-selected="false" aria-controls="tab7" tabindex="-1" aria-label="Color scheme examples and purpose-specific palettes">
+        <span class="tab-number">7</span>
+        <span class="tab-text">Palettes</span>
+      </button>
+      <button id="tab-button-8" class="tab-btn" data-tab="tab8" role="tab" aria-selected="false" aria-controls="tab8" tabindex="-1" aria-label="Trivia and additional information about colors">
+        <span class="tab-number">8</span>
+        <span class="tab-text">Trivia</span>
+      </button>
+    </nav>
+
+    <!-- タブコンテンツ（動的に読み込み） -->
+    <section id="tab1" class="tab-content active" role="tabpanel" aria-labelledby="tab-button-1">
+      <div class="tab-loading">
+        <div class="loading-spinner"></div>
+        <p>Loading...</p>
+      </div>
+    </section>
+
+    <section id="tab2" class="tab-content" role="tabpanel" aria-labelledby="tab-button-2" hidden>
+    </section>
+
+    <section id="tab3" class="tab-content" role="tabpanel" aria-labelledby="tab-button-3" hidden>
+    </section>
+
+    <section id="tab4" class="tab-content" role="tabpanel" aria-labelledby="tab-button-4" hidden>
+    </section>
+
+    <section id="tab5" class="tab-content" role="tabpanel" aria-labelledby="tab-button-5" hidden>
+    </section>
+
+    <section id="tab6" class="tab-content" role="tabpanel" aria-labelledby="tab-button-6" hidden>
+    </section>
+
+    <section id="tab7" class="tab-content" role="tabpanel" aria-labelledby="tab-button-7" hidden>
+    </section>
+
+    <section id="tab8" class="tab-content" role="tabpanel" aria-labelledby="tab-button-8" hidden>
+    </section>
+
+  </div>
+
+  <!-- トースト通知 -->
+  <div id="toast" class="toast"></div>
+
+  <footer>
+    <div class="footer">
+      🔗 GitHub repository ( <a href="https://github.com/ipusiron/color-hack-box" target="_blank" rel="noopener noreferrer">ipusiron/color-hack-box</a> )
+    </div>
+  </footer>
+
+  <script src="color-core.js"></script>
+  <script src="accessibility-core.js"></script>
+  <script src="ui-messages.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

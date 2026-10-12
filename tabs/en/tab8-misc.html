@@ -1,0 +1,320 @@
+      <header class="fh-header">
+        <h2>Trivia/Supplements</h2>
+        <p>Useful trivia about colors to know</p>
+      </header>
+
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
+
+        <details class="accordion-item main-accordion">
+          <summary>🌍 Cultural differences in color</summary>
+          <div class="accordion-content">
+          <h3>🌍 Cultural differences in color</h3>
+          <p>The meaning of colors varies greatly from culture to culture. It is important to consider the culture of your target region when designing.</p>
+          <ul>
+            <li><strong>red:</strong> In Japan and China, it symbolizes festivals and good luck. In Europe and America, it has a strong meaning of danger and passion.</li>
+            <li><strong>White:</strong> In Europe and America, it symbolizes purity and marriage. It is also used as a funeral color in Japan, China, and Korea.</li>
+            <li><strong>yellow:</strong> Warning in Japan. In China, it is the imperial color and a symbol of nobility. In the West, it is associated with cowardice and betrayal.</li>
+            <li><strong>green:</strong> A sacred color in the Islamic world. In Europe and America, it is a symbol of environmental protection and nature.</li>
+          </ul>
+          <p class="usage-note">💡 <strong>On the global site</strong>, often using culturally neutral blues and greens as the main colors.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion" open>
+          <summary>👁️ Color vision diversity and design that does not rely solely on color</summary>
+          <div class="accordion-content">
+          <h3>👁️ Color vision diversity and design that does not rely solely on color</h3>
+          <p>There are individual differences in how colors appear. Don't uniformly decide that certain color combinations are "safe" or "dangerous." Check the actual color scheme and use clues such as text, shapes, and patterns.</p>
+
+          <div class="cvd-limit-note" role="note">
+            <strong>Limitations of this simulation</strong>
+            <p>This simulation uses the severity 1.0 matrices from Machado, Oliveira, and Fernandes (2009). It does not reproduce any individual's color perception and cannot be used for medical diagnosis or to determine WCAG conformance. Results may vary with the display device and viewing environment.</p>
+          </div>
+
+          <section class="cvd-lab" aria-labelledby="cvd-lab-heading">
+            <h4 id="cvd-lab-heading">Comparison of color schemes and bulk inspection</h4>
+            <div class="cvd-controls">
+              <label for="cvd-palette-input">
+                Palette (HEX, 2-8 colors)
+                <textarea id="cvd-palette-input" rows="3" spellcheck="false">#D32F2F #388E3C #1976D2 #FBC02D</textarea>
+              </label>
+              <label for="cvd-type">
+                Simulation type
+                <select id="cvd-type">
+                  <option value="protanopia">Protanopia approximation (P-type)</option>
+                  <option value="deuteranopia" selected>Deuteranopia approximation (D-type)</option>
+                  <option value="tritanopia">Tritanopia approximation (T-type)</option>
+                  <option value="normal">No conversion</option>
+                </select>
+              </label>
+            </div>
+            <div class="cvd-samples" aria-label="Palette example">
+              <span>example:</span>
+              <button type="button" data-cvd-palette="#D32F2F #388E3C #1976D2 #FBC02D">Status display</button>
+              <button type="button" data-cvd-palette="#0072B2 #E69F00 #009E73 #CC79A7">category</button>
+              <button type="button" data-cvd-palette="#FFFFFF #767676 #333333 #000000">grayscale</button>
+            </div>
+            <p id="cvd-input-error" class="cvd-error" role="alert"></p>
+
+            <div class="cvd-comparison" aria-label="Palette comparison before and after conversion">
+              <div>
+                <h5>Original palette</h5>
+                <div id="cvd-original-palette" class="cvd-swatch-list"></div>
+              </div>
+              <div>
+                <h5>Simulated palette</h5>
+                <div id="cvd-simulated-palette" class="cvd-swatch-list"></div>
+              </div>
+            </div>
+
+            <div class="cvd-audit-heading">
+              <div>
+                <h5>Contrast of all combinations</h5>
+                <p id="cvd-audit-status" aria-live="polite"></p>
+              </div>
+              <label for="cvd-pair-filter">
+                Show
+                <select id="cvd-pair-filter">
+                  <option value="all">All pairs</option>
+                  <option value="aa-fail">Pairs below 4.5:1 for normal text</option>
+                  <option value="three-fail">Pairs below 3:1</option>
+                </select>
+              </label>
+            </div>
+            <div class="table-scroll" tabindex="0" aria-label="Contrast test results. You can scroll horizontally">
+              <table class="comparison-table cvd-audit-table">
+                <thead>
+                  <tr>
+                    <th>Original pair</th>
+                    <th>Ratio</th>
+                    <th>AA normal text<br>4.5:1</th>
+                    <th>Guidelines for large text/non-text<br>3:1</th>
+                    <th>Simulated ratio<br>(Reference only)</th>
+                  </tr>
+                </thead>
+                <tbody id="cvd-audit-body"></tbody>
+              </table>
+            </div>
+            <p class="usage-note">The numerical thresholds apply to the original palette. Large text has size and weight requirements, while the 3:1 non-text threshold has its own scope and exceptions. A simulated ratio is only a comparison aid; it does not determine WCAG conformance.</p>
+          </section>
+
+          <h4>Add clues other than color</h4>
+          <div class="noncolor-examples">
+            <div class="noncolor-card">
+              <h5>just the color</h5>
+              <p><span class="status-dot status-dot-red" aria-hidden="true"></span> Server A</p>
+              <p><span class="status-dot status-dot-green" aria-hidden="true"></span> Server B</p>
+              <small>If you can't distinguish between colors, you won't know the condition.</small>
+            </div>
+            <div class="noncolor-card recommended">
+              <h5>shape + text + color</h5>
+              <p><span aria-hidden="true">▲</span> Server A: failure</p>
+              <p><span aria-hidden="true">●</span> Server B: normal</p>
+              <small>You can receive the same information from the shape and state name.</small>
+            </div>
+          </div>
+          <ul>
+            <li>Input errors are indicated not only by the frame color but also by the icon and explanatory text.</li>
+            <li>Graphs use not only legend colors but also line types, patterns, and direct labels.</li>
+            <li>In addition to the color difference between links and the main text, provide a method of identifying links other than color, such as underlining.</li>
+            <li>If possible, verify with the actual device, browser developer tools, and multiple checkers.</li>
+          </ul>
+          <p class="source-note">References: <a href="https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html" target="_blank" rel="noopener noreferrer">Color-vision simulation materials by Machado et al.</a>, <a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html" target="_blank" rel="noopener noreferrer">W3C “Use of Color”</a></p>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>🖨️ RGB vs CMYK: Differences in screen and print colors</summary>
+          <div class="accordion-content">
+          <h3>🖨️ RGB vs CMYK: Differences in screen and print colors</h3>
+          <p>The way colors are represented in digital and printed media is fundamentally different.</p>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Features</th>
+                <th>RGB (screen)</th>
+                <th>CMYK (print)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>how to make colors</td>
+                <td>Three primary colors of light (additive color mixture)</td>
+                <td>Three primary colors (subtractive color mixture)</td>
+              </tr>
+              <tr>
+                <td>component</td>
+                <td>Red, Green, Blue</td>
+                <td>Cyan, Magenta, Yellow, Key(black)</td>
+              </tr>
+              <tr>
+                <td>color gamut</td>
+                <td>Wide (bright colors)</td>
+                <td>Narrow (dull color)</td>
+              </tr>
+              <tr>
+                <td>expression of white</td>
+                <td>all max (255, 255, 255)</td>
+                <td>No ink (paper white)</td>
+              </tr>
+              <tr>
+                <td>black expression</td>
+                <td>All 0 (0, 0, 0)</td>
+                <td>100% K ink</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Points to note in practice</h4>
+          <ul>
+            <li><strong>Even if it is vivid on the monitor, it cannot be reproduced in print:</strong> Especially fluorescent colors and bright blues and greens</li>
+            <li><strong>CMYK conversion preview before printing:</strong> Can be simulated with Adobe products etc.</li>
+            <li><strong>Rich black:</strong> Not only K100% but also C40% M40% Y40% K100% for deep black</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>🎯 What is web safe color?</summary>
+          <div class="accordion-content">
+          <h3>🎯 What is web safe color?</h3>
+          <p><strong>Web safe color</strong> is a 216-color palette guaranteed to display accurately in all browsers during the 1990s era of 8-bit color displays.</p>
+
+          <h4>Features of Web Safe Color</h4>
+          <ul>
+            <li>Each RGB component has only 6 levels: 00, 33, 66, 99, CC, FF</li>
+            <li>Patterns like #000, #003, #006, #009, #00C, #00F in hexadecimal notation</li>
+            <li>Example: #FF0000 (red), #00FF00 (green), #0000FF (blue), #FFFF00 (yellow)</li>
+          </ul>
+
+          <h4>Significance in modern times</h4>
+          <p>Modern displays can display more than 16.77 million colors (24 bits), so<strong>No web-safe color constraints required</strong> It has become. However, it remains knowledge for the following reasons:</p>
+          <ul>
+            <li>Reproduction of retro web design</li>
+            <li>Reference when creating GIF images limited to 256 colors</li>
+            <li>Basic knowledge of pallet design</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>🌡️ Color temperature: the science of warm and cool colors</summary>
+          <div class="accordion-content">
+          <h3>🌡️ Color temperature: the science of warm and cool colors</h3>
+          <p><strong>color temperature</strong> represents the color of light in terms of absolute temperature (K: Kelvin), which determines psychological warmth or coldness.</p>
+
+          <div class="color-examples">
+            <div class="color-sample" style="background: #ff6b35;">
+              <span style="color: white;">warm color</span>
+              <small>red, orange, yellow</small>
+            </div>
+            <div class="color-sample" style="background: #95a5a6;">
+              <span style="color: white;">neutral color</span>
+              <small>green/purple</small>
+            </div>
+            <div class="color-sample" style="background: #3498db;">
+              <span style="color: white;">cool color</span>
+              <small>blue/light blue</small>
+            </div>
+          </div>
+
+          <h4>Psychological and physiological effects</h4>
+          <ul>
+            <li><strong>Warm colors (red to yellow):</strong> Excitement, energy, increased appetite, sense time faster, increased perceived temperature</li>
+            <li><strong>Cool colors (blue to green):</strong> Sedation, improves concentration, suppresses appetite, makes time seem slower, lowers perceived temperature</li>
+          </ul>
+
+          <h4>Practical example</h4>
+          <ul>
+            <li><strong>restaurant:</strong> Warm color lighting increases appetite and creates a sense of comfort</li>
+            <li><strong>Office:</strong> Cool lighting promotes concentration and relaxation</li>
+            <li><strong>hospital:</strong> Expressing a sense of cleanliness and security with white to blue-green colors</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>📛 Web color keywords</summary>
+          <div class="accordion-content">
+          <h3>📛 Web color keywords</h3>
+          <p>In CSS, there are over 140<strong>color name keyword</strong> is defined and can be used in place of HEX code.</p>
+
+          <h4>Commonly used color keywords</h4>
+          <div class="color-examples">
+            <div class="color-sample" style="background: crimson;">
+              <span style="color: white;">crimson</span>
+              <small>#DC143C</small>
+            </div>
+            <div class="color-sample" style="background: dodgerblue;">
+              <span style="color: white;">dodgerblue</span>
+              <small>#1E90FF</small>
+            </div>
+            <div class="color-sample" style="background: mediumseagreen;">
+              <span style="color: white;">mediumseagreen</span>
+              <small>#3CB371</small>
+            </div>
+            <div class="color-sample" style="background: gold;">
+              <span>gold</span>
+              <small>#FFD700</small>
+            </div>
+          </div>
+
+          <h4>special keywords</h4>
+          <ul>
+            <li><strong>transparent：</strong> fully transparent (same as rgba(0,0,0,0))</li>
+            <li><strong>currentColor：</strong> Inherits the current text color (useful for borders, etc.)</li>
+          </ul>
+
+          <p class="usage-note">⚠️ <strong>Note:</strong> Although color keywords are easy to understand, they do not allow detailed color adjustments, so we recommend using HEX codes for serious designs.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>🔮 Color illusion effect</summary>
+          <div class="accordion-content">
+          <h3>🔮 Color illusion effect</h3>
+          <p>Even if the color is the same, it can vary depending on the surrounding colors and placement.<strong>look different colors</strong> There is an optical illusion phenomenon.</p>
+
+          <h4>Typical color illusion</h4>
+          <ul>
+            <li><strong>Simultaneous comparison:</strong> Even the same gray color looks brighter on a black background and darker on a white background.</li>
+            <li><strong>Color relative ratio:</strong> Green next to red looks more vivid green (complementary color effect)</li>
+            <li><strong>Area effect:</strong> It looks dark and muddy in a small area, and bright and vivid in a large area.</li>
+            <li><strong>Advance color and retreat color:</strong> Warm colors (red, orange) appear in the foreground, and cool colors (blue) appear in the background.</li>
+          </ul>
+
+          <h4>Use in design</h4>
+          <ul>
+            <li>Fine-tune button color by background color</li>
+            <li>For small icons, choose slightly brighter and more vivid colors.</li>
+            <li>Use warm colors to bring important elements to the forefront.</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="accordion-item main-accordion">
+          <summary>💻 Display gamma correction</summary>
+          <div class="accordion-content">
+          <h3>💻 Display gamma correction</h3>
+          <p><strong>gamma correction</strong> is a technology that compensates for the differences between the physical characteristics of displays and human visual characteristics.</p>
+
+          <h4>Difference in gamma value</h4>
+          <ul>
+            <li><strong>Windows：</strong> Gamma 2.2 (standard brightness)</li>
+            <li><strong>Mac：</strong> Previously, gamma was 1.8 (brighter), now unified to 2.2</li>
+            <li><strong>Web standards:</strong> sRGB color space (gamma 2.2 equivalent)</li>
+          </ul>
+
+          <h4>Impact on practice</h4>
+          <p>Color brightness may appear different on different devices and operating systems. To prevent this:</p>
+          <ul>
+            <li>Check colors on multiple devices (iPhone, Android, PC, etc.)</li>
+            <li>Use sRGB color profile</li>
+            <li>Avoid extremely dark or bright colors</li>
+          </ul>
+          </div>
+        </details>
+
+      </div>

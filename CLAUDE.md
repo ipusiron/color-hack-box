@@ -42,6 +42,7 @@ Key areas to test:
 9. Tab navigation and lazy loading (check Network tab in DevTools)
 10. WCAG contrast checker, target switching, suggested color application/copy, and keyboard tab navigation
 11. Tab 8 color-vision approximation, palette pair audit/filtering, and horizontal table scrolling at 320px
+12. Japanese/English switching, saved-language restoration, and equivalent behavior in all 8 English tabs
 
 ## Architecture
 
@@ -49,7 +50,10 @@ Key areas to test:
 
 ```
 color-hack-box/
-  index.html              (~160 lines - shell only)
+  index.html              (Japanese shell)
+  index.en.html           (English shell)
+  language-init.js        (language selection and persistence)
+  ui-messages.js          (localized dynamic UI messages)
   color-core.js           (DOM-independent WCAG contrast calculations)
   accessibility-core.js   (DOM-independent CVD approximation and palette audit)
   script.js               (~1,500 lines - TabLoader, PaletteRenderer, core logic)
@@ -63,8 +67,12 @@ color-hack-box/
     tab6-ratio.html       (Color ratio content)
     tab7-palettes.html    (Data-driven template)
     tab8-misc.html        (Miscellaneous content)
+    en/                   (English counterparts for all 8 tabs)
   data/
     palettes.json         (Palette definitions for Tab 7)
+    palettes.en.json      (English palette definitions for Tab 7)
+  README.md               (Japanese documentation)
+  README.en.md            (English documentation)
   test/                   (Node.js standard tests)
 ```
 
@@ -72,8 +80,8 @@ color-hack-box/
 
 The application uses a lazy-loading architecture:
 
-1. **index.html (Shell)**: Contains only navigation, empty tab containers, and footer
-2. **TabLoader**: Fetches tab HTML files on-demand with caching
+1. **index.html / index.en.html (Shells)**: Contain navigation, empty tab containers, and footer for each language
+2. **TabLoader**: Fetches language-specific tab HTML files on-demand with caching
 3. **PaletteRenderer**: Reads `palettes.json` and generates Tab 7 content dynamically
 4. **AccessibilityCore**: Applies the Machado et al. (2009) severity-1.0 matrices and audits every palette pair without DOM access
 5. **Tab HTML files**: Self-contained content (header + accordions) per tab
@@ -149,7 +157,7 @@ HSL Input → hslToRgb() → rgbToHex() → UI Update
 
 ## Code Conventions
 
-- **UI text**: Japanese
+- **UI text**: Japanese and English; keep both shells, all tab fragments, dynamic messages, and palette data in sync
 - **Code**: English variable/function names
 - **Color formats**: HEX uppercase with # (`#FF5733`), RGB/HSL with labels for display
 - **Accessibility**: WCAG 2.2 text/non-text contrast target selection and suggested color pairs; calculations do not certify whole-page conformance

@@ -7,6 +7,7 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const indexEn = fs.readFileSync(path.join(root, 'index.en.html'), 'utf8');
 const tab3 = fs.readFileSync(path.join(root, 'tabs', 'tab3-grayscale.html'), 'utf8');
 const tab8 = fs.readFileSync(path.join(root, 'tabs', 'tab8-misc.html'), 'utf8');
 
@@ -30,6 +31,13 @@ test('コントラストコアをアプリ本体より先に読み込む', () =>
 test('アクセシビリティコアを依存先の後、アプリ本体より先に読み込む', () => {
   assert.ok(index.indexOf('color-core.js') < index.indexOf('accessibility-core.js'));
   assert.ok(index.indexOf('accessibility-core.js') < index.indexOf('script.js'));
+});
+
+test('日英シェルでメッセージ辞書をアプリ本体より先に読み込む', () => {
+  [index, indexEn].forEach(shell => {
+    assert.ok(shell.indexOf('ui-messages.js') < shell.indexOf('script.js'));
+    assert.match(shell, /language-init\.js/);
+  });
 });
 
 test('OGP画像は存在するファイルを参照する', () => {

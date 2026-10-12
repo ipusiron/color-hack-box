@@ -1,44 +1,49 @@
 // ===== TabLoader モジュール =====
 // タブコンテンツを動的に読み込むためのモジュール
+const appLanguage = UiMessages.language;
+const translateUi = UiMessages.t;
+
 const TabLoader = {
   cache: new Map(),
   loadingTabs: new Set(),
 
   // タブHTMLを読み込み（キャッシュあり）
   async load(tabId) {
+    const cacheKey = `${appLanguage}:${tabId}`;
     // キャッシュにあればそれを返す
-    if (this.cache.has(tabId)) {
-      return this.cache.get(tabId);
+    if (this.cache.has(cacheKey)) {
+      return this.cache.get(cacheKey);
     }
 
     // 既に読み込み中なら待機
-    if (this.loadingTabs.has(tabId)) {
+    if (this.loadingTabs.has(cacheKey)) {
       return new Promise((resolve) => {
         const checkCache = setInterval(() => {
-          if (this.cache.has(tabId)) {
+          if (this.cache.has(cacheKey)) {
             clearInterval(checkCache);
-            resolve(this.cache.get(tabId));
+            resolve(this.cache.get(cacheKey));
           }
         }, 50);
       });
     }
 
-    this.loadingTabs.add(tabId);
+    this.loadingTabs.add(cacheKey);
 
     try {
       const tabFileName = this.getTabFileName(tabId);
-      const response = await fetch(`tabs/${tabFileName}`);
+      const directory = appLanguage === 'en' ? 'tabs/en' : 'tabs';
+      const response = await fetch(`${directory}/${tabFileName}`);
       if (!response.ok) {
         throw new Error(`Failed to load tab: ${tabFileName}`);
       }
       const html = await response.text();
-      this.cache.set(tabId, html);
+      this.cache.set(cacheKey, html);
       return html;
     } catch (error) {
       console.error(`Error loading ${tabId}:`, error);
-      return `<p class="error">タブの読み込みに失敗しました。</p>`;
+      return `<p class="error">${translateUi('loadError')}</p>`;
     } finally {
-      this.loadingTabs.delete(tabId);
+      this.loadingTabs.delete(cacheKey);
     }
   },
 
@@ -65,7 +70,7 @@ const TabLoader = {
     }
 
     // ローディング表示
-    container.innerHTML = '<div class="tab-loading"><div class="loading-spinner"></div><p>読み込み中...</p></div>';
+    container.innerHTML = `<div class="tab-loading"><div class="loading-spinner"></div><p>${translateUi('loading')}</p></div>`;
 
     const html = await this.load(tabId);
     container.innerHTML = html;
@@ -175,10 +180,10 @@ function initializeColorAccessibilityLab() {
       ratioCell.textContent = `${pair.ratio.toFixed(2)}:1`;
       const aaCell = document.createElement('td');
       aaCell.className = pair.aaNormal ? 'audit-pass' : 'audit-fail';
-      aaCell.textContent = pair.aaNormal ? '✓ 達成' : '× 未達';
+      aaCell.textContent = translateUi(pair.aaNormal ? 'reached' : 'missed');
       const threeCell = document.createElement('td');
       threeCell.className = pair.threeToOne ? 'audit-pass' : 'audit-fail';
-      threeCell.textContent = pair.threeToOne ? '✓ 達成' : '× 未達';
+      threeCell.textContent = translateUi(pair.threeToOne ? 'reached' : 'missed');
       const simulatedCell = document.createElement('td');
       simulatedCell.append(pairLabel(pair, true), document.createElement('br'));
       simulatedCell.append(`${pair.simulatedRatio.toFixed(2)}:1`);
@@ -190,24 +195,24 @@ function initializeColorAccessibilityLab() {
       const row = document.createElement('tr');
       const cell = document.createElement('td');
       cell.colSpan = 5;
-      cell.textContent = 'この条件に該当する組み合わせはありません。';
+      cell.textContent = translateUi('noPairs');
       row.append(cell);
       tableBody.append(row);
     }
 
     const aaFailures = latestAudit.pairs.filter((pair) => !pair.aaNormal).length;
     const threeFailures = latestAudit.pairs.filter((pair) => !pair.threeToOne).length;
-    status.textContent = `${latestAudit.pairs.length}組を検査：通常文字4.5:1未達 ${aaFailures}組、3:1未達 ${threeFailures}組。`;
+    status.textContent = translateUi('auditStatus', { count: latestAudit.pairs.length, aa: aaFailures, three: threeFailures });
   }
 
   function update() {
     const parsed = AccessibilityCore.parsePaletteInput(input.value);
     if (parsed.invalid.length > 0) {
-      error.textContent = `HEXとして読めない値：${parsed.invalid.join('、')}`;
+      error.textContent = translateUi('invalidTokens', { values: parsed.invalid.join(', ') });
       return;
     }
     if (parsed.colors.length < 2 || parsed.colors.length > 8) {
-      error.textContent = '重複を除き、2〜8色のHEXコードを入力してください。';
+      error.textContent = translateUi('paletteRange');
       return;
     }
     error.textContent = '';
@@ -241,7 +246,7 @@ const PaletteRenderer = {
     }
 
     try {
-      const response = await fetch('data/palettes.json');
+      const response = await fetch(appLanguage === 'en' ? 'data/palettes.en.json' : 'data/palettes.json');
       if (!response.ok) {
         throw new Error('Failed to load palettes.json');
       }
@@ -305,7 +310,7 @@ const PaletteRenderer = {
         <h4>${season.icon} ${season.name}</h4>
         <p class="season-desc">${season.description}</p>
         <div class="palette-colors">${colorsHTML}</div>
-        <p class="season-keyword"><strong>キーワード：</strong>${season.keywords}</p>
+        <p class="season-keyword"><strong>${translateUi('keywords')}</strong>${season.keywords}</p>
       </div>
     `;
   },
@@ -338,7 +343,7 @@ const PaletteRenderer = {
     // 目的別パレット
     const purposeContainer = document.getElementById('palette-purpose');
     if (purposeContainer && data.purpose) {
-      let html = '<p>Webサイトやアプリの<strong>目的に応じた配色パレット</strong>を紹介します。それぞれの目的に最適化された配色で、効果的なデザインを実現できます。</p>';
+      let html = `<p>${translateUi('purposeIntro')}</p>`;
       data.purpose.forEach((section, index) => {
         html += this.createSectionHTML(section);
         if (index < data.purpose.length - 1) {
@@ -351,7 +356,7 @@ const PaletteRenderer = {
     // 業種別パレット
     const industryContainer = document.getElementById('palette-industry');
     if (industryContainer && data.industry) {
-      let html = '<p>各<strong>業種の特性に合わせた配色パレット</strong>を紹介します。業種ごとに求められる印象や雰囲気を色で表現します。</p>';
+      let html = `<p>${translateUi('industryIntro')}</p>`;
       data.industry.forEach(section => {
         html += this.createSectionHTML(section);
       });
@@ -361,7 +366,7 @@ const PaletteRenderer = {
     // 季節別パレット
     const seasonContainer = document.getElementById('palette-season');
     if (seasonContainer && data.seasons) {
-      let html = '<p>季節感を表現する配色パレットです。キャンペーンやイベントデザインに活用できます。</p>';
+      let html = `<p>${translateUi('seasonIntro')}</p>`;
       html += '<div class="seasonal-grid">';
       data.seasons.forEach(season => {
         html += this.createSeasonalCardHTML(season);
@@ -373,7 +378,7 @@ const PaletteRenderer = {
     // 感情・雰囲気別
     const moodContainer = document.getElementById('palette-mood');
     if (moodContainer && data.moods) {
-      let html = '<p>表現したい<strong>感情や雰囲気</strong>に合わせた配色パレットです。デザインの目的に応じて選びましょう。</p>';
+      let html = `<p>${translateUi('moodIntro')}</p>`;
       html += '<div class="mood-grid">';
       data.moods.forEach(mood => {
         html += this.createMoodCardHTML(mood);
@@ -647,7 +652,7 @@ function initializeCopyButtons() {
         button.classList.add('copied');
 
         // トースト通知を表示
-        showToast(`✓ ${formatName}コードをクリップボードにコピーしました`);
+        showToast(translateUi('copyCode', { format: formatName }));
 
         setTimeout(() => {
           button.textContent = originalText;
@@ -671,7 +676,7 @@ function initializeCopyButtons() {
           button.classList.add('copied');
 
           // トースト通知を表示
-          showToast(`✓ ${formatName}コードをクリップボードにコピーしました`);
+          showToast(translateUi('copyCode', { format: formatName }));
 
           setTimeout(() => {
             button.textContent = originalText;
@@ -679,7 +684,7 @@ function initializeCopyButtons() {
           }, 2000);
         } catch (fallbackErr) {
           console.error('フォールバックコピーも失敗しました:', fallbackErr);
-          showToast('❌ コピーに失敗しました');
+          showToast(translateUi('copyFailed'));
         }
       }
     });
@@ -893,14 +898,14 @@ function initializeContrastChecker() {
     if (!element) return;
     element.classList.toggle('pass', passed);
     element.classList.toggle('fail', !passed);
-    element.textContent = `${element.dataset.label}: ${passed ? '適合' : '不適合'}`;
+    element.textContent = `${element.dataset.label}: ${translateUi(passed ? 'pass' : 'fail')}`;
   }
 
   function render() {
     const foreground = ColorCore.normalizeHex(foregroundText.value);
     const background = ColorCore.normalizeHex(backgroundText.value);
     if (!foreground || !background) {
-      error.textContent = 'HEXは #RGB または #RRGGBB 形式で入力してください。';
+      error.textContent = translateUi('invalidHex');
       if (targetStatus) targetStatus.textContent = '';
       if (suggestion) suggestion.hidden = true;
       currentSuggestion = null;
@@ -929,7 +934,8 @@ function initializeContrastChecker() {
     if (targetStatus) {
       targetStatus.classList.toggle('pass', passed);
       targetStatus.classList.toggle('fail', !passed);
-      targetStatus.textContent = `${target.label}（${target.ratio}:1）: ${passed ? '適合' : '不適合'}`;
+      const labels = translateUi('targetLabel');
+      targetStatus.textContent = `${labels[targetSelect.value]} (${target.ratio}:1): ${translateUi(passed ? 'pass' : 'fail')}`;
     }
 
     currentSuggestion = passed ? null : ColorCore.suggestContrastPair(foreground, background, target.ratio);
@@ -940,12 +946,8 @@ function initializeContrastChecker() {
       suggestionForeground.textContent = currentSuggestion.foreground;
       suggestionBackground.textContent = currentSuggestion.background;
       suggestionRatio.textContent = `${currentSuggestion.ratio.toFixed(3)}:1`;
-      const changeLabels = {
-        foreground: '前景色だけを調整した候補です。',
-        background: '背景色だけを調整した候補です。',
-        both: '片方の色だけでは基準に届かないため、前景色と背景色の両方を調整した候補です。'
-      };
-      suggestionNote.textContent = `${changeLabels[currentSuggestion.changed]} 黒または白方向へ段階調整した一案であり、ブランドや見え方に最適な唯一の配色ではありません。`;
+      const changeLabels = { foreground: translateUi('suggestionForeground'), background: translateUi('suggestionBackground'), both: translateUi('suggestionBoth') };
+      suggestionNote.textContent = `${changeLabels[currentSuggestion.changed]} ${translateUi('suggestionLimit')}`;
     }
     return true;
   }
@@ -975,14 +977,14 @@ function initializeContrastChecker() {
     foregroundText.value = currentSuggestion.foreground;
     backgroundText.value = currentSuggestion.background;
     render();
-    showToast('✓ 配色候補を入力欄へ反映しました');
+    showToast(translateUi('appliedSuggestion'));
   });
   copySuggestion?.addEventListener('click', async () => {
     if (!currentSuggestion) return;
-    const text = `前景色 ${currentSuggestion.foreground} / 背景色 ${currentSuggestion.background}`;
+    const text = translateUi('copyPair', currentSuggestion);
     try {
       await navigator.clipboard.writeText(text);
-      showToast('✓ 配色候補をクリップボードにコピーしました');
+      showToast(translateUi('copiedSuggestion'));
     } catch (error) {
       const textArea = document.createElement('textarea');
       textArea.value = text;
@@ -992,7 +994,7 @@ function initializeContrastChecker() {
       textArea.select();
       const copied = document.execCommand('copy');
       textArea.remove();
-      showToast(copied ? '✓ 配色候補をクリップボードにコピーしました' : '❌ コピーに失敗しました');
+      showToast(copied ? translateUi('copiedSuggestion') : translateUi('copyFailed'));
     }
   });
 
@@ -1421,25 +1423,43 @@ function initializeSimilarityCalculator() {
 
     // Distance interpretation
     if (euclidean < 50) {
-      distanceNote = `ユークリッド距離 ${euclidean.toFixed(0)} は非常に近く、明るさも含めてほぼ同じ色です。`;
+      distanceNote = appLanguage === 'en'
+        ? `The Euclidean distance of ${euclidean.toFixed(0)} is very small; the colors are nearly identical, including lightness.`
+        : `ユークリッド距離 ${euclidean.toFixed(0)} は非常に近く、明るさも含めてほぼ同じ色です。`;
     } else if (euclidean < 150) {
-      distanceNote = `ユークリッド距離 ${euclidean.toFixed(0)} はやや近い位置です。`;
+      distanceNote = appLanguage === 'en'
+        ? `The Euclidean distance of ${euclidean.toFixed(0)} places the colors relatively close together.`
+        : `ユークリッド距離 ${euclidean.toFixed(0)} はやや近い位置です。`;
     } else {
-      distanceNote = `ユークリッド距離 ${euclidean.toFixed(0)} は離れた位置にあります。`;
+      distanceNote = appLanguage === 'en'
+        ? `The Euclidean distance of ${euclidean.toFixed(0)} places the colors far apart.`
+        : `ユークリッド距離 ${euclidean.toFixed(0)} は離れた位置にあります。`;
     }
 
     if (magA === 0 || magB === 0) {
-      message = '⚠️ 黒 (0,0,0) はゼロベクトルのため、コサイン類似度は定義できません。';
+      message = appLanguage === 'en'
+        ? '⚠️ Cosine similarity is undefined for black (0,0,0), because it is the zero vector.'
+        : '⚠️ 黒 (0,0,0) はゼロベクトルのため、コサイン類似度は定義できません。';
     } else if (cosineSim >= 0.95) {
-      message = `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 原点から見てほぼ<strong>同じ方向</strong>。色味（RGB比率）が同じで、明るさだけが異なる可能性があります。<br>📏 ${distanceNote}`;
+      message = appLanguage === 'en'
+        ? `📐 <strong>Cosine similarity ${cosineSim.toFixed(3)}</strong>: The vectors point in almost the <strong>same direction</strong>. Their RGB proportions are similar, so they may differ mainly in lightness.<br>📏 ${distanceNote}`
+        : `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 原点から見てほぼ<strong>同じ方向</strong>。色味（RGB比率）が同じで、明るさだけが異なる可能性があります。<br>📏 ${distanceNote}`;
     } else if (cosineSim >= 0.8) {
-      message = `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 原点から見て<strong>近い方向</strong>。色味が似ています。<br>📏 ${distanceNote}`;
+      message = appLanguage === 'en'
+        ? `📐 <strong>Cosine similarity ${cosineSim.toFixed(3)}</strong>: The vectors point in <strong>similar directions</strong>, indicating similar RGB proportions.<br>📏 ${distanceNote}`
+        : `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 原点から見て<strong>近い方向</strong>。色味が似ています。<br>📏 ${distanceNote}`;
     } else if (cosineSim >= 0.5) {
-      message = `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 原点から見て<strong>やや異なる方向</strong>。色味に違いがあります。<br>📏 ${distanceNote}`;
+      message = appLanguage === 'en'
+        ? `📐 <strong>Cosine similarity ${cosineSim.toFixed(3)}</strong>: The vectors point in <strong>somewhat different directions</strong>, indicating different RGB proportions.<br>📏 ${distanceNote}`
+        : `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 原点から見て<strong>やや異なる方向</strong>。色味に違いがあります。<br>📏 ${distanceNote}`;
     } else if (cosineSim >= 0) {
-      message = `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 原点から見て<strong>かなり異なる方向</strong>。色味が大きく異なります。<br>📏 ${distanceNote}`;
+      message = appLanguage === 'en'
+        ? `📐 <strong>Cosine similarity ${cosineSim.toFixed(3)}</strong>: The vectors point in <strong>substantially different directions</strong>.<br>📏 ${distanceNote}`
+        : `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 原点から見て<strong>かなり異なる方向</strong>。色味が大きく異なります。<br>📏 ${distanceNote}`;
     } else {
-      message = `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 反対方向の色です（RGB空間では珍しい）。<br>📏 ${distanceNote}`;
+      message = appLanguage === 'en'
+        ? `📐 <strong>Cosine similarity ${cosineSim.toFixed(3)}</strong>: The vectors point in opposite directions, which is unusual in RGB space.<br>📏 ${distanceNote}`
+        : `📐 <strong>コサイン類似度 ${cosineSim.toFixed(3)}</strong>: 反対方向の色です（RGB空間では珍しい）。<br>📏 ${distanceNote}`;
     }
     interpretation.innerHTML = `<p>${message}</p>`;
   }

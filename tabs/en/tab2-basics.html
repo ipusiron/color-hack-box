@@ -1,0 +1,561 @@
+      <header class="fh-header">
+        <h2>Three elements of color (basic knowledge)</h2>
+        <p>Learn the three basic elements for understanding color.</p>
+      </header>
+
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
+
+        <!-- 1. 色の三属性 -->
+        <details class="accordion-item main-accordion">
+          <summary>What are the three attributes of color?</summary>
+          <div class="accordion-content">
+            <p class="intro-text">All colors can be represented by three attributes: Understanding these three elements is the first step in color theory.</p>
+
+            <div class="attribute-grid">
+              <article class="attribute-card">
+                <h4>🎨Hue</h4>
+                <p><strong>color type</strong> represents.</p>
+                <p>Red, blue, green, yellow, etc. are the elements we call "colors."</p>
+                <p class="range-info">Range: 0~360° (hue wheel)</p>
+                <div class="color-samples">
+                  <div class="sample-box" style="background: hsl(0, 100%, 50%);">
+                    <span>0°/360°</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(120, 100%, 50%);">
+                    <span>120°</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(240, 100%, 50%);">
+                    <span>240°</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="attribute-card">
+                <h4>💡 Lightness</h4>
+                <p><strong>brightness of color</strong> represents.</p>
+                <p>Even the same red can vary from bright red to dark red.</p>
+                <p class="range-info">Range: 0~100%</p>
+                <div class="color-samples">
+                  <div class="sample-box" style="background: hsl(0, 100%, 0%);">
+                    <span style="color: white;">0%</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(0, 100%, 50%);">
+                    <span style="color: white;">50%</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(0, 100%, 100%);">
+                    <span>100%</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="attribute-card">
+                <h4>✨ Saturation</h4>
+                <p><strong>Vividness of color</strong> represents.</p>
+                <p>When the saturation is low, the colors are dull, and when the saturation is high, the colors are vivid.</p>
+                <p class="range-info">Range: 0~100%</p>
+                <div class="color-samples">
+                  <div class="sample-box" style="background: hsl(0, 0%, 50%);">
+                    <span style="color: white;">0%</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(0, 50%, 50%);">
+                    <span style="color: white;">50%</span>
+                  </div>
+                  <div class="sample-box" style="background: hsl(0, 100%, 50%);">
+                    <span style="color: white;">100%</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </details>
+
+        <!-- 2. 色相を深く理解する -->
+        <details class="accordion-item main-accordion">
+          <summary>Deeply understand hue</summary>
+          <div class="accordion-content">
+
+            <details class="accordion-item sub-accordion">
+              <summary>What is the color wheel?</summary>
+              <div class="accordion-content">
+                <p>What is the color wheel?<strong>A circular arrangement of hues</strong> is. Colors are not independent,<strong>continuously connected</strong> I have</p>
+                <p>It starts with red, moves through orange, yellow, green, blue, purple, and finally returns to red again. The color wheel is a visual representation of this color continuity.</p>
+
+                <div class="color-wheel-container">
+                  <div class="color-wheel"></div>
+                  <div class="color-wheel-labels">
+                    <span class="wheel-label" style="top: 15%; left: 50%; transform: translate(-50%, -50%);">0° red</span>
+                    <span class="wheel-label" style="top: 18%; left: 68%; transform: translate(-50%, -50%);">30°</span>
+                    <span class="wheel-label" style="top: 32%; left: 82%; transform: translate(-50%, -50%);">60° yellow</span>
+                    <span class="wheel-label" style="top: 50%; left: 85%; transform: translate(-50%, -50%);">90°</span>
+                    <span class="wheel-label" style="top: 68%; left: 82%; transform: translate(-50%, -50%);">120° green</span>
+                    <span class="wheel-label" style="top: 82%; left: 68%; transform: translate(-50%, -50%);">150°</span>
+                    <span class="wheel-label" style="top: 85%; left: 50%; transform: translate(-50%, -50%);">180° cyan</span>
+                    <span class="wheel-label" style="top: 82%; left: 32%; transform: translate(-50%, -50%);">210°</span>
+                    <span class="wheel-label" style="top: 68%; left: 18%; transform: translate(-50%, -50%);">240° blue</span>
+                    <span class="wheel-label" style="top: 50%; left: 15%; transform: translate(-50%, -50%);">270°</span>
+                    <span class="wheel-label" style="top: 32%; left: 18%; transform: translate(-50%, -50%);">300° purple</span>
+                    <span class="wheel-label" style="top: 18%; left: 32%; transform: translate(-50%, -50%);">330°</span>
+                  </div>
+                </div>
+
+                <p>Understanding the color wheel makes it easier to find color relationships and harmonious color schemes.</p>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>What is complementary color?</summary>
+              <div class="accordion-content">
+                <p><strong>complementary color</strong> In the color wheel,<strong>colors that are opposite each other</strong> It means.</p>
+
+                <div class="complementary-wheel-container">
+                  <div class="complementary-wheel-wrapper">
+                    <div class="complementary-wheel-bg" id="complementary-wheel"></div>
+                    <div class="complementary-wheel-segments">
+                      <div class="wheel-segment" data-hue="0" style="transform: rotate(0deg);"></div>
+                      <div class="wheel-segment" data-hue="30" style="transform: rotate(30deg);"></div>
+                      <div class="wheel-segment" data-hue="60" style="transform: rotate(60deg);"></div>
+                      <div class="wheel-segment" data-hue="90" style="transform: rotate(90deg);"></div>
+                      <div class="wheel-segment" data-hue="120" style="transform: rotate(120deg);"></div>
+                      <div class="wheel-segment" data-hue="150" style="transform: rotate(150deg);"></div>
+                      <div class="wheel-segment" data-hue="180" style="transform: rotate(180deg);"></div>
+                      <div class="wheel-segment" data-hue="210" style="transform: rotate(210deg);"></div>
+                      <div class="wheel-segment" data-hue="240" style="transform: rotate(240deg);"></div>
+                      <div class="wheel-segment" data-hue="270" style="transform: rotate(270deg);"></div>
+                      <div class="wheel-segment" data-hue="300" style="transform: rotate(300deg);"></div>
+                      <div class="wheel-segment" data-hue="330" style="transform: rotate(330deg);"></div>
+                    </div>
+                    <div class="complementary-wheel-center"></div>
+                  </div>
+                  <p class="wheel-instruction">Hover your mouse over the color wheel to display complementary colors</p>
+                </div>
+
+                <p>Complementary color combinations have the following characteristics:</p>
+                <ul>
+                  <li><strong>strong contrast</strong>: Complement each other and have a great visual impact</li>
+                  <li><strong>Color scheme that stands out</strong>:Effective for areas where you want to attract attention in advertisements and web design</li>
+                  <li><strong>Be careful not to overuse</strong>: If you use it a lot, it will become visually tiring.</li>
+                </ul>
+                <p>Examples of typical complementary colors:
+                  <span class="complementary-example" data-hue1="0" data-hue2="120"><strong>red and green</strong></span>, 
+                  <span class="complementary-example" data-hue1="240" data-hue2="30"><strong>blue and orange</strong></span>, 
+                  <span class="complementary-example" data-hue1="60" data-hue2="270"><strong>yellow and purple</strong></span>
+                </p>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>What is similar hue?</summary>
+              <div class="accordion-content">
+                <p><strong>similar hue</strong> In the color wheel,<strong>adjacent colors</strong> It means.</p>
+
+                <div class="complementary-wheel-container">
+                  <div class="analogous-wheel-wrapper">
+                    <div class="complementary-wheel-bg" id="analogous-wheel"></div>
+                    <div class="analogous-wheel-segments">
+                      <div class="wheel-segment analogous-segment" data-hue="0" style="transform: rotate(0deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="30" style="transform: rotate(30deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="60" style="transform: rotate(60deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="90" style="transform: rotate(90deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="120" style="transform: rotate(120deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="150" style="transform: rotate(150deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="180" style="transform: rotate(180deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="210" style="transform: rotate(210deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="240" style="transform: rotate(240deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="270" style="transform: rotate(270deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="300" style="transform: rotate(300deg);"></div>
+                      <div class="wheel-segment analogous-segment" data-hue="330" style="transform: rotate(330deg);"></div>
+                    </div>
+                    <div class="complementary-wheel-center"></div>
+                  </div>
+                  <p class="wheel-instruction">Hover your mouse over the color wheel to display similar hues</p>
+                </div>
+
+                <p>Combinations of similar hues have the following characteristics:</p>
+                <ul>
+                  <li><strong>in harmony</strong>: No discomfort, natural and calm impression</li>
+                  <li><strong>There is a sense of unity</strong>: Easily creates a cohesive design</li>
+                  <li><strong>gradient effect</strong>: Can express smooth color transitions</li>
+                </ul>
+                <p>example:
+                  <span class="analogous-example" data-hues="0,30,330"><strong>red and orange</strong></span>, 
+                  <span class="analogous-example" data-hues="180,210,150"><strong>blue and light blue</strong></span>, 
+                  <span class="analogous-example" data-hues="60,90,30"><strong>yellow and yellow-green</strong></span>
+                </p>
+                <p>Analogous hues can be used in website backgrounds and graphic design<strong>Stable color scheme</strong> Perfect when you want to make.</p>
+              </div>
+            </details>
+
+          </div>
+        </details>
+
+        <!-- 3. 明度を深く理解する -->
+        <details class="accordion-item main-accordion">
+          <summary>Understand brightness deeply</summary>
+          <div class="accordion-content">
+
+            <details class="accordion-item sub-accordion">
+              <summary>What is brightness?</summary>
+              <div class="accordion-content">
+                <p><strong>Lightness</strong> What is<strong>degree of brightness of color</strong> This is an element that represents. It is expressed in a range from 0% (black) to 100% (white).</p>
+                <p>Even if the hue and saturation are the same, changing the brightness will create a completely different impression of the color.</p>
+
+                <div class="lightness-demo">
+                  <div class="lightness-bar">
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 10%);">10%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 25%);">25%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 40%);">40%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 50%);">50%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 60%);">60%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 75%);">75%</div>
+                    <div class="lightness-sample" style="background: hsl(0, 100%, 90%);">90%</div>
+                  </div>
+                  <p class="demo-caption">Example of changing the brightness of red (hue 0°, saturation 100%)</p>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>Characteristics of bright colors</summary>
+              <div class="accordion-content">
+                <p>Colors with high brightness (70% to 100%)<strong>close to white</strong>, has the following characteristics:</p>
+
+                <div class="lightness-examples">
+                  <div class="lightness-card high-lightness">
+                    <div class="color-sample-large" style="background: hsl(200, 80%, 85%);">
+                      <span>Brightness 85%</span>
+                    </div>
+                    <h4>Impression of high brightness</h4>
+                    <ul>
+                      <li><strong>Refreshing and light</strong>: Gives a feeling of cleanliness and openness.</li>
+                      <li><strong>Soft/gentle</strong>: Calm and friendly impression</li>
+                      <li><strong>bright and positive</strong>:A lively and positive image</li>
+                      <li><strong>feminine</strong>: Delicate and elegant atmosphere</li>
+                    </ul>
+                    <p class="usage-note"><strong>Usage example:</strong> Background colors, spring/summer designs, children's content, cosmetics/fashion sites</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>Characteristics of colors with low brightness</summary>
+              <div class="accordion-content">
+                <p>Colors with low brightness (0% to 30%)<strong>closer to black</strong>, has the following characteristics:</p>
+
+                <div class="lightness-examples">
+                  <div class="lightness-card low-lightness">
+                    <div class="color-sample-large" style="background: hsl(220, 80%, 25%);">
+                      <span style="color: white;">Brightness 25%</span>
+                    </div>
+                    <h4>impression of low brightness</h4>
+                    <ul>
+                      <li><strong>Calmness and stability</strong>: Solid and reliable impression</li>
+                      <li><strong>Luxury and sophistication</strong>: High quality and formal image</li>
+                      <li><strong>Chic/adult-like</strong>:Mature atmosphere</li>
+                      <li><strong>masculine</strong>: Powerful and solid impression</li>
+                    </ul>
+                    <p class="usage-note"><strong>Usage example:</strong> Header/footer, luxury brand website, business/corporate website, fall/winter design</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>Tips for brightness balance and color scheme</summary>
+              <div class="accordion-content">
+                <p>Effective design requires<strong>brightness balance</strong> is important.</p>
+
+                <div class="lightness-tips">
+                  <div class="tip-item">
+                    <h4>📌 Be aware of contrast</h4>
+                    <p>By ensuring a sufficient brightness difference between the text and the background,<strong>Improved readability</strong> I will.</p>
+                    <div class="contrast-examples">
+                      <div class="contrast-good">
+                        <div style="background: hsl(0, 0%, 10%); color: hsl(0, 0%, 95%); padding: 1rem; border-radius: 4px;">
+                          <strong>Good example:</strong> Large brightness difference (85% difference)
+                        </div>
+                      </div>
+                      <div class="contrast-bad">
+                        <div style="background: hsl(0, 0%, 50%); color: hsl(0, 0%, 60%); padding: 1rem; border-radius: 4px;">
+                          <strong>Bad example:</strong> Small brightness difference (10% difference)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tip-item">
+                    <h4>📌 Create a sense of unity with a gradation of brightness</h4>
+                    <p>A color scheme with the same hue but different brightness is<strong>Easier to achieve harmony</strong>, resulting in a cohesive design.</p>
+                  </div>
+
+                  <div class="tip-item">
+                    <h4>📌 Choose the brightness according to your purpose</h4>
+                    <ul>
+                      <li><strong>Elements you want to highlight:</strong> Create a difference in brightness from the surroundings</li>
+                      <li><strong>background:</strong> High brightness (more than 90%) or low brightness (less than 20%)</li>
+                      <li><strong>Main content:</strong> Medium brightness (40%~60%)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </details>
+
+        <!-- 4. 彩度を深く理解する -->
+        <details class="accordion-item main-accordion">
+          <summary>Deeply understand saturation</summary>
+          <div class="accordion-content">
+
+            <details class="accordion-item sub-accordion">
+              <summary>What is saturation?</summary>
+              <div class="accordion-content">
+                <p><strong>Saturation</strong> What is<strong>degree of vividness of color</strong> This is an element that represents. Expressed in a range from 0% (neutral color) to 100% (most vivid).</p>
+                <p>Even if the hue and brightness are the same, changing the saturation can greatly change the impression.</p>
+
+                <div class="lightness-demo">
+                  <div class="lightness-bar">
+                    <div class="lightness-sample" style="background: hsl(240, 0%, 50%);">0%</div>
+                    <div class="lightness-sample" style="background: hsl(240, 20%, 50%);">20%</div>
+                    <div class="lightness-sample" style="background: hsl(240, 40%, 50%);">40%</div>
+                    <div class="lightness-sample" style="background: hsl(240, 60%, 50%);">60%</div>
+                    <div class="lightness-sample" style="background: hsl(240, 80%, 50%);">80%</div>
+                    <div class="lightness-sample" style="background: hsl(240, 100%, 50%);">100%</div>
+                  </div>
+                  <p class="demo-caption">Example of changing the saturation of blue (hue 240°, brightness 50%)</p>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>Characteristics of highly saturated colors</summary>
+              <div class="accordion-content">
+                <p>Colors with high saturation (70% to 100%)<strong>vivid and strong</strong> It makes an impression and has the following features:</p>
+
+                <div class="lightness-examples">
+                  <div class="lightness-card high-lightness">
+                    <div class="color-sample-large" style="background: hsl(330, 95%, 55%);">
+                      <span style="color: white;">Saturation 95%</span>
+                    </div>
+                    <h4>Impression of high color saturation</h4>
+                    <ul>
+                      <li><strong>Vivid and gorgeous</strong>: Eye-catching and impactful</li>
+                      <li><strong>energetic/active</strong>: Vibrant and active impression</li>
+                      <li><strong>youthful/pop</strong>:Fun and friendly atmosphere</li>
+                      <li><strong>contemporary/casual</strong>: Bright and friendly image</li>
+                    </ul>
+                    <p class="usage-note"><strong>Usage example:</strong> Accent colors, CTA buttons, children's content, sports and entertainment, sales and campaigns</p>
+                  </div>
+                </div>
+
+                <div class="saturation-warning">
+                  <h4>⚠️ Points to note</h4>
+                  <p>Highly saturated colors<strong>used too extensively</strong> This makes your eyes easily tired and makes you look restless. The key is to use it in moderation as an accent.</p>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>Characteristics of desaturated colors</summary>
+              <div class="accordion-content">
+                <p>Colors with low saturation (0% to 30%)<strong>bitter and calm</strong> It has the following characteristics:</p>
+
+                <div class="lightness-examples">
+                  <div class="lightness-card low-lightness">
+                    <div class="color-sample-large" style="background: hsl(200, 15%, 45%);">
+                      <span style="color: white;">Saturation 15%</span>
+                    </div>
+                    <h4>Impression of low saturation</h4>
+                    <ul>
+                      <li><strong>Calm and elegant</strong>: Modest and sophisticated impression</li>
+                      <li><strong>Somber/chic</strong>:Mature and mature atmosphere</li>
+                      <li><strong>natural/gentle</strong>: Natural and calm image</li>
+                      <li><strong>Luxury/Modern</strong>:Dignified and modern</li>
+                    </ul>
+                    <p class="usage-note"><strong>Usage example:</strong> Background color, body text, luxury brand website, corporate website, minimal design, art gallery</p>
+                  </div>
+                </div>
+
+                <div class="saturation-info">
+                  <h4>💡 About achromatic colors (saturation 0%)</h4>
+                  <p>A color with 0% saturation is<strong>Achromatic color</strong> It is called, and comes only in white, black, and gray. It has no hue information and is expressed only by brightness.</p>
+                </div>
+              </div>
+            </details>
+
+            <details class="accordion-item sub-accordion">
+              <summary>Tips for balancing saturation and coloring</summary>
+              <div class="accordion-content">
+                <p>Effective design requires<strong>Sharpness of color saturation</strong> is important.</p>
+
+                <div class="lightness-tips">
+                  <div class="tip-item">
+                    <h4>📌 7:2.5:0.5 rule</h4>
+                    <p>In the design color scheme, a ratio of 70% low saturation (base), 25% medium saturation (main), and 5% high saturation (accent) is effective.</p>
+                    <div class="saturation-ratio-demo">
+                      <div class="ratio-bar">
+                        <div class="ratio-segment" style="width: 70%; background: hsl(200, 15%, 85%);">
+                          <span>base 70%<br>low saturation</span>
+                        </div>
+                        <div class="ratio-segment" style="width: 25%; background: hsl(210, 50%, 60%);">
+                          <span style="color: white;">Main 25%<br>medium saturation</span>
+                        </div>
+                        <div class="ratio-segment" style="width: 5%; background: hsl(10, 90%, 55%);">
+                          <span style="color: white; font-size: 0.75rem;">5%<br>High saturation</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tip-item">
+                    <h4>📌 Choose saturation according to target</h4>
+                    <ul>
+                      <li><strong>For young people:</strong> Use more highly saturated colors</li>
+                      <li><strong>For business/adults:</strong> Chic with low to medium saturation</li>
+                      <li><strong>For children:</strong> Bright and fun with high color saturation</li>
+                      <li><strong>Luxury-oriented:</strong> Elegant with low saturation</li>
+                    </ul>
+                  </div>
+
+                  <div class="tip-item">
+                    <h4>📌 Combination of saturation and brightness</h4>
+                    <p>A variety of expressions are possible by combining saturation and brightness:</p>
+                    <div class="saturation-lightness-grid">
+                      <div class="sl-cell" style="background: hsl(180, 80%, 85%);">
+                        <span>High saturation<br>high brightness<br><small>Vivid and light</small></span>
+                      </div>
+                      <div class="sl-cell" style="background: hsl(180, 80%, 30%);">
+                        <span style="color: white;">High saturation<br>low brightness<br><small>Vivid and profound</small></span>
+                      </div>
+                      <div class="sl-cell" style="background: hsl(180, 20%, 85%);">
+                        <span>low saturation<br>high brightness<br><small>pale/soft</small></span>
+                      </div>
+                      <div class="sl-cell" style="background: hsl(180, 20%, 30%);">
+                        <span style="color: white;">low saturation<br>low brightness<br><small>Austere/calm</small></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tip-item">
+                    <h4>📌 Express the seasonal feeling with color saturation</h4>
+                    <ul>
+                      <li><strong>spring:</strong> Bright colors with medium to high saturation (pastel tones)</li>
+                      <li><strong>summer:</strong> Vibrant colors with high saturation (Vivid)</li>
+                      <li><strong>autumn:</strong> Calm colors with low to medium saturation (earth tone)</li>
+                      <li><strong>winter:</strong> Cool colors with low saturation (more monotone)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+          </div>
+        </details>
+
+        <!-- 5. 実際に操作して体感しよう -->
+        <details class="accordion-item main-accordion">
+          <summary>Try it out and experience it for yourself</summary>
+          <div class="accordion-content">
+            <p class="intro-text">Let's move the sliders to see how the three attributes affect the color.</p>
+
+            <div class="fh-main">
+          <div class="fh-controls">
+            <label for="hue-slider">Hue <span id="hue-value">0°</span></label>
+            <input type="range" id="hue-slider" min="0" max="360" value="0"
+                   aria-label="Adjust hue from 0 degrees to 360 degrees"
+                   aria-valuemin="0" aria-valuemax="360" aria-valuenow="0">
+
+            <label for="lightness-slider">Lightness <span id="lightness-value">50%</span></label>
+            <input type="range" id="lightness-slider" min="0" max="100" value="50"
+                   aria-label="Adjust brightness from 0% to 100%"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+
+            <label for="saturation-slider">Saturation <span id="saturation-value">50%</span></label>
+            <input type="range" id="saturation-slider" min="0" max="100" value="50"
+                   aria-label="Adjust saturation from 0% to 100%"
+                   aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+
+            <div class="fh-buttons">
+              <button id="btn-random">random generation</button>
+              <button id="btn-reset">reset</button>
+            </div>
+          </div>
+          <div class="fh-preview">
+            <div id="color-chip" class="color-chip"></div>
+            <div class="color-codes">
+              <div class="code-item">
+                <span class="code-label">HEX</span>
+                <span id="hex-code" class="code-value">#FF0000</span>
+                <button class="copy-btn" data-copy="hex" aria-label="Copy HEX code">📋</button>
+              </div>
+              <div class="code-item">
+                <span class="code-label">RGB</span>
+                <span id="rgb-code" class="code-value">rgb(255,0,0)</span>
+                <button class="copy-btn" data-copy="rgb" aria-label="Copy RGB code">📋</button>
+              </div>
+              <div class="code-item">
+                <span class="code-label">HSL</span>
+                <span id="hsl-code" class="code-value">hsl(0°,100%,50%)</span>
+                <button class="copy-btn" data-copy="hsl" aria-label="Copy HSL code">📋</button>
+              </div>
+            </div>
+            </div>
+          </div>
+          </div>
+        </details>
+
+        <!-- RGBとHSLの関係 -->
+        <details class="accordion-item main-accordion">
+          <summary>Relationship between RGB and HSL</summary>
+          <div class="accordion-content">
+            <p>RGB and HSL (three elements of color) are models that express the same color in different ways. Both cover the same color space, but differ in their ease of intuitive operation for humans.</p>
+
+            <div class="comparison-table">
+              <table class="rgb-hsl-table">
+                <thead>
+                  <tr>
+                    <th>point of view</th>
+                    <th>RGB</th>
+                    <th>HSL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Expression method</strong></td>
+                    <td>Intensity of the three primary colors of light</td>
+                    <td>Hue/saturation/lightness</td>
+                  </tr>
+                  <tr>
+                    <td><strong>intuitiveness</strong></td>
+                    <td>mechanical/technical</td>
+                    <td>Close to human color recognition</td>
+                  </tr>
+                  <tr>
+                    <td><strong>brightness adjustment</strong></td>
+                    <td>Change all 3 values</td>
+                    <td>Adjustable with L only</td>
+                  </tr>
+                  <tr>
+                    <td><strong>color change</strong></td>
+                    <td>Calculate the ratio of three values</td>
+                    <td>Just change H</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Purpose</strong></td>
+                    <td>Hardware, image processing</td>
+                    <td>design, CSS</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="conversion-formula">
+              <h4>How the conversion works</h4>
+              <p>Conversion from RGB to HSL and vice versa is done using a mathematical formula. In this tool<code>hslToRgb()</code>and<code>rgbToHsl()</code>I am converting between functions.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>

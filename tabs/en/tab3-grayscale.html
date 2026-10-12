@@ -1,0 +1,569 @@
+      <header class="fh-header">
+        <h2>Achromatic/grayscale</h2>
+        <p>Explore the world with zero saturation. Learn the depth of white, black, and gray.</p>
+      </header>
+
+      <!-- アコーディオン形式のセクション群 -->
+      <div class="main-accordion-section">
+
+        <!-- 1. 無彩色とは？ -->
+        <details class="accordion-item main-accordion">
+          <summary>What is achromatic color?</summary>
+          <div class="accordion-content">
+            <p><strong>Achromatic color</strong> What is<strong>Color with 0% saturation</strong> It is a color that has no hue. Only white, black, and gray are applicable, and it is expressed only by lightness.</p>
+
+            <div class="achromatic-demo">
+              <div class="achromatic-bar">
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 0%);">
+                  <span style="color: white;">0%<br>black</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 10%);">
+                  <span style="color: white;">10%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 20%);">
+                  <span style="color: white;">20%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 30%);">
+                  <span style="color: white;">30%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 40%);">
+                  <span style="color: white;">40%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 50%);">
+                  <span style="color: white;">50%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 60%);">
+                  <span>60%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 70%);">
+                  <span>70%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 80%);">
+                  <span>80%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 90%);">
+                  <span>90%</span>
+                </div>
+                <div class="achromatic-sample" style="background: hsl(0, 0%, 100%); border: 1px solid #ddd;">
+                  <span>100%<br>white</span>
+                </div>
+              </div>
+              <p class="demo-caption">Achromatic grayscale (brightness 0% to 100%)</p>
+            </div>
+
+            <div class="achromatic-features">
+              <h4>Characteristics of achromatic colors</h4>
+              <ul>
+                <li><strong>No hue:</strong> Does not belong to any position on the color wheel</li>
+                <li><strong>Saturation is 0%:</strong> Absolutely no brightness</li>
+                <li><strong>Changes only in brightness:</strong> From black (0%) to white (100%)</li>
+                <li><strong>RGB values ​​are equal:</strong> R, G, and B have the same value, such as rgb(128, 128, 128)</li>
+                <li><strong>Goes well with any color:</strong> Bring out chromatic colors</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- 2. グレースケールを操作する -->
+        <details class="accordion-item main-accordion">
+          <summary>Work with grayscale</summary>
+          <div class="accordion-content">
+            <p>Move the slider to freely adjust the brightness of the gray.</p>
+
+            <div class="grayscale-interactive">
+              <div class="grayscale-preview">
+                <div id="grayscale-chip" class="grayscale-chip"></div>
+                <div class="grayscale-info">
+                  <div class="info-row">
+                    <span class="info-label">brightness</span>
+                    <span id="grayscale-lightness" class="info-value">50%</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">HEX</span>
+                    <span id="grayscale-hex" class="info-value">#808080</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-label">RGB</span>
+                    <span id="grayscale-rgb" class="info-value">rgb(128, 128, 128)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grayscale-controls">
+                <label for="grayscale-slider">Adjust brightness</label>
+                <input type="range" id="grayscale-slider" min="0" max="100" value="50"
+                       aria-label="Adjust gray brightness from 0% to 100%">
+                <div class="grayscale-presets">
+                  <button class="preset-btn" data-lightness="0">black</button>
+                  <button class="preset-btn" data-lightness="25">dark gray</button>
+                  <button class="preset-btn" data-lightness="50">gray</button>
+                  <button class="preset-btn" data-lightness="75">light gray</button>
+                  <button class="preset-btn" data-lightness="100">white</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 3. 無彩色の役割 -->
+        <details class="accordion-item main-accordion">
+          <summary>The role of achromatic colors</summary>
+          <div class="accordion-content">
+            <p>Achromatic colors in design<strong>very important role</strong> will be fulfilled.</p>
+
+            <div class="role-grid">
+              <div class="role-card">
+                <h4>📝Text color</h4>
+                <div class="role-demo" style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd;">
+                  <p style="color: #000; margin: 0 0 0.5rem 0; font-weight: 600;">Black (#000000) - highest contrast</p>
+                  <p style="color: #333; margin: 0 0 0.5rem 0;">Dark Gray (#333333) - Perfect for text</p>
+                  <p style="color: #666; margin: 0 0 0.5rem 0;">Gray (#666666) - Supplementary text</p>
+                  <p style="color: #999; margin: 0;">Light Gray (#999999) - Light Text</p>
+                </div>
+                <p>Use black and dark gray for main text, and light gray for captions and supporting information.</p>
+              </div>
+
+              <div class="role-card">
+                <h4>🎨 Background color</h4>
+                <div class="role-demo-bg">
+                  <div style="background: #f8f9fa; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                    <span style="color: #333;">Light gray background (#f8f9fa)</span>
+                  </div>
+                  <div style="background: #e9ecef; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                    <span style="color: #333;">Medium gray background (#e9ecef)</span>
+                  </div>
+                  <div style="background: #343a40; padding: 1rem; border-radius: 4px;">
+                    <span style="color: white;">Dark gray background (#343a40)</span>
+                  </div>
+                </div>
+                <p>Use white or light gray for light backgrounds, and dark gray or black for dark mode.</p>
+              </div>
+
+              <div class="role-card">
+                <h4>🔲 UI elements</h4>
+                <div class="role-demo-ui">
+                  <button style="background: #6c757d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; margin-right: 0.5rem;">gray button</button>
+                  <input type="text" placeholder="gray border" style="border: 2px solid #ced4da; padding: 0.5rem; border-radius: 4px;" autocomplete="off" readonly>
+                </div>
+                <p>Achromatic colors are used for many UI parts such as buttons, input fields, and separator lines.</p>
+              </div>
+
+              <div class="role-card">
+                <h4>✨ Enhances chromatic colors</h4>
+                <div class="role-demo-accent">
+                  <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <div style="width: 80px; height: 80px; background: #e9ecef; border-radius: 8px;"></div>
+                    <div style="width: 80px; height: 80px; background: #e9ecef; border-radius: 8px;"></div>
+                    <div style="width: 80px; height: 80px; background: #4A90E2; border-radius: 8px;"></div>
+                    <div style="width: 80px; height: 80px; background: #e9ecef; border-radius: 8px;"></div>
+                  </div>
+                </div>
+                <p>By using a neutral color as the base, the accent color will stand out.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 4. コントラスト比とアクセシビリティ -->
+        <details class="accordion-item main-accordion">
+          <summary>Contrast ratio and accessibility</summary>
+          <div class="accordion-content">
+            <p>In web design,<strong>WCAG Accessibility Guidelines</strong> It is important to maintain a contrast ratio based on</p>
+
+            <div class="wcag-info">
+              <h4>WCAG 2.2 contrast standards</h4>
+              <table class="wcag-table">
+                <thead>
+                  <tr>
+                    <th>level</th>
+                    <th>normal text</th>
+                    <th>large text</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>AA (minimum standard)</strong></td>
+                    <td>4.5:1 or higher</td>
+                    <td>3:1 or more</td>
+                  </tr>
+                  <tr>
+                    <td><strong>AAA (more stringent standards)</strong></td>
+                    <td>7:1 or higher</td>
+                    <td>4.5:1 or higher</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="wcag-table-note">For large text, we recommend normal text of 18pt or more, or bold characters of 14pt or more. AA/AAA is a standard for determining font color, and does not indicate the conformance level of the entire page.</p>
+            </div>
+
+            <section class="contrast-checker" aria-labelledby="contrast-checker-title">
+              <h4 id="contrast-checker-title">Calculate contrast ratio</h4>
+              <p>Given the foreground and background colors, it calculates the ratio from the WCAG 2.2 relative luminance.</p>
+              <div class="contrast-input-grid">
+                <label class="contrast-color-control">
+                  <span>Foreground color (text)</span>
+                  <span class="contrast-input-row">
+                    <input id="contrast-foreground-picker" type="color" value="#333333" aria-label="Choose foreground color">
+                    <input id="contrast-foreground-text" type="text" value="#333333" inputmode="text" maxlength="7" spellcheck="false">
+                  </span>
+                </label>
+                <button id="contrast-swap" class="contrast-swap" type="button" aria-label="Swap foreground and background colors">⇄ Swap</button>
+                <label class="contrast-color-control">
+                  <span>background color</span>
+                  <span class="contrast-input-row">
+                    <input id="contrast-background-picker" type="color" value="#FFFFFF" aria-label="Choose background color">
+                    <input id="contrast-background-text" type="text" value="#FFFFFF" inputmode="text" maxlength="7" spellcheck="false">
+                  </span>
+                </label>
+              </div>
+              <p id="contrast-error" class="contrast-error" role="alert"></p>
+              <div id="contrast-preview" class="contrast-preview-live" aria-live="polite">
+                <strong>Display example</strong>
+                <span>Readability also depends on font size and font.</span>
+              </div>
+              <label class="contrast-target-control" for="contrast-target">
+                <span>Criteria to check</span>
+                <select id="contrast-target">
+                  <option value="aa-normal">AA normal text (4.5:1)</option>
+                  <option value="aaa-normal">AAA normal text (7:1)</option>
+                  <option value="aa-large">AA Large (3:1)</option>
+                  <option value="aaa-large">AAA large text (4.5:1)</option>
+                  <option value="non-text">non-text (3:1)</option>
+                </select>
+              </label>
+              <div class="contrast-result" aria-live="polite">
+                <p>contrast ratio <output id="contrast-ratio">12.635:1</output></p>
+                <p id="contrast-target-status" class="contrast-target-status"></p>
+                <div class="contrast-badges">
+                  <span id="contrast-aa-normal" data-label="AA normal text">AA Regular Letters: Compatible</span>
+                  <span id="contrast-aa-large" data-label="AA large letters">AA Large Letter: Compatible</span>
+                  <span id="contrast-aaa-normal" data-label="AAA normal text">AAA Regular Character: Compliant</span>
+                  <span id="contrast-aaa-large" data-label="AAA large letters">AAA Large Letters: Compatible</span>
+                  <span id="contrast-non-text" data-label="non-text">Non-text: conform</span>
+                </div>
+              </div>
+              <section id="contrast-suggestion" class="contrast-suggestion" aria-labelledby="contrast-suggestion-title" hidden>
+                <h5 id="contrast-suggestion-title">Color scheme candidates that meet the criteria</h5>
+                <div id="contrast-suggestion-preview" class="contrast-suggestion-preview">
+                  <strong>Display example of candidates</strong>
+                  <span>You can check the foreground and background colors.</span>
+                </div>
+                <dl class="contrast-suggestion-values">
+                  <div><dt>foreground color</dt><dd><code id="contrast-suggestion-foreground">#333333</code></dd></div>
+                  <div><dt>background color</dt><dd><code id="contrast-suggestion-background">#FFFFFF</code></dd></div>
+                  <div><dt>ratio</dt><dd><output id="contrast-suggestion-ratio">12.635:1</output></dd></div>
+                </dl>
+                <p id="contrast-suggestion-note" class="contrast-suggestion-note">This is a step toward black or white, and is not the only color scheme that is best.</p>
+                <div class="contrast-suggestion-actions">
+                  <button id="contrast-apply-suggestion" type="button">Reflect the candidates in the input field</button>
+                  <button id="contrast-copy-suggestion" type="button">Copy HEX</button>
+                </div>
+              </section>
+              <div class="contrast-limit">
+                <p><strong>What this test reveals:</strong> The relative luminance ratio of the two specified colors and whether the selected numerical criteria are met. The ratio is displayed to the third decimal place, but the value before rounding is used for judgment.</p>
+                <p><strong>What this test alone doesn't tell you:</strong> The actual size and thickness of characters, the minimum ratio of images and gradations, various states such as hover, focus, and disabled, the colors that UI parts touch, and identification methods other than colors. The results do not prove WCAG conformance of the entire page.</p>
+                <p>Non-text 3:1 is a guideline for comparing the visual information of UI parts necessary for operation and the shapes necessary for understanding the content with their adjacent colors. There are exceptions for things like decorations and inactive parts.</p>
+              </div>
+            </section>
+
+            <div class="contrast-examples-achromatic">
+              <h4>Contrast ratio example</h4>
+
+              <div class="contrast-demo good-contrast">
+                <div style="background: #fff; color: #000; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>✓ Good example:</strong> White background + black text (21:1)
+                </div>
+                <p class="contrast-note">Maximum color ratio. Actual readability is checked by including font size and font.</p>
+              </div>
+
+              <div class="contrast-demo good-contrast">
+                <div style="background: #fff; color: #333; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>✓ Good example:</strong> White background + dark gray (12.6:1)
+                </div>
+                <p class="contrast-note">Both regular and large letters meet AAA numerical standards.</p>
+              </div>
+
+              <div class="contrast-demo ok-contrast">
+                <div style="background: #fff; color: #666; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>△ Caution:</strong> White background + gray (5.7:1)
+                </div>
+                <p class="contrast-note">AA clears both normal and large letters. AAA clears only large letters.</p>
+              </div>
+
+              <div class="contrast-demo bad-contrast">
+                <div style="background: #fff; color: #999; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
+                  <strong>✗ Bad example:</strong> White background + light gray (2.8:1)
+                </div>
+                <p class="contrast-note">Does not meet standards. Difficult to read.</p>
+              </div>
+            </div>
+
+            <div class="accessibility-tips">
+              <h4>💡 Accessibility tips</h4>
+              <ul>
+                <li>Measure the contrast ratio of the main text with the background color.</li>
+                <li>Check the combination of foreground and background colors that will actually be used instead of relying on fixed rules of black and white.</li>
+                <li>Important buttons and links<strong>enough contrast</strong> ensure</li>
+                <li>Use light gray only for decorations and borders, avoid it for text</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- 5. モノクロデザインの魅力 -->
+        <details class="accordion-item main-accordion">
+          <summary>The charm of monochrome design</summary>
+          <div class="accordion-content">
+            <p>Composed of only achromatic colors<strong>monochrome design</strong> gives a simple and sophisticated impression.</p>
+
+            <div class="monochrome-benefits">
+              <h4>Advantages of monochrome design</h4>
+              <div class="benefit-grid">
+                <div class="benefit-card">
+                  <span class="benefit-icon">🎯</span>
+                  <h5>Improved concentration</h5>
+                  <p>There is no color information, making it easier to concentrate on the content</p>
+                </div>
+                <div class="benefit-card">
+                  <span class="benefit-icon">✨</span>
+                  <h5>sophisticated impression</h5>
+                  <p>Achieving a simple and luxurious design</p>
+                </div>
+                <div class="benefit-card">
+                  <span class="benefit-icon">📐</span>
+                  <h5>The layout stands out</h5>
+                  <p>Emphasizes the beauty of structure and white space</p>
+                </div>
+                <div class="benefit-card">
+                  <span class="benefit-icon">🌍</span>
+                  <h5>universal</h5>
+                  <p>Universal design unaffected by culture or trends</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="monochrome-tips">
+              <h4>📌 Monochrome design tips</h4>
+              <ul>
+                <li><strong>Express hierarchy by brightness:</strong> Important elements are dense, supporting elements are thin.</li>
+                <li><strong>Use white space:</strong> The beauty of the blank space stands out because it is achromatic.</li>
+                <li><strong>Make changes with textures:</strong> Utilize shadows, gradients, and patterns</li>
+                <li><strong>Focus on typography:</strong> Express your individuality with font selection and size</li>
+                <li><strong>1 color accent:</strong> Add only one chromatic color if necessary</li>
+              </ul>
+            </div>
+
+            <div class="monochrome-example">
+              <h4>Monochrome + accent color example</h4>
+              <div class="accent-demo">
+                <div style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); padding: 2rem; border-radius: 12px; color: white;">
+                  <h3 style="margin-top: 0; font-size: 1.5rem;">Monochrome based design</h3>
+                  <p style="color: #ecf0f1; margin: 1rem 0;">The background and text are simple and achromatic.</p>
+                  <button style="background: #3498db; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                    accent color
+                  </button>
+                </div>
+              </div>
+              <p class="demo-caption">Emphasize important elements with a blue accent color based on achromatic colors</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- 6. 無彩色のカラーコードに注目する -->
+        <details class="accordion-item main-accordion">
+          <summary>Pay attention to the achromatic color code</summary>
+          <div class="accordion-content">
+            <p>Achromatic color codes are interesting<strong>regularity</strong> There is. Let's take a look at the color code in HEX format.</p>
+
+            <div class="hex-pattern-info">
+              <h4>Achromatic distinctive pattern</h4>
+              <p>The achromatic HEX code is<strong>Same numbers and alphabets lined up</strong> It becomes a pattern. This is because the RGB values ​​are equal.</p>
+
+              <div class="hex-structure">
+                <div class="hex-explanation">
+                  <div class="hex-box">
+                    <span class="hex-symbol">#</span>
+                    <span class="hex-part red">88</span>
+                    <span class="hex-part green">88</span>
+                    <span class="hex-part blue">88</span>
+                  </div>
+                  <div class="hex-labels">
+                    <span class="label-arrow red">↑ R (red)</span>
+                    <span class="label-arrow green">↑ G (green)</span>
+                    <span class="label-arrow blue">↑ B (blue)</span>
+                  </div>
+                  <p class="hex-note">For achromatic colors, R, G, and B values ​​are all the same.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="hex-brightness">
+              <h4>Relationship between hexadecimal numbers and brightness</h4>
+              <p>HEX code is<strong>hexadecimal</strong> It is expressed as<strong>0〜F</strong> The 16 types of characters are used, and they have the following correspondences:</p>
+
+              <div class="hex-scale">
+                <div class="hex-scale-bar">
+                  <div class="scale-item dark">
+                    <span class="scale-value">0</span>
+                    <span class="scale-label">darkest<br>(brightness 0%)</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">3</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">6</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">9</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-value">C</span>
+                  </div>
+                  <div class="scale-item bright">
+                    <span class="scale-value">F</span>
+                    <span class="scale-label">the brightest<br>(brightness 100%)</span>
+                  </div>
+                </div>
+                <p class="scale-note">
+                  <strong>The closer it is to 0, the darker it is (lower brightness), and the closer it is to F, it is brighter (higher brightness).</strong> It will be
+                </p>
+              </div>
+            </div>
+
+            <div class="common-grays">
+              <h4>Commonly used achromatic color codes</h4>
+
+              <div class="gray-examples-grid">
+                <div class="gray-example-card" style="background: #000000;">
+                  <div class="gray-color-display black">
+                    <span class="color-name" style="color: white;">black</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#000000</p>
+                    <p class="gray-detail">Brightness: 0%<br>All are minimum values ​​(0)</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #333333;">
+                  <div class="gray-color-display very-dark">
+                    <span class="color-name" style="color: white;">dark gray</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#333333</p>
+                    <p class="gray-detail">Brightness: 20%<br>Ideal for body text</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #666666;">
+                  <div class="gray-color-display dark">
+                    <span class="color-name" style="color: white;">gray</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#666666</p>
+                    <p class="gray-detail">Brightness: 40%<br>to supplementary text</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #999999;">
+                  <div class="gray-color-display medium">
+                    <span class="color-name">medium gray</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#999999</p>
+                    <p class="gray-detail">Brightness: 60%<br>borders and icons</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #CCCCCC;">
+                  <div class="gray-color-display light">
+                    <span class="color-name">light gray</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#CCCCCC</p>
+                    <p class="gray-detail">Brightness: 80%<br>background or dividing line</p>
+                  </div>
+                </div>
+
+                <div class="gray-example-card" style="background: #FFFFFF; border: 2px solid #ddd;">
+                  <div class="gray-color-display white">
+                    <span class="color-name">white</span>
+                  </div>
+                  <div class="gray-code-info">
+                    <p class="gray-hex">#FFFFFF</p>
+                    <p class="gray-detail">Brightness: 100%<br>All are maximum (F)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="hex-tips">
+              <h4>💡 Tips for remembering color codes</h4>
+              <div class="tip-boxes">
+                <div class="tip-box">
+                  <h5>🎯 Memorize sharp numbers</h5>
+                  <ul>
+                    <li><strong>#000</strong>, <strong>#333</strong>, <strong>#666</strong>, <strong>#999</strong>, <strong>#CCC</strong>, <strong>#FFF</strong></li>
+                    <li>3 digit notation is expanded 2 digits at a time (#333 → #333333)</li>
+                  </ul>
+                </div>
+
+                <div class="tip-box">
+                  <h5>📊 Hexadecimal correspondence</h5>
+                  <p>Hexadecimal numbers 0-F correspond to decimal numbers 0-255</p>
+                  <ul>
+                    <li>#000000 = rgb(0, 0, 0)</li>
+                    <li>#808080 = rgb(128, 128, 128)</li>
+                    <li>#FFFFFF = rgb(255, 255, 255)</li>
+                  </ul>
+                </div>
+
+                <div class="tip-box">
+                  <h5>⚡ Convenient uses</h5>
+                  <ul>
+                    <li><strong>text:</strong>#000, #333 (dark)</li>
+                    <li><strong>Supplementary text:</strong>#666, #999 (intermediate)</li>
+                    <li><strong>Background/Border:</strong>#CCC, #EEE, #F5F5F5 (bright)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="hex-practice">
+              <h4>🔍 Practice finding patterns</h4>
+              <p>Look at the color code below to determine whether it is an achromatic color:</p>
+
+              <div class="practice-grid">
+                <div class="practice-item achromatic">
+                  <div class="practice-color" style="background: #777777;"></div>
+                  <p class="practice-code">#777777</p>
+                  <p class="practice-answer">✓ Achromatic color (gray)</p>
+                </div>
+
+                <div class="practice-item chromatic">
+                  <div class="practice-color" style="background: #7A7777;"></div>
+                  <p class="practice-code">#7A7777</p>
+                  <p class="practice-answer">✗ Chromatic color (slightly reddish)</p>
+                </div>
+
+                <div class="practice-item achromatic">
+                  <div class="practice-color" style="background: #ABABAB;"></div>
+                  <p class="practice-code">#ABABAB</p>
+                  <p class="practice-answer">✓ Achromatic color (light gray)</p>
+                </div>
+
+                <div class="practice-item chromatic">
+                  <div class="practice-color" style="background: #ABACAB;"></div>
+                  <p class="practice-code">#ABACAB</p>
+                  <p class="practice-answer">✗ Chromatic color (slightly greenish)</p>
+                </div>
+              </div>
+
+              <p class="practice-note">
+                <strong>point:</strong> In achromatic HEX codes, all pairs of two characters are the same!
+              </p>
+            </div>
+
+          </div>
+        </details>
+
+      </div>
