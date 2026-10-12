@@ -1,4 +1,14 @@
 /* 基本レイアウト */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -7,6 +17,7 @@ body {
 }
 
 .app-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
@@ -131,6 +142,7 @@ body {
 /* タブコンテンツ */
 .tab-content {
   display: none;
+  min-width: 0;
   animation: fadeIn 0.3s ease;
 }
 
@@ -1090,6 +1102,148 @@ body {
 
 .wcag-table tbody tr:last-child td {
   border-bottom: none;
+}
+
+.wcag-table-note {
+  margin: 0.75rem 0 0;
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.wcag-info {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.contrast-checker {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.contrast-checker h4 {
+  margin: 0 0 0.5rem;
+}
+
+.contrast-input-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.contrast-color-control {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.contrast-input-row {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0.5rem;
+}
+
+.contrast-input-row input[type="color"] {
+  width: 3rem;
+  height: 2.75rem;
+  padding: 0.2rem;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.contrast-input-row input[type="text"] {
+  min-width: 0;
+  height: 2.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  font: inherit;
+  text-transform: uppercase;
+}
+
+.contrast-swap {
+  min-height: 2.75rem;
+  padding: 0.6rem 1rem;
+  align-self: end;
+  border: 1px solid #64748b;
+  border-radius: 8px;
+  background: #fff;
+  color: #1e293b;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contrast-swap:hover,
+.contrast-swap:focus-visible {
+  border-color: #2563eb;
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.contrast-error {
+  min-height: 1.5em;
+  margin: 0.5rem 0;
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.contrast-error:empty {
+  display: none;
+}
+
+.contrast-preview-live {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+}
+
+.contrast-result > p {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#contrast-ratio {
+  font-size: 1.35rem;
+}
+
+.contrast-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.contrast-badges span {
+  padding: 0.45rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.contrast-badges .pass {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.contrast-badges .fail {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.contrast-limit {
+  margin-bottom: 0;
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .contrast-examples-achromatic {
@@ -3737,7 +3891,16 @@ footer {
 /* モバイル対応 */
 @media (max-width: 768px) {
   .app-container {
-    padding: 1rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .fh-header,
+  .accordion-content,
+  .main-accordion,
+  .tab-content,
+  .tab-content * {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .app-header h1 {
@@ -3754,12 +3917,12 @@ footer {
   }
 
   .main-accordion > .accordion-content {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .main-accordion > summary {
     font-size: 1.2rem;
-    padding: 1.2rem 1.5rem;
+    padding: 1rem;
   }
 
   .attribute-grid {
@@ -3882,6 +4045,13 @@ footer {
 
   .footer {
     font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .contrast-input-grid {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: end;
   }
 }
 

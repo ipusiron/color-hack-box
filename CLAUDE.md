@@ -20,9 +20,17 @@ python -m http.server 8000
 # Then visit http://localhost:8000
 ```
 
+### Automated Tests
+
+Run the dependency-free Node.js test suite with Node.js 22 or later:
+
+```bash
+npm test
+```
+
 ### Manual Testing Checklist
 
-No automated tests exist. Key areas to test:
+Key areas to test:
 1. RGB sliders and 3D cube visualization (Tab 1)
 2. Color similarity calculator with 3D comparison (Tab 1)
 3. HSL sliders and real-time color preview (Tab 2)
@@ -32,6 +40,7 @@ No automated tests exist. Key areas to test:
 7. Accordion open/close (60 sections across 8 tabs)
 8. Responsive layout at 600px and 768px breakpoints
 9. Tab navigation and lazy loading (check Network tab in DevTools)
+10. WCAG contrast checker and keyboard tab navigation
 
 ## Architecture
 
@@ -40,6 +49,7 @@ No automated tests exist. Key areas to test:
 ```
 color-hack-box/
   index.html              (~160 lines - shell only)
+  color-core.js           (DOM-independent WCAG contrast calculations)
   script.js               (~1,500 lines - TabLoader, PaletteRenderer, core logic)
   style.css               (unchanged - responsive design)
   tabs/
@@ -53,6 +63,7 @@ color-hack-box/
     tab8-misc.html        (Miscellaneous content)
   data/
     palettes.json         (Palette definitions for Tab 7)
+  test/                   (Node.js standard tests)
 ```
 
 ### Modular Architecture
@@ -137,7 +148,7 @@ HSL Input → hslToRgb() → rgbToHex() → UI Update
 - **UI text**: Japanese
 - **Code**: English variable/function names
 - **Color formats**: HEX uppercase with # (`#FF5733`), RGB/HSL with labels for display
-- **Accessibility**: WCAG AA contrast ratios
+- **Accessibility**: WCAG 2.2 text contrast calculation; this does not certify whole-page conformance
 
 ## Common Tasks
 
