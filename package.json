@@ -1,0 +1,9 @@
+{
+  "name": "color-hack-box",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive color theory learning tool",
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=22" },
+  "license": "MIT"
+}

@@ -171,7 +171,7 @@
             <p>Webデザインでは、<strong>WCAGアクセシビリティガイドライン</strong>に基づいたコントラスト比の確保が重要です。</p>
 
             <div class="wcag-info">
-              <h4>WCAG 2.1のコントラスト基準</h4>
+              <h4>WCAG 2.2のコントラスト基準</h4>
               <table class="wcag-table">
                 <thead>
                   <tr>
@@ -187,13 +187,51 @@
                     <td>3:1 以上</td>
                   </tr>
                   <tr>
-                    <td><strong>AAA（推奨）</strong></td>
+                    <td><strong>AAA（より厳しい基準）</strong></td>
                     <td>7:1 以上</td>
                     <td>4.5:1 以上</td>
                   </tr>
                 </tbody>
               </table>
+              <p class="wcag-table-note">大きいテキストは、18pt以上の通常文字、または14pt以上の太字が目安です。AA・AAAは文字色の判定基準であり、ページ全体の適合レベルを示すものではありません。</p>
             </div>
+
+            <section class="contrast-checker" aria-labelledby="contrast-checker-title">
+              <h4 id="contrast-checker-title">コントラスト比を計算する</h4>
+              <p>前景色と背景色を指定すると、WCAG 2.2の相対輝度から比率を計算します。</p>
+              <div class="contrast-input-grid">
+                <label class="contrast-color-control">
+                  <span>前景色（文字）</span>
+                  <span class="contrast-input-row">
+                    <input id="contrast-foreground-picker" type="color" value="#333333" aria-label="前景色を選ぶ">
+                    <input id="contrast-foreground-text" type="text" value="#333333" inputmode="text" maxlength="7" spellcheck="false">
+                  </span>
+                </label>
+                <button id="contrast-swap" class="contrast-swap" type="button" aria-label="前景色と背景色を入れ替える">⇄ 入れ替え</button>
+                <label class="contrast-color-control">
+                  <span>背景色</span>
+                  <span class="contrast-input-row">
+                    <input id="contrast-background-picker" type="color" value="#FFFFFF" aria-label="背景色を選ぶ">
+                    <input id="contrast-background-text" type="text" value="#FFFFFF" inputmode="text" maxlength="7" spellcheck="false">
+                  </span>
+                </label>
+              </div>
+              <p id="contrast-error" class="contrast-error" role="alert"></p>
+              <div id="contrast-preview" class="contrast-preview-live" aria-live="polite">
+                <strong>表示例</strong>
+                <span>読みやすさは文字サイズや書体にも左右されます。</span>
+              </div>
+              <div class="contrast-result" aria-live="polite">
+                <p>コントラスト比 <output id="contrast-ratio">12.63:1</output></p>
+                <div class="contrast-badges">
+                  <span id="contrast-aa-normal" data-label="AA 通常文字">AA 通常文字: 適合</span>
+                  <span id="contrast-aa-large" data-label="AA 大きい文字">AA 大きい文字: 適合</span>
+                  <span id="contrast-aaa-normal" data-label="AAA 通常文字">AAA 通常文字: 適合</span>
+                  <span id="contrast-aaa-large" data-label="AAA 大きい文字">AAA 大きい文字: 適合</span>
+                </div>
+              </div>
+              <p class="contrast-limit">この判定は文字と背景の色の組合せだけを評価します。文字サイズ、太さ、背景画像、状態変化、非テキスト要素を含むページ全体の適合を証明するものではありません。</p>
+            </section>
 
             <div class="contrast-examples-achromatic">
               <h4>コントラスト比の例</h4>
@@ -202,21 +240,21 @@
                 <div style="background: #fff; color: #000; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
                   <strong>✓ 良い例：</strong>白背景 + 黒テキスト（21:1）
                 </div>
-                <p class="contrast-note">最高のコントラスト。読みやすさ抜群。</p>
+                <p class="contrast-note">色の比率は最大。実際の読みやすさは文字サイズや書体なども含めて確認します。</p>
               </div>
 
               <div class="contrast-demo good-contrast">
                 <div style="background: #fff; color: #333; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
                   <strong>✓ 良い例：</strong>白背景 + 濃いグレー（12.6:1）
                 </div>
-                <p class="contrast-note">AAA基準をクリア。目に優しく読みやすい。</p>
+                <p class="contrast-note">通常文字・大きい文字ともAAAの数値基準をクリア。</p>
               </div>
 
               <div class="contrast-demo ok-contrast">
                 <div style="background: #fff; color: #666; padding: 1rem; border-radius: 4px; margin-bottom: 0.5rem;">
                   <strong>△ 注意：</strong>白背景 + グレー（5.7:1）
                 </div>
-                <p class="contrast-note">AA基準はクリアするが、小さい文字には不向き。</p>
+                <p class="contrast-note">AAは通常文字・大きい文字ともクリア。AAAは大きい文字のみクリア。</p>
               </div>
 
               <div class="contrast-demo bad-contrast">
@@ -230,8 +268,8 @@
             <div class="accessibility-tips">
               <h4>💡 アクセシビリティのヒント</h4>
               <ul>
-                <li>本文テキストは<strong>#333以下の濃いグレー</strong>を使用</li>
-                <li>白背景には黒〜濃いグレー、黒背景には白〜明るいグレーを使用</li>
+                <li>本文テキストは背景色とのコントラスト比を実測する</li>
+                <li>白・黒の固定ルールに頼らず、実際に使う前景色と背景色の組合せで確認する</li>
                 <li>重要なボタンやリンクは<strong>十分なコントラスト</strong>を確保</li>
                 <li>薄いグレーは装飾やボーダーのみに使用し、テキストには避ける</li>
               </ul>

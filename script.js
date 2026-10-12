@@ -93,6 +93,7 @@ const TabLoader = {
         break;
       case 'tab3':
         initializeGrayscaleSlider();
+        initializeContrastChecker();
         break;
       case 'tab7':
         await PaletteRenderer.renderAll();
@@ -202,11 +203,7 @@ const PaletteRenderer = {
 
   // 背景色に対するコントラスト色を取得
   getContrastColor(hex) {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-    return luminance > 0.5 ? '#000000' : '#ffffff';
+    return ColorCore.bestTextColor(hex);
   },
 
   // 全パレットをレンダリング
@@ -414,28 +411,42 @@ function initializeTabs() {
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
 
-  tabButtons.forEach(button => {
+  async function activateTab(button, moveFocus = false) {
+    const targetTab = button.getAttribute('data-tab');
+    const targetContent = document.getElementById(targetTab);
+
+    tabButtons.forEach(btn => {
+      const selected = btn === button;
+      btn.classList.toggle('active', selected);
+      btn.setAttribute('aria-selected', String(selected));
+      btn.tabIndex = selected ? 0 : -1;
+    });
+    tabContents.forEach(content => {
+      const selected = content === targetContent;
+      content.classList.toggle('active', selected);
+      content.hidden = !selected;
+    });
+
+    await TabLoader.renderTab(targetTab, targetContent);
+    if (moveFocus) button.focus();
+    button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  tabButtons.forEach((button, index) => {
     button.addEventListener('click', async () => {
-      const targetTab = button.getAttribute('data-tab');
-      const targetContent = document.getElementById(targetTab);
+      await activateTab(button);
+    });
 
-      // すべてのタブボタンとコンテンツから active クラスを削除
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      tabContents.forEach(content => content.classList.remove('active'));
-
-      // クリックされたタブボタンと対応するコンテンツに active クラスを追加
-      button.classList.add('active');
-      targetContent.classList.add('active');
-
-      // タブコンテンツを遅延読み込み
-      await TabLoader.renderTab(targetTab, targetContent);
-
-      // アクティブなタブボタンを中央にスクロール
-      button.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-      });
+    button.addEventListener('keydown', async (event) => {
+      const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
+      if (!keys.includes(event.key)) return;
+      event.preventDefault();
+      let nextIndex = index;
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabButtons.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = tabButtons.length - 1;
+      await activateTab(tabButtons[nextIndex], true);
     });
   });
 
@@ -728,6 +739,74 @@ function initializeGrayscaleSlider() {
 
   // 初期表示
   updateGrayscale(50);
+}
+
+function initializeContrastChecker() {
+  const foregroundPicker = document.getElementById('contrast-foreground-picker');
+  const foregroundText = document.getElementById('contrast-foreground-text');
+  const backgroundPicker = document.getElementById('contrast-background-picker');
+  const backgroundText = document.getElementById('contrast-background-text');
+  const swapButton = document.getElementById('contrast-swap');
+  const preview = document.getElementById('contrast-preview');
+  const ratioOutput = document.getElementById('contrast-ratio');
+  const error = document.getElementById('contrast-error');
+
+  if (!foregroundPicker || !foregroundText || !backgroundPicker || !backgroundText || !preview || !ratioOutput) return;
+
+  function setResult(id, passed) {
+    const element = document.getElementById(`contrast-${id}`);
+    if (!element) return;
+    element.classList.toggle('pass', passed);
+    element.classList.toggle('fail', !passed);
+    element.textContent = `${element.dataset.label}: ${passed ? '適合' : '不適合'}`;
+  }
+
+  function render() {
+    const foreground = ColorCore.normalizeHex(foregroundText.value);
+    const background = ColorCore.normalizeHex(backgroundText.value);
+    if (!foreground || !background) {
+      error.textContent = 'HEXは #RGB または #RRGGBB 形式で入力してください。';
+      return false;
+    }
+
+    error.textContent = '';
+    foregroundText.value = foreground;
+    backgroundText.value = background;
+    foregroundPicker.value = foreground;
+    backgroundPicker.value = background;
+
+    const result = ColorCore.evaluateContrast(foreground, background);
+    preview.style.color = foreground;
+    preview.style.backgroundColor = background;
+    ratioOutput.textContent = `${result.ratio.toFixed(2)}:1`;
+    setResult('aa-normal', result.aaNormal);
+    setResult('aa-large', result.aaLarge);
+    setResult('aaa-normal', result.aaaNormal);
+    setResult('aaa-large', result.aaaLarge);
+    return true;
+  }
+
+  function bindPair(picker, text) {
+    picker.addEventListener('input', () => {
+      text.value = picker.value.toUpperCase();
+      render();
+    });
+    text.addEventListener('change', render);
+    text.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') render();
+    });
+  }
+
+  bindPair(foregroundPicker, foregroundText);
+  bindPair(backgroundPicker, backgroundText);
+  swapButton?.addEventListener('click', () => {
+    const previousForeground = foregroundText.value;
+    foregroundText.value = backgroundText.value;
+    backgroundText.value = previousForeground;
+    render();
+  });
+
+  render();
 }
 
 // ===== RGB Tab Functionality =====

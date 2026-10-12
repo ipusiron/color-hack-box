@@ -11,26 +11,24 @@
   <meta name="author" content="ipusiron">
   <meta name="robots" content="index, follow">
 
-  <!-- Security Headers -->
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
+  <!-- Browser security policy -->
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; frame-ancestors 'none'; connect-src 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'self';">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ipusiron.github.io/color-hack-box/">
   <meta property="og:title" content="Color Hack Box – 色彩理論を体感的に学ぶ">
-  <meta property="og:description" content="7つのタブで色の基礎から配色テクニックまで学べる教育ツール。HSLスライダー、50+配色パレット、補色・類似色相環を搭載。">
-  <meta property="og:image" content="https://ipusiron.github.io/color-hack-box/assets/ogp.png">
+  <meta property="og:description" content="8つのタブで色の基礎から配色テクニックまで学べる教育ツール。HSLスライダー、50+配色パレット、補色・類似色相環を搭載。">
+  <meta property="og:image" content="https://ipusiron.github.io/color-hack-box/assets/screenshot.png">
   <meta property="og:locale" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://ipusiron.github.io/color-hack-box/">
   <meta name="twitter:title" content="Color Hack Box – 色彩理論を体感的に学ぶ">
-  <meta name="twitter:description" content="7つのタブで色の基礎から配色テクニックまで学べる教育ツール。">
-  <meta name="twitter:image" content="https://ipusiron.github.io/color-hack-box/assets/ogp.png">
+  <meta name="twitter:description" content="8つのタブで色の基礎から配色テクニックまで学べる教育ツール。">
+  <meta name="twitter:image" content="https://ipusiron.github.io/color-hack-box/assets/screenshot.png">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://ipusiron.github.io/color-hack-box/">
@@ -81,68 +79,68 @@
     </header>
 
     <!-- タブナビゲーション -->
-    <nav class="tab-navigation">
-      <button class="tab-btn active" data-tab="tab1" aria-label="RGBカラースペース">
+    <nav class="tab-navigation" role="tablist" aria-label="学習テーマ">
+      <button id="tab-button-1" class="tab-btn active" data-tab="tab1" role="tab" aria-selected="true" aria-controls="tab1" tabindex="0" aria-label="RGBカラースペース">
         <span class="tab-number">1</span>
         <span class="tab-text">RGB</span>
       </button>
-      <button class="tab-btn" data-tab="tab2" aria-label="色の三要素を学ぶ">
+      <button id="tab-button-2" class="tab-btn" data-tab="tab2" role="tab" aria-selected="false" aria-controls="tab2" tabindex="-1" aria-label="色の三要素を学ぶ">
         <span class="tab-number">2</span>
         <span class="tab-text">色の三要素</span>
       </button>
-      <button class="tab-btn" data-tab="tab3" aria-label="無彩色とグレースケール">
+      <button id="tab-button-3" class="tab-btn" data-tab="tab3" role="tab" aria-selected="false" aria-controls="tab3" tabindex="-1" aria-label="無彩色とグレースケール">
         <span class="tab-number">3</span>
         <span class="tab-text">無彩色</span>
       </button>
-      <button class="tab-btn" data-tab="tab4" aria-label="色の印象と心理効果">
+      <button id="tab-button-4" class="tab-btn" data-tab="tab4" role="tab" aria-selected="false" aria-controls="tab4" tabindex="-1" aria-label="色の印象と心理効果">
         <span class="tab-number">4</span>
         <span class="tab-text">印象・心理</span>
       </button>
-      <button class="tab-btn" data-tab="tab5" aria-label="トーン別カラーパレット">
+      <button id="tab-button-5" class="tab-btn" data-tab="tab5" role="tab" aria-selected="false" aria-controls="tab5" tabindex="-1" aria-label="トーン別カラーパレット">
         <span class="tab-number">5</span>
         <span class="tab-text">トーン</span>
       </button>
-      <button class="tab-btn" data-tab="tab6" aria-label="配色と比率の関係">
+      <button id="tab-button-6" class="tab-btn" data-tab="tab6" role="tab" aria-selected="false" aria-controls="tab6" tabindex="-1" aria-label="配色と比率の関係">
         <span class="tab-number">6</span>
         <span class="tab-text">配色比率</span>
       </button>
-      <button class="tab-btn" data-tab="tab7" aria-label="配色例と目的別パレット">
+      <button id="tab-button-7" class="tab-btn" data-tab="tab7" role="tab" aria-selected="false" aria-controls="tab7" tabindex="-1" aria-label="配色例と目的別パレット">
         <span class="tab-number">7</span>
         <span class="tab-text">配色例</span>
       </button>
-      <button class="tab-btn" data-tab="tab8" aria-label="色に関する雑学と補足情報">
+      <button id="tab-button-8" class="tab-btn" data-tab="tab8" role="tab" aria-selected="false" aria-controls="tab8" tabindex="-1" aria-label="色に関する雑学と補足情報">
         <span class="tab-number">8</span>
         <span class="tab-text">雑学</span>
       </button>
     </nav>
 
     <!-- タブコンテンツ（動的に読み込み） -->
-    <section id="tab1" class="tab-content active">
+    <section id="tab1" class="tab-content active" role="tabpanel" aria-labelledby="tab-button-1">
       <div class="tab-loading">
         <div class="loading-spinner"></div>
         <p>読み込み中...</p>
       </div>
     </section>
 
-    <section id="tab2" class="tab-content">
+    <section id="tab2" class="tab-content" role="tabpanel" aria-labelledby="tab-button-2" hidden>
     </section>
 
-    <section id="tab3" class="tab-content">
+    <section id="tab3" class="tab-content" role="tabpanel" aria-labelledby="tab-button-3" hidden>
     </section>
 
-    <section id="tab4" class="tab-content">
+    <section id="tab4" class="tab-content" role="tabpanel" aria-labelledby="tab-button-4" hidden>
     </section>
 
-    <section id="tab5" class="tab-content">
+    <section id="tab5" class="tab-content" role="tabpanel" aria-labelledby="tab-button-5" hidden>
     </section>
 
-    <section id="tab6" class="tab-content">
+    <section id="tab6" class="tab-content" role="tabpanel" aria-labelledby="tab-button-6" hidden>
     </section>
 
-    <section id="tab7" class="tab-content">
+    <section id="tab7" class="tab-content" role="tabpanel" aria-labelledby="tab-button-7" hidden>
     </section>
 
-    <section id="tab8" class="tab-content">
+    <section id="tab8" class="tab-content" role="tabpanel" aria-labelledby="tab-button-8" hidden>
     </section>
 
   </div>
@@ -156,6 +154,7 @@
     </div>
   </footer>
 
+  <script src="color-core.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
