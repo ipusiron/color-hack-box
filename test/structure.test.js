@@ -33,8 +33,27 @@ test('OGP画像は存在するファイルを参照する', () => {
 });
 
 test('コントラスト検査に必要な要素IDが一意に存在する', () => {
-  const ids = ['contrast-foreground-picker', 'contrast-foreground-text', 'contrast-background-picker', 'contrast-background-text', 'contrast-swap', 'contrast-preview', 'contrast-ratio'];
+  const ids = [
+    'contrast-foreground-picker', 'contrast-foreground-text', 'contrast-background-picker',
+    'contrast-background-text', 'contrast-swap', 'contrast-preview', 'contrast-ratio',
+    'contrast-target', 'contrast-target-status', 'contrast-non-text', 'contrast-suggestion',
+    'contrast-suggestion-preview', 'contrast-suggestion-foreground',
+    'contrast-suggestion-background', 'contrast-suggestion-ratio',
+    'contrast-apply-suggestion', 'contrast-copy-suggestion'
+  ];
   ids.forEach(id => {
     assert.equal((tab3.match(new RegExp(`id="${id}"`, 'g')) || []).length, 1, id);
   });
+});
+
+test('コントラスト検査の用途選択に5つの基準がある', () => {
+  ['aa-normal', 'aaa-normal', 'aa-large', 'aaa-large', 'non-text'].forEach(value => {
+    assert.match(tab3, new RegExp(`<option value="${value}"`));
+  });
+});
+
+test('配色候補と判定限界が利用者に説明されている', () => {
+  assert.match(tab3, /唯一の配色ではありません/);
+  assert.match(tab3, /ページ全体のWCAG適合を証明しません/);
+  assert.match(tab3, /UI部品が接する色/);
 });
