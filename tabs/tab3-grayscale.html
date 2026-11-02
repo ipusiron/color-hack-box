@@ -231,7 +231,7 @@
                   <option value="non-text">非テキスト（3:1）</option>
                 </select>
               </label>
-              <div class="contrast-result" aria-live="polite">
+              <div class="contrast-result">
                 <p>コントラスト比 <output id="contrast-ratio">12.635:1</output></p>
                 <p id="contrast-target-status" class="contrast-target-status"></p>
                 <div class="contrast-badges">
@@ -242,6 +242,7 @@
                   <span id="contrast-non-text" data-label="非テキスト">非テキスト: 適合</span>
                 </div>
               </div>
+              <p id="contrast-announcement" class="visually-hidden" role="status"></p>
               <section id="contrast-suggestion" class="contrast-suggestion" aria-labelledby="contrast-suggestion-title" hidden>
                 <h5 id="contrast-suggestion-title">基準を満たす配色候補</h5>
                 <div id="contrast-suggestion-preview" class="contrast-suggestion-preview">

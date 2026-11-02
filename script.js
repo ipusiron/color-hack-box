@@ -123,9 +123,20 @@ function initializeColorAccessibilityLab() {
   const tableBody = document.getElementById('cvd-audit-body');
   const status = document.getElementById('cvd-audit-status');
   const error = document.getElementById('cvd-input-error');
+  const liveError = document.getElementById('cvd-input-error-live');
   if (!input || !typeSelect || !filterSelect || !originalContainer || !simulatedContainer || !tableBody || !status || !error) return;
 
   let latestAudit = null;
+  // 見える #cvd-input-error は打鍵ごとに更新し、読み上げ用の role="alert" は区切りでだけ書く
+  let latestError = { kind: '', message: '' };
+  let announcedErrorKind = '';
+
+  function announceError(committed) {
+    if (!liveError) return;
+    if (!LiveRegion.shouldWriteError(announcedErrorKind, latestError.kind, committed)) return;
+    announcedErrorKind = latestError.kind;
+    LiveRegion.writeIfChanged(liveError, latestError.message);
+  }
 
   function renderSwatches(container, colors) {
     container.replaceChildren();
@@ -205,17 +216,23 @@ function initializeColorAccessibilityLab() {
     status.textContent = translateUi('auditStatus', { count: latestAudit.pairs.length, aa: aaFailures, three: threeFailures });
   }
 
-  function update() {
+  function showError(kind, message, committed) {
+    latestError = { kind, message };
+    error.textContent = message;
+    announceError(committed);
+  }
+
+  function update(committed = false) {
     const parsed = AccessibilityCore.parsePaletteInput(input.value);
     if (parsed.invalid.length > 0) {
-      error.textContent = translateUi('invalidTokens', { values: parsed.invalid.join(', ') });
+      showError('invalidTokens', translateUi('invalidTokens', { values: parsed.invalid.join(', ') }), committed);
       return;
     }
     if (parsed.colors.length < 2 || parsed.colors.length > 8) {
-      error.textContent = translateUi('paletteRange');
+      showError('paletteRange', translateUi('paletteRange'), committed);
       return;
     }
-    error.textContent = '';
+    showError('', '', committed);
     latestAudit = AccessibilityCore.auditPalette(parsed.colors, typeSelect.value);
     renderSwatches(originalContainer, latestAudit.colors);
     renderSwatches(simulatedContainer, latestAudit.simulatedColors);
@@ -225,11 +242,14 @@ function initializeColorAccessibilityLab() {
   document.querySelectorAll('[data-cvd-palette]').forEach((button) => {
     button.addEventListener('click', () => {
       input.value = button.getAttribute('data-cvd-palette');
-      update();
+      update(true);
     });
   });
-  input.addEventListener('input', update);
-  typeSelect.addEventListener('change', update);
+  input.addEventListener('input', () => update(false));
+  // 確定（change／blur）では、いま表示中のエラー文を1回だけ読み上げ用の領域へ書く
+  input.addEventListener('change', () => announceError(true));
+  input.addEventListener('blur', () => announceError(true));
+  typeSelect.addEventListener('change', () => update(true));
   filterSelect.addEventListener('change', renderTable);
   update();
 }
@@ -889,6 +909,8 @@ function initializeContrastChecker() {
   const suggestionNote = document.getElementById('contrast-suggestion-note');
   const applySuggestion = document.getElementById('contrast-apply-suggestion');
   const copySuggestion = document.getElementById('contrast-copy-suggestion');
+  const announcement = document.getElementById('contrast-announcement');
+  const ratioLine = ratioOutput ? ratioOutput.closest('p') : null;
   let currentSuggestion = null;
 
   if (!foregroundPicker || !foregroundText || !backgroundPicker || !backgroundText || !preview || !ratioOutput || !targetSelect) return;
@@ -901,18 +923,31 @@ function initializeContrastChecker() {
     element.textContent = `${element.dataset.label}: ${translateUi(passed ? 'pass' : 'fail')}`;
   }
 
-  function render() {
+  // 結果の表示（.contrast-result）は live 領域ではない。読み上げは区切り（change など）で
+  // #contrast-announcement へ1回だけ書く。
+  function announceResult() {
+    if (!announcement) return;
+    if (!targetStatus || !targetStatus.textContent) {
+      LiveRegion.writeIfChanged(announcement, '');
+      return;
+    }
+    const ratio = (ratioLine || ratioOutput).textContent.replace(/\s+/g, ' ').trim();
+    LiveRegion.writeIfChanged(announcement, translateUi('contrastAnnouncement', { ratio, target: targetStatus.textContent }));
+  }
+
+  function render({ announce = true } = {}) {
     const foreground = ColorCore.normalizeHex(foregroundText.value);
     const background = ColorCore.normalizeHex(backgroundText.value);
     if (!foreground || !background) {
-      error.textContent = translateUi('invalidHex');
+      LiveRegion.writeIfChanged(error, translateUi('invalidHex'));
       if (targetStatus) targetStatus.textContent = '';
       if (suggestion) suggestion.hidden = true;
       currentSuggestion = null;
+      if (announce) announceResult();
       return false;
     }
 
-    error.textContent = '';
+    LiveRegion.writeIfChanged(error, '');
     foregroundText.value = foreground;
     backgroundText.value = background;
     foregroundPicker.value = foreground;
@@ -949,15 +984,21 @@ function initializeContrastChecker() {
       const changeLabels = { foreground: translateUi('suggestionForeground'), background: translateUi('suggestionBackground'), both: translateUi('suggestionBoth') };
       suggestionNote.textContent = `${changeLabels[currentSuggestion.changed]} ${translateUi('suggestionLimit')}`;
     }
+    if (announce) announceResult();
     return true;
   }
 
   function bindPair(picker, text) {
+    // ピッカーを動かしている間（input）は見た目だけを更新し、確定（change）で1回読み上げる
     picker.addEventListener('input', () => {
+      text.value = picker.value.toUpperCase();
+      render({ announce: false });
+    });
+    picker.addEventListener('change', () => {
       text.value = picker.value.toUpperCase();
       render();
     });
-    text.addEventListener('change', render);
+    text.addEventListener('change', () => render());
     text.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') render();
     });
@@ -965,7 +1006,7 @@ function initializeContrastChecker() {
 
   bindPair(foregroundPicker, foregroundText);
   bindPair(backgroundPicker, backgroundText);
-  targetSelect.addEventListener('change', render);
+  targetSelect.addEventListener('change', () => render());
   swapButton?.addEventListener('click', () => {
     const previousForeground = foregroundText.value;
     foregroundText.value = backgroundText.value;
@@ -998,7 +1039,7 @@ function initializeContrastChecker() {
     }
   });
 
-  render();
+  render({ announce: false });
 }
 
 // ===== RGB Tab Functionality =====
