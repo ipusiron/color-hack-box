@@ -147,6 +147,8 @@ This tool allows you to systematically learn color theory in 8 tabs (all 60 acco
 - **Color illusion effect**: simultaneous contrast, area effect, advancing and receding colors
 - **Gamma correction**: Display characteristics and practical implications
 
+You can move the controls to see when a color difference makes one item stand out (pop-out) in the Pop out tab of [Day128 Vision Trap Atlas](https://ipusiron.github.io/vision-trap-atlas/#popout-feature), and the illusion in which the same gray looks different on different surrounds (lightness contrast) in [its Optical illusions tab](https://ipusiron.github.io/vision-trap-atlas/#illusion-lightness-contrast).
+
 ### 🎯 Interactive features
 
 - **3D RGB Cube**: Rotate by dragging and display color position in real time (Tab 1)

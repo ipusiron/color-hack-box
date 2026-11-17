@@ -186,6 +186,8 @@ WCAG 2.2の相対輝度に基づくコントラスト比を計算し、通常文
 - **色の錯覚効果**: 同時対比・面積効果・進出色と後退色
 - **ガンマ補正**: ディスプレイの特性と実務への影響
 
+色の違いで1つだけを目立たせる条件（ポップアウト）は[Day128 Vision Trap Atlas](https://ipusiron.github.io/vision-trap-atlas/#popout-feature)の「目立つ」タブで、同じ灰色が周りの明るさで違って見える錯覚（明るさの対比）は[同じツールの「目の錯覚」タブ](https://ipusiron.github.io/vision-trap-atlas/#illusion-lightness-contrast)で、つまみを動かして確かめられます。
+
 ### 🎯 インタラクティブ機能
 
 - **3D RGBキューブ**: ドラッグで回転、色の位置をリアルタイム表示（タブ1）
